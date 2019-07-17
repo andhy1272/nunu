@@ -1,0 +1,360 @@
+/*--- CSS RESET ----------------------------------------------------*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {display: block;}
+body {line-height: 1;}
+ol, ul {list-style: none;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {content: ''; content: none;}
+table {border-collapse: collapse; border-spacing: 0;}
+
+*,
+*::before,
+*::after {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+/*--- FONTS ---------------------------------------------------------*/
+
+@import url("https://fonts.googleapis.com/css?family=Lato:300,400,700");
+
+/*--- CSS LAYOUT ----------------------------------------------------*/
+
+body{
+	color: #494949;
+	font-size: 1rem;
+	font-weight: 400;
+	line-height: 1.5;
+	text-align: left;
+	letter-spacing: 0.5px;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+	background-position: right bottom;
+	background-image: url('../images/logo-nunu.png');
+	text-rendering: optimizeLegibility !important;
+	font-family: "Poppins", "Lato", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+a{
+	text-decoration: none;
+}
+
+a:hover,
+a:focus,
+a:active{
+	opacity: 0.7;
+}
+
+
+h1{
+	font-size: 30px;
+	text-transform: uppercase;
+}
+h2{
+	font-size: 26px;
+	text-transform: uppercase;
+}
+h3{
+	font-size: 26px;
+}
+h4{
+	font-size: 20px;
+	text-transform: uppercase;
+}
+h5{
+	font-size: 18px;
+	font-weight: bold;
+}
+h6{
+	font-size: 16px;
+	font-weight: bold;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin-bottom: 1rem;
+}
+
+p {
+	margin-bottom: 10px;
+}
+
+
+label{
+
+}
+
+input{
+
+}
+
+.text-left{text-align: left !important;}
+
+
+.small-container{
+	width: 100%;
+	max-width: 300px;
+}
+
+.medium-container{
+	width: 100%;
+	max-width: 500px;
+}
+
+
+
+/* HEADER */
+.header{
+	left: 0;
+	right: 0;
+	z-index: 2;
+	height: 50px;
+	display: flex;
+	position: fixed;
+	padding: 5px 10px 10px;
+}
+
+.header .logo-moto{
+	flex: 5;
+	min-width: 300px;
+}
+
+.header .logo-moto .logo{
+	float: left;
+	height: 40px;
+	padding-right: 20px;
+}
+
+.header .logo-moto .owner-name{
+	float: left;
+	padding-top: 5px;
+}
+
+.header .system-name{
+	flex: 1;
+	min-width: 100px;
+	font-size: 10px;
+	text-align: right;
+}
+
+.header .system-name{
+}
+
+
+/* TOOLS */
+.tools {
+	overflow: hidden;
+}
+
+.tools label{
+	float: left;
+}
+
+.tools .views {
+	width: 35%;
+	float: left;
+}
+
+.tools .views ul {
+	padding-top: calc(0.375rem + 1px);
+}
+
+.tools .views ul li {
+	float: left;
+	padding: 0 0 0 5px;
+}
+
+.tools .filters {
+	width: 65%;
+	float: right;
+}
+
+.tools .filters ul {
+	clear: both;
+}
+
+.tools .filters ul li {
+	float: left;
+	margin-right: 10px;
+}
+
+
+
+/* MAIN */
+.main{
+	display: flex;
+}
+
+/* SIDEBAR */
+.sidebar{
+	z-index: 1;
+	height: 100vh;
+	position: fixed;
+	overflow-y: auto;
+	max-width: 150px;
+	flex-basis: 150px;
+	padding: 70px 10px 10px;
+}
+
+/* CONTENT */
+.content{
+	flex: 1;
+	height: 100vh;
+	padding: 70px 10px 10px 170px;
+	
+}
+
+/* FOOTER */
+.content-footer {
+	width: 100%;
+	height: 30px;
+	margin-bottom: 10px;
+}
+
+.content-footer span{
+	font-size: 10px;
+}
+
+
+
+
+.input-group{
+	margin-bottom: 20px;
+}
+
+
+
+
+/* GRIDS */
+
+.grid-list {
+	width: 100%;
+	border: 1px solid #CCC;
+	box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
+}
+
+.grid-list th,
+.grid-list td {
+	padding: 5px 15px;
+	text-align: center;
+}
+
+.grid-list th {
+	color: #FFF;
+	background-color: #37474F;
+	border-right: 1px solid rgba(255,255,255,0.3);
+}
+
+.grid-list th:hover {
+	opacity: 0.9;
+}
+
+.grid-list td {
+	border-right: 1px dashed #BBB;
+}
+
+.grid-list tr:nth-child(odd){
+	background-color: #d6d6d6;
+}
+
+.grid-list tr:hover {
+	background-color: #EFD;
+}
+
+.grid-list a{
+	color: #494949;
+	font-style: italic;
+	text-decoration: underline;
+}
+
+
+
+/* BOX */
+.box {
+	display: flex;
+	border: 1px solid #37474F;
+}
+
+.box-container {
+	display: flex;
+	flex-direction: row;
+}
+
+.box-3 {
+	flex: 1;
+	float: left;
+	margin-right: 3.333%;
+	margin-bottom: 20px;
+}
+
+.box .box-name {
+	width: 40px;
+	float: left;
+	color: #FFF;
+	padding: 15px 10px;
+	background-color: #37474F;
+}
+
+.box .box-name span {
+	display: block;
+	line-height: 20px;
+
+	writing-mode:tb-rl; 
+    -webkit-transform:rotate(180deg);
+    -moz-transform:rotate(180deg);
+    -o-transform: rotate(180deg);
+    -ms-transform:rotate(180deg);
+    transform: rotate(180deg);
+}
+
+.box .box-content {
+	flex: 1;
+	padding: 10px;
+	overflow: hidden;
+}
+
+.box .box-content .box-element {
+	display: block;
+}
+
+.box .box-content .box-element label{
+	width: 135px;
+	font-weight: bold;
+	display: inline-block;
+}
+
+.box-historial .box-content {
+
+}
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,234 @@
+/*--- CSS PEDIATRIC THEME ----------------------------------------------------*/
+
+:root {
+  --blue: #DF691A;
+  --indigo: #6610f2;
+  --purple: #6f42c1;
+  --pink: #e83e8c;
+  --red: #d9534f;
+  --orange: #f0ad4e;
+  --yellow: #f0ad4e;
+  --green: #5cb85c;
+  --teal: #20c997;
+  --cyan: #5bc0de;
+  --white: #fff;
+  --gray: #868e96;
+  --gray-dark: #343a40;
+  --primary: #DF691A;
+  --secondary: #4E5D6C;
+  --success: #5cb85c;
+  --info: #5bc0de;
+  --warning: #f0ad4e;
+  --danger: #d9534f;
+  --light: #8d9dad;
+  --dark: #4E5D6C;
+
+  --breakpoint-xs: 0;
+  --breakpoint-sm: 576px;
+  --breakpoint-md: 768px;
+  --breakpoint-lg: 992px;
+  --breakpoint-xl: 1200px;
+}
+
+
+
+body{
+
+}
+
+
+/* HEADER */
+.header{
+	color: #494949;
+	background: #F2F2F2;
+	box-shadow: 0 0 6px rgba(0,0,0,0.5);
+}
+
+.header .logo{
+}
+
+.header .owner-name{
+}
+
+.header .system-name{
+}
+
+
+/* MAIN */
+.main{
+}
+
+
+/* SIDEBAR */
+.sidebar{
+	background: #37474f;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.5);
+	border-right: 2px solid rgba(0, 0, 0, .15);
+}
+
+.sidebar a{
+	color: #FFF;
+}
+
+
+/*MAIN MENU*/
+#main-menu li{
+  margin-bottom: 50px;
+}
+
+
+/* CONTENT */
+.content{
+
+}
+
+
+
+
+
+
+.form-control {
+	display: block;
+	width: 100%;
+	height: calc(2.25rem + 2px);
+	padding: 0.375rem 0.75rem;
+	font-size: 1rem;
+	line-height: 1.5;
+	color: #495057;
+	background-color: #fff;
+	background-clip: padding-box;
+	border: 2px solid #ced4da;
+	border-radius: 0.25rem;
+	-webkit-transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+	transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out, -webkit-box-shadow 0.15s ease-in-out;
+}
+
+@media screen and (prefers-reduced-motion: reduce) {
+  .form-control {
+    -webkit-transition: none;
+    transition: none;
+  }
+}
+
+.form-control::-ms-expand {
+  background-color: transparent;
+  border: 0;
+}
+
+.form-control:focus {
+  color: #495057;
+  background-color: #fff;
+  border-color: #90aece;
+  outline: 0;
+  -webkit-box-shadow: 0 0 0 0.2rem rgba(68, 110, 155, 0.25);
+          box-shadow: 0 0 0 0.2rem rgba(68, 110, 155, 0.25);
+}
+
+.form-control::-webkit-input-placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.form-control:-ms-input-placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.form-control::-ms-input-placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.form-control::placeholder {
+  color: #777;
+  opacity: 1;
+}
+
+.form-control:disabled, .form-control[readonly] {
+  background-color: #eee;
+  opacity: 1;
+}
+
+select.form-control:focus::-ms-value {
+  color: #495057;
+  background-color: #fff;
+}
+
+.form-control-file,
+.form-control-range {
+  display: block;
+  width: 100%;
+}
+
+
+.actions{
+  margin-top: 40px;
+  text-align: right;
+}
+
+.btn {
+  -webkit-filter: none;
+  filter: none;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  display: inline-block;
+  font-weight: 400;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  padding: 0.375rem 0.75rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  border-radius: 0.25rem;
+  margin-left: 10px;
+  	
+  cursor: pointer;
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
+
+  color: #666; 
+  background: #f9f9f9; 
+  border: 2px solid #ddd;
+}
+
+.btn:hover{
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
+  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.2);
+}
+
+.btn.blue{
+  color:#5091b2; 
+  background:#e9f7fe; 
+  border:2px solid #b6d7e8;
+}
+
+.btn.green{
+  color:#5f9025; 
+  background:#ebf6e0; 
+  border:2px solid #b3dc82; 
+}
+
+.btn.red{
+  color:#de5959; 
+  background:#ffe9e9; 
+  border:2px solid #fbc4c4;
+}
+
+
+
+label {
+  padding-top: calc(0.375rem + 1px);
+  padding-bottom: calc(0.375rem + 1px);
+  margin-bottom: 0;
+  font-size: inherit;
+  line-height: 1.5;
+}
+
+
+
+
