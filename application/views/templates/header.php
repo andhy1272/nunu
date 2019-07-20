@@ -7,10 +7,17 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<meta charset="utf-8">
 		<title><?= $page_title; ?></title>
 
+		<!--FONTS-->
+		<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700" rel="stylesheet">
 		<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700" rel="stylesheet">
 
+		<!--STYLES-->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/default.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontsize-m.css" type="text/css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/pediatric.css" type="text/css" />
+
+		<!--SCRIPTS-->
+
 	</head>
 
 	<body>
