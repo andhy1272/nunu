@@ -13,10 +13,12 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 		<!--STYLES-->
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/default.css" type="text/css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontsize-m.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontsize-s.css" type="text/css" />
 		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/pediatric.css" type="text/css" />
 
 		<!--SCRIPTS-->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
 	</head>
 

@@ -46,7 +46,7 @@
 	<div class="box box-3">
 		<div class="box-name">
 			<span>Informacion de Contacto</span>
-			<span class="edit-link">Editar</span>
+			<!--<span class="edit-link">Editar</span>-->
 		</div>
 		<div class="box-content">
 			<div class="box-element">

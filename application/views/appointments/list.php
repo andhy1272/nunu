@@ -33,7 +33,7 @@
 			</ul>
 
 			<div class="actions">
-				<button type="submit" class="btn blue">Aplicar</button>
+				<button type="submit" class="btn blue">Filtrar</button>
 			</div>
 		</div>
 	<?php echo form_close(); ?>
