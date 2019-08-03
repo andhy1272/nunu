@@ -58,11 +58,11 @@
 		</div>
 		<div class="box-content">
 			<div class="box-element">
-				<label>Tel&eacute;fono:</label>
+				<label>Celular:</label>
 				<?php echo $patient_data['patient_phone1']; ?>	
 			</div>
 			<div class="box-element">
-				<label>Tel&eacute;fono 2:</label>
+				<label>Tel&eacute;fono:</label>
 				<?php echo $patient_data['patient_phone2']; ?>	
 			</div>
 			<div class="box-element">

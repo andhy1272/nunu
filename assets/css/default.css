@@ -418,6 +418,37 @@ input{
 }
 
 
+/* EDDIT BOX */
+.edit-container {
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	z-index: 0;
+	display: none;
+	position: fixed;
+	background-color: rgba(255,255,255,0.8);
+}
+
+.edit-container .edit-wrapper{
+	width: 80%;
+	padding: 20px;
+	max-width: 600px; 
+	margin: 10% auto auto;
+}
+
+.edit-container .edit-wrapper .box { 
+	background-color: #FFF;
+}
+
+.edit-container .edit-wrapper .actions { 
+	width: 100%;
+	clear: both;
+}
+
+
+
+
 
 
 

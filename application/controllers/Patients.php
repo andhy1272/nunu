@@ -71,7 +71,6 @@
 
 			if($this->form_validation->run() === FALSE) {
 				$this->load->view('templates/main', $data);
-				
 			}
 			else {
 				$data['result'] = $this->patient_model->create();
@@ -90,8 +89,23 @@
 
 		//Edit patient
 		public function edit($patient_id) {
-			$data['page_title'] = "Patients Edit";
-			//tengo q ver si se salva todo o solo lo nuevo
+			$data['view'] = $this::VIEW_EDIT;
+			$data['data']['page_title'] = "Editar Paciente";
+			
+			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
+			$data['data']['error'] = '';
+
+			if(empty($data['data']['patient_data'])) {
+				$data['data']['error'] = 'El paciente no se encontra en la Base de Datos';
+			}
+
+			$this->load->view('templates/main', $data);
+		}
+
+
+		public function edit_field() {
+			echo "Yes cara pez";
+
 		}
 
 
