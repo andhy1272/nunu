@@ -12,9 +12,9 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link href="https://fonts.googleapis.com/css?family=Poppins:400,400i,700" rel="stylesheet">
 
 		<!--STYLES-->
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/default.css" type="text/css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontsize-s.css" type="text/css" />
-		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/pediatric.css" type="text/css" />
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/default.css" type="text/css" media="print" onload="this.media='all'">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fontsize-s.css" type="text/css" media="print" onload="this.media='all'">
+		<link rel="stylesheet" href="<?php echo base_url(); ?>assets/css/pediatric.css" type="text/css" media="print" onload="this.media='all'"> 
 
 		<!--SCRIPTS-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>

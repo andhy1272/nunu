@@ -6,7 +6,15 @@
 
 <?php else: ?>
 
-<h1><?php echo $patient_data['patient_name'] . ' ' . $patient_data['patient_last_name']; ?></h1>
+
+<div class="content-header">
+	<h1><?php echo $patient_data['patient_name'] . ' ' . $patient_data['patient_last_name']; ?></h1>
+
+	<div class="page-actions">
+		<a href="<?php echo base_url(); ?>patients/" class="btn blue">ATRAS</a>
+		<a href="<?php echo base_url(); ?>patients/edit/" class="btn green">EDITAR</a>
+	</div>
+</div>
 
 <div class="box-container">
 	<div class="box box-3">

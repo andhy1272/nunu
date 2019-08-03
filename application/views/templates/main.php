@@ -1,8 +1,8 @@
 <?php
 
 	$header_data['page_title'] = "NuNu";
-	if (isset($page_title)) {
-		$header_data['page_title'] = "NuNu - ". $page_title;
+	if (isset($data['page_title'])) {
+		$header_data['page_title'] = "NuNu - ". $data['page_title'];
 	}
 
 

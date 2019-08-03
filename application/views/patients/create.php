@@ -1,4 +1,12 @@
-<h1><?= $title; ?></h1>
+<div class="content-header">
+	<h1><?= $page_title; ?></h1>
+
+	<div class="page-actions">
+		<a href="<?php echo base_url(); ?>patients/" class="btn blue">ATRAS</a>
+		<a href="<?php echo base_url(); ?>patients/" class="btn red">CANCELAR</a>
+	</div>
+</div>
+
 
 <?php $errors = validation_errors(); ?>
 <?php if($errors): ?>
@@ -9,36 +17,42 @@
 <?php endif; ?>
 
 
-<?php echo form_open('users/register'); ?>
+<?= $result; ?>
+<?= $form_data['patient_id_type']; ?> 
+<?= $form_data['patient_blood_type']; ?>
+<?= $form_data['patient_sex']; ?>
+
+
+<?php echo form_open('patients/create'); ?>
 
 	<div class="box-container">
 
 		<div class="box box-3">
 			<div class="box-name"><span>Informaci&oacute;n General</span></div>
 			<div class="box-content">
-				<div class="box-element">
+				<div class="box-element halfs-container">
 					<label>Identificaci&oacute;n:</label>
-					<select name="patient.id.type">
+					<select name="patient-id-type" class="form-control half-left">
 						<option value="id">Cedula</option>
 						<option value="passport">Pasaporte</option>
 					</select>
-					<input type="text" name="patient.id.number" class="form-control" placeholder="ID Número">
+					<input type="text" name="patient-id-number" class="form-control half-right" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
 				</div>
 				<div class="box-element">
 					<label>Nombre:</label>
-					<input type="text" name="patient.name" class="form-control" placeholder="Nombre">
+					<input type="text" name="patient-name" class="form-control" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
 				</div>
 				<div class="box-element">
 					<label>Apellidos:</label>
-					<input type="text" name="patient.last.name" class="form-control" placeholder="Apellidos">
+					<input type="text" name="patient-last-name" class="form-control" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
 				</div>
 				<div class="box-element">
-					<label>Fecha Nacimiento:</label>
-					<input type="text" name="patient.birthdate" class="form-control" placeholder="2000-31-12">
+					<label>Fecha de Nacimiento:</label>
+					<input type="text" name="patient-birthdate" class="form-control" placeholder="2000-12-31" value="<?= $form_data['patient_birthdate']; ?>">
 				</div>
 				<div class="box-element">
 					<label>Sexo:</label>
-					<select name="patient.sex">
+					<select name="patient-sex" class="form-control">
 						<option value="No Definido">No Definido</option>
 						<option value="masculino">Masculino</option>
 						<option value="Femenino">Femenino</option>
@@ -46,7 +60,7 @@
 				</div>
 				<div class="box-element">
 					<label>Tipo Sangre:</label>
-					<select name="patient.sex">
+					<select name="patient-blood-type" class="form-control">
 						<option value="Otro">Otro</option>
 						<option value="O+">O+</option>
 						<option value="O-">O-</option>
@@ -66,19 +80,19 @@
 			<div class="box-content">
 				<div class="box-element">
 					<label>Celular:</label>
-					<input type="text" name="patient.phone1" class="form-control" placeholder="+(000) 111 2233">
+					<input type="text" name="patient-phone1" class="form-control" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone1']; ?>">
 				</div>
 				<div class="box-element">
 					<label>Tel&eacute;fono:</label>
-					<input type="text" name="patient.phone2" class="form-control" placeholder="+(000) 111 2233">	
+					<input type="text" name="patient-phone2" class="form-control" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone2']; ?>">	
 				</div>
 				<div class="box-element">
 					<label>E-mail:</label>
-					<input type="text" name="patient.email" class="form-control" placeholder="nunu.support@gmail.com">	
+					<input type="text" name="patient-email" class="form-control" placeholder="nunu.support@gmail.com" value="<?= $form_data['patient_email']; ?>">	
 				</div>
 				<div class="box-element">
 					<label>Direcci&oacute;n:</label> <br/>
-					<textarea rows="4" name="patient.address" class="form-control" placeholder="Direcci&oacute;n"></textarea>	
+					<textarea rows="4" name="patient-address" class="form-control" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>	
 				</div>
 			</div>
 		</div>
@@ -88,7 +102,7 @@
 			<div class="box-content">
 				<div class="box-element">
 					<label>Observaciones:</label> <br/>
-					<textarea rows="10" name="patient.observations" class="form-control" placeholder="Observaciones"></textarea>
+					<textarea rows="10" name="patient-observations" class="form-control" placeholder="Observaciones"><?= $form_data['patient_observations']; ?></textarea>
 				</div>
 			</div>
 		</div>
@@ -107,19 +121,19 @@
 				<div class="accordion-tab tab-content tab-1">
 					<div class="box-element">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient.record.diabetes" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient.record.hipertension" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.cardiopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.hepatopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
 					</div>
 				</div>
 
@@ -129,19 +143,19 @@
 				<div class="accordion-tab tab-content tab-2">
 					<div class="box-element">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient.record.diabetes" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient.record.hipertension" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.cardiopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.hepatopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
 					</div>
 				</div>
 
@@ -151,19 +165,19 @@
 				<div class="accordion-tab tab-content tab-3">
 					<div class="box-element">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient.record.diabetes" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient.record.hipertension" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.cardiopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.hepatopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
 					</div>
 				</div>
 
@@ -173,19 +187,19 @@
 				<div class="accordion-tab tab-content tab-4">
 					<div class="box-element">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient.record.diabetes" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient.record.hipertension" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.cardiopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.hepatopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
 					</div>
 				</div>
 
@@ -195,19 +209,19 @@
 				<div class="accordion-tab tab-content tab-5">
 					<div class="box-element">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient.record.diabetes" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient.record.hipertension" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.cardiopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
 					</div>
 					<div class="box-element">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient.record.hepatopatia" class="form-control"></textarea>
+						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
 					</div>
 				</div>
 			</div>
@@ -215,8 +229,10 @@
 		</div>
 	</div>
 
-	<div class="actions">
-		<button type="submit" class="btn blue">Registrar</button>
+	<div class="actions page-actions">
+		<a href="<?php echo base_url(); ?>patients/" class="btn red">CANCELAR</a>
+		<button type="reset" class="btn blue">LIMPIAR</button>
+		<button type="submit" class="btn green">REGISTRAR</button>
 	</div>
 <?php echo form_close(); ?>
 

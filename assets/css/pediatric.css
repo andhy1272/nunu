@@ -182,7 +182,7 @@ select.form-control:focus::-ms-value {
   user-select: none;
 
   display: inline-block;
-  font-weight: 400;
+  font-weight: 800;
   text-align: center;
   white-space: nowrap;
   vertical-align: middle;
@@ -190,9 +190,10 @@ select.form-control:focus::-ms-value {
   line-height: 1.5;
   border-radius: 0.25rem;
   margin-left: 10px;
+  letter-spacing: 1px;
   	
   cursor: pointer;
-  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.1);
+  text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 
   color: #666; 
   background: #f9f9f9; 
@@ -200,28 +201,57 @@ select.form-control:focus::-ms-value {
 }
 
 .btn:hover{
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.15);
-  text-shadow: -1px -1px 0 rgba(255, 255, 255, 0.2);
+  opacity: 1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .btn.blue{
+  /*
   color: #5091b2; 
-  background: #e9f7fe; 
-  border: 2px solid #b6d7e8;
+  background: #FFF; */
+
+  color: #FFF; 
+  background: #5091b2; 
+
+  /*background: #e9f7fe; 
+  border: 2px solid #b6d7e8;*/
+
+  border: 2px solid #FFF;
 }
 
 .btn.green{
+  /* 
   color :#5f9025; 
-  background: #ebf6e0; 
-  border:2px solid #b3dc82; 
+  background: #FFF; */
+  color :#FFF; 
+  background: #5f9025; 
+
+  /*background: #ebf6e0;
+  border:2px solid #b3dc82; */
+  
+  border:2px solid #FFF; 
 }
 
 .btn.red{
+  /*
   color: #de5959; 
-  background: #ffe9e9; 
-  border: 2px solid #fbc4c4;
+  background: #FFF; */
+
+  color: #FFF; 
+  background: #de5959; 
+
+  /*background: #ffe9e9;
+  border: 2px solid #fbc4c4;*/
+  
+  border:2px solid #FFF; 
 }
 
+.btn.yellow{
+  color: #de5959; 
+  background: #FFF; 
+  /*background: #ffe9e9;*/
+  border: 2px solid #fbc4c4;
+}
 
 
 label {

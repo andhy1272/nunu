@@ -118,6 +118,22 @@ input{
 	max-width: 500px;
 }
 
+.halfs-container {}
+
+.halfs-container label{
+	width: 100%;
+}
+
+.half-left{
+	float: left;
+	width: 40% !important;
+}
+
+.half-right{
+	float: right;
+	width: 55% !important;
+}
+
 
 
 /* HEADER */
@@ -216,9 +232,34 @@ input{
 /* CONTENT */
 .content{
 	flex: 1;
-	height: 100vh;
-	padding: 70px 10px 10px 170px;
-	
+	/*height: 100vh;*/
+	padding: 70px 10px 70px 170px;
+}
+
+.content-header {
+	padding: 0 15px 20px;
+	overflow: hidden;
+	margin-bottom: 0;
+}
+
+.content-header h1{
+	float: left;
+	margin-bottom: 0;
+}
+
+.page-actions,
+.content-header .page-actions{
+	float: right;
+	padding: 7px 10px;
+	border-radius: 5px;
+	/*border: 2px solid rgba(255,255,255, 0.7);*/
+	box-shadow: 6px 6px 10px rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255, 0.3);
+}
+
+.page-actions .btn:first-child,
+.content-header .page-actions .btn:first-child{
+	margin-left: 0;
 }
 
 /* FOOTER */
@@ -247,7 +288,8 @@ input{
 .grid-list {
 	width: 100%;
 	border: 1px solid #CCC;
-	box-shadow: 5px 5px 8px rgba(0,0,0,0.3);
+	box-shadow: 6px 6px 10px rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255, 0.7);
 }
 
 .grid-list th,
@@ -289,9 +331,10 @@ input{
 /* BOX */
 .box {
 	display: flex;
+	border-radius: 5px;
 	border: 1px solid #37474F;
 	box-shadow: 6px 6px 10px rgba(0,0,0,0.3);
-	background-color: rgba(255,255,255, 0.5);
+	background-color: rgba(255,255,255, 0.7);
 }
 
 .box-container {

@@ -15,8 +15,8 @@
 			//	show_404();
 			//}
 
-			$data['page_title'] = "Patients List";
 			$data['view'] = $this::VIEW_LIST;
+			$data['data']['page_title'] = "Pacientes";
 			$data['data']['patients_list'] = $this->patient_model->get_list();
 
 			$this->load->view('templates/main', $data);
@@ -24,8 +24,8 @@
 
 		//View patient information
 		public function view($patient_id = NULL) {
-			$data['page_title'] = "Patient View";
 			$data['view'] = $this::VIEW_VIEW;
+			$data['data']['page_title'] = "Detalles del Paciente";
 			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
 			$data['data']['error'] = '';
 
@@ -39,11 +39,52 @@
 
 		//Create a NEW patient
 		public function create() {
-			$data['page_title'] = "Patient Create";
 			$data['view'] = $this::VIEW_CREATE;
-			$data['data']['title'] = "Crear Paciente";
+			$data['data']['page_title'] = "Crear Paciente";
+			$data['result'] = "vacio";
 
-			$this->load->view('templates/main', $data);
+			$form_data = array(
+				'patient_id_number' => $this->input->post('patient-id-number'),
+				'patient_id_type' => $this->input->post('patient-id-type'),
+				'patient_name' => $this->input->post('patient-name'),
+				'patient_last_name' => $this->input->post('patient-last-name'),
+				'patient_birthdate' => $this->input->post('patient-birthdate'),
+				'patient_blood_type' => $this->input->post('patient-blood-type'),
+				'patient_sex' => $this->input->post('patient-sex'),
+				'patient_email' => $this->input->post('patient-email'),
+				'patient_phone1' => $this->input->post('patient-phone1'),
+				'patient_phone2' => $this->input->post('patient-phone2'),
+				'patient_address' => $this->input->post('patient-address'),
+				'patient_observations' => $this->input->post('patient-observations')
+			);
+			$data['form_data'] = $form_data;
+			
+			
+			$this->form_validation->set_rules('patient-id-number', 'ID N&uacute;mero', 'required');
+			$this->form_validation->set_rules('patient-name', 'Nombre', 'required');
+			$this->form_validation->set_rules('patient-last-name', 'Apellidos', 'required');
+			$this->form_validation->set_rules('patient-birthdate', 'Fecha de Nacimiento', 'required');
+			$this->form_validation->set_rules('patient-phone1', 'Celular', 'required');
+			$this->form_validation->set_rules('patient-email', 'E-mail', 'required');
+			$this->form_validation->set_rules('patient-address', 'Direcci&oacute;n', 'required');
+			
+
+			if($this->form_validation->run() === FALSE) {
+				$this->load->view('templates/main', $data);
+				
+			}
+			else {
+				$data['result'] = $this->patient_model->create();
+
+				$this->session->set_flashdata('patient_created', 'Paciente creado exitosamente');
+
+				$this->load->view('templates/main', $data);
+
+
+				//redirect('user/register');
+			}
+			
+
 		}
 
 
