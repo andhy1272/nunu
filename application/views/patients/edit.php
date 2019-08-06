@@ -58,13 +58,13 @@
 			<div class="box-content">
 				<div class="box-element">
 					<label>Celular:</label>
-					<?php echo $patient_data['patient_phone1']; ?>	
-					<button type="button" action="edit" data-type="text" data-label="Celular:" data-val="<?php echo $patient_data['patient_phone1']; ?>">Editar</button>
+					<span id="patient_phone1"><?php echo $patient_data['patient_phone1']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="Celular:" data-control-name="patient_phone1" data-value="<?php echo $patient_data['patient_phone1']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
 					<label>Tel&eacute;fono:</label>
-					<?php echo $patient_data['patient_phone2']; ?>	
-					<button type="button" action="edit" data-type="text" data-label="Tel&eacute;fono:" data-val="<?php echo $patient_data['patient_phone2']; ?>">Editar</button>
+					<span id="patient_phone2"><?php echo $patient_data['patient_phone2']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="Tel&eacute;fono:" data-control-name="patient_phone2" data-value="<?php echo $patient_data['patient_phone2']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
 					<label>Email:</label>
@@ -117,17 +117,30 @@
 	<div class="edit-container">
 		<div class="edit-wrapper">
 			<div class="box">
-				<div class="box-name"><span>EDIT</span></div>
+				<div class="box-name"><span>EDITAR</span></div>
 				<div class="box-content">
 					<div class="box-element">
 						<label class="edit-label" for="edit-control">Edit Label</label>
 						<input type="text" name="edit-control" class="form-control edit-control" value="">
-						<input type="hidden" name="edit-data" value="">
+						<input type="hidden" name="edit-data" class="edit-hidden" value="">
 					</div>
 
 					<div class="actions">
 						<button type="button" class="btn red cancel">CANCELAR</button>
 						<button type="button" class="btn green save">GUARDAR</button>
+					</div>
+				</div>
+			</div>
+
+			<div class="box confirmation-box">
+				<div class="box-name"><span>EXITO</span></div>
+				<div class="box-content">
+					<div class="box-element">
+						<label>Informacion actualizada con exito.</label>
+					</div>
+
+					<div class="actions">
+						<button type="button" class="btn blue cancel">OK</button>
 					</div>
 				</div>
 			</div>
@@ -138,12 +151,13 @@
 		$(document).ready(function() {
 			$("button[action=edit]").click(function(){
 				edit_label = $(this).attr('data-label');
-				edit_value = $(this).attr('data-val');
+				edit_value = $(this).attr('data-value');
 				edit_type = $(this).attr('data-type');
-
+				edit_hidden = $(this).attr('data-control-name');
 
 				$('.edit-container .edit-label').html(edit_label);
 				$('.edit-container .edit-control').val(edit_value);
+				$('.edit-container .edit-hidden').val(edit_hidden);
 
 				$('.edit-container').fadeIn('fast'); 			  	
 			});
@@ -153,13 +167,38 @@
 			});
 
 			$('.edit-container .actions .save').click(function() {
-				/*$.ajax({
+				data = {
+					patient_id: <?php echo $patient_data['patient_id']; ?>,
+					object_name: 'patients',
+					control_name: $('.edit-container .edit-hidden').val(),
+					new_value: $('.edit-container .edit-control').val()
+				};
+
+				
+				$.ajax({
 			  		url: "<?php echo site_url('patients/edit_field'); ?>", 
+			  		type: "POST",
+			  		dataType: 'json',
+					data: data,
 			  		success: function(result){
-			    		$(".box").html(result);
-			    		alert('666777' + result);
-			  		}
-			  	}); */
+			  			if(result) {
+			  				$("#" + data.control_name).html(data.new_value);
+			  			}
+
+			  			$('.edit-container').fadeOut('fast'); 
+
+			    		console.log(result);
+			    		console.log("AJAX SUCCESS");
+			  		},
+			  		error: function (request, status, error) {
+			  			console.log("---------AJAX ERROR BEGIN---------");
+			  			console.log(error);
+				        console.log(request.status);
+				        console.log(request.responseText);
+				        console.log("---------AJAX ERROR ENDS----------");
+				    }
+			  	}); 
+			  	
 			});
 		});
 	</script>

@@ -82,8 +82,6 @@
 
 				//redirect('user/register');
 			}
-			
-
 		}
 
 
@@ -104,8 +102,18 @@
 
 
 		public function edit_field() {
-			echo "Yes cara pez";
+			
+			$patient_id = $this->input->post('patient_id');
+			$table = "nunu_" . $this->input->post('object_name');
+			$column = $this->input->post('control_name');
+			$new_value = $this->input->post('new_value');
 
+			$data = array('patient_id' => $patient_id, 'table_name' => $table, 'column_name' => $column, 'new_value' => $new_value);
+
+			$result = $this->patient_model->edit_field($data);
+			//$result;
+
+			echo json_encode($result);
 		}
 
 

@@ -24,8 +24,6 @@ class Patient_model extends CI_Model {
 
 	}
 
-	
-	
 	public function create(){
 		//User data array
 		$data = array(
@@ -46,4 +44,28 @@ class Patient_model extends CI_Model {
 		// Insert user
 		return $this->db->insert('nunu_patients', $data);
 	}
+
+
+
+	public function edit_field(array $data) {
+		/*
+		$q = "UPDATE " . $data['table_name'] . " SET " . $data['column_name'] . " = '" . $data['new_value'] . "' WHERE patient_id = " . $data['patient_id'];
+		
+		$query = $this->db->query($q);
+		*/
+
+
+		$data_to_update = array( 
+		    $data['column_name'] => $data['new_value']
+		);
+
+		$this->db->where('patient_id', $data['patient_id']);
+
+		$result = $this->db->update($data['table_name'], $data_to_update);
+
+		return $result;
+	}
+
+
+
 }
