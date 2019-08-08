@@ -446,6 +446,28 @@ input{
 	clear: both;
 }
 
+.edit-container .edit-wrapper .confirmation-box {
+	display: none;
+}
+
+.edit-container.show-message .edit-wrapper .confirmation-box {
+	display: flex;
+}
+
+.edit-container.show-message .edit-wrapper .edit-box {
+	display: none;
+}
+
+
+/*
+18009227
+yessire18
+*/
+
+
+
+
+
 
 
 

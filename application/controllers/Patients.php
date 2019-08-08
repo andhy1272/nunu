@@ -101,6 +101,7 @@
 		}
 
 
+		//Function called using AJAX to save modified data
 		public function edit_field() {
 			
 			$patient_id = $this->input->post('patient_id');
@@ -114,6 +115,43 @@
 			//$result;
 
 			echo json_encode($result);
+		}
+
+
+		//Function called using AJAX
+		//Returns field for edit data -- text, textarea, date, dropdowns(sex, blood type, )
+		public function load_field_type() {
+			$type = $this->input->post('type');
+			$value = $this->input->post('value');
+
+			switch($type) {
+				case "text":
+					echo '<input type="text" name="edit-control" class="form-control edit-control" value="' . $value . '">';
+					break;
+
+				case "email":
+					echo '<input type="email" name="edit-control" class="form-control edit-control" value="' . $value . '">';
+					break;
+
+				case "sex":
+					$sex_list = get_sex_list();
+
+					$text = '<select name="edit-control" class="form-control edit-control">';
+					foreach($sex_list as $sex): 
+						if($sex['sex_name'] == $value):
+							$text .= '<option selected value="' . $sex['sex_name'] . '">' . $sex['sex_name'] . '</option>';
+						else:
+							$text .= '<option value="' . $sex['sex_name'] . '">' . $sex['sex_name'] . '</option>';
+						endif;
+					endforeach;
+					$text .= '</select>';
+
+					echo $text;
+					break;
+					
+				default:
+					echo "<span>El elemento no pueder ser cargado, por favor intente de nuevo o contacte con el administrador del sistema.</span>";
+			}
 		}
 
 

@@ -97,6 +97,17 @@
 		<div class="box-content">
 			<div class="box-element">
 				<label>Detalles:</label> <br/>
+				<p>
+					<?php 
+						$sex_list = get_sex_list();
+						//var_dump($sex_list);
+
+						foreach($sex_list as $sexl): 
+							echo $sexl['sex_name'] . "<br/>";
+
+						endforeach;
+					?>
+				</p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
@@ -116,12 +127,14 @@
 
 	<div class="edit-container">
 		<div class="edit-wrapper">
-			<div class="box">
+			<div class="box edit-box">
 				<div class="box-name"><span>EDITAR</span></div>
 				<div class="box-content">
 					<div class="box-element">
 						<label class="edit-label" for="edit-control">Edit Label</label>
-						<input type="text" name="edit-control" class="form-control edit-control" value="">
+						<div id="edit-ajax-control">
+							<input type="text" name="edit-control" class="form-control edit-control" value="">
+						</div>
 						<input type="hidden" name="edit-data" class="edit-hidden" value="">
 					</div>
 
@@ -149,43 +162,25 @@
 
 	<script type="text/javascript">
 		$(document).ready(function() {
+			var edit_button_clicked = "";
+
 			$("button[action=edit]").click(function(){
 				edit_label = $(this).attr('data-label');
 				edit_value = $(this).attr('data-value');
 				edit_type = $(this).attr('data-type');
 				edit_hidden = $(this).attr('data-control-name');
+				edit_button_clicked = $(this);
 
-				$('.edit-container .edit-label').html(edit_label);
-				$('.edit-container .edit-control').val(edit_value);
-				$('.edit-container .edit-hidden').val(edit_hidden);
 
-				$('.edit-container').fadeIn('fast'); 			  	
-			});
-
-			$('.edit-container .actions .cancel').click(function() {
-				$('.edit-container').fadeOut('fast'); 
-			});
-
-			$('.edit-container .actions .save').click(function() {
-				data = {
-					patient_id: <?php echo $patient_data['patient_id']; ?>,
-					object_name: 'patients',
-					control_name: $('.edit-container .edit-hidden').val(),
-					new_value: $('.edit-container .edit-control').val()
-				};
-
-				
 				$.ajax({
-			  		url: "<?php echo site_url('patients/edit_field'); ?>", 
+			  		url: "<?php echo site_url('patients/load_field_type'); ?>", 
 			  		type: "POST",
-			  		dataType: 'json',
-					data: data,
+					data: "type=" + edit_type + "&value=" + edit_value,
 			  		success: function(result){
 			  			if(result) {
-			  				$("#" + data.control_name).html(data.new_value);
+			  				//$("#" + data.control_name).html(data.new_value);
+			  				//edit_button_clicked.attr('data-value', data.new_value);
 			  			}
-
-			  			$('.edit-container').fadeOut('fast'); 
 
 			    		console.log(result);
 			    		console.log("AJAX SUCCESS");
@@ -197,9 +192,61 @@
 				        console.log(request.responseText);
 				        console.log("---------AJAX ERROR ENDS----------");
 				    }
-			  	}); 
-			  	
+			  	});
+
+
+
+				$('.edit-container .edit-label').html(edit_label);
+				$('.edit-container .edit-control').val(edit_value);
+				$('.edit-container .edit-hidden').val(edit_hidden);
+
+				$('.edit-container').fadeIn('fast'); 			  	
 			});
+
+			$('.edit-container .actions .cancel').click(function() {
+				$('.edit-container').fadeOut('fast'); 
+				$('.edit-container').removeClass('show-message');
+			});
+
+			$('.edit-container .actions .save').click(function() {
+				 save_edited_data();
+			});
+
+
+			function save_edited_data() {
+				data = {
+					patient_id: <?php echo $patient_data['patient_id']; ?>,
+					object_name: 'patients',
+					control_name: $('.edit-container .edit-hidden').val(),
+					new_value: $('.edit-container .edit-control').val()
+				};
+
+				$.ajax({
+			  		url: "<?php echo site_url('patients/edit_field'); ?>", 
+			  		type: "POST",
+			  		dataType: 'json',
+					data: data,
+			  		success: function(result){
+			  			if(result) {
+			  				$("#" + data.control_name).html(data.new_value);
+			  				edit_button_clicked.attr('data-value', data.new_value);
+			  			}
+
+			  			$('.edit-container').addClass('show-message'); 
+
+			    		console.log(result);
+			    		console.log("AJAX SUCCESS");
+			  		},
+			  		error: function (request, status, error) {
+			  			console.log("---------AJAX ERROR BEGIN---------");
+			  			console.log(error);
+				        console.log(request.status);
+				        console.log(request.responseText);
+				        console.log("---------AJAX ERROR ENDS----------");
+				    }
+			  	});
+			}
+
 		});
 	</script>
 
