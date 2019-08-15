@@ -30,7 +30,7 @@
 				$filter = 'a.appointment_date >= CURDATE()';
 			}
 
-			$q = 'SELECT a.appointment_id, a.appointment_date, a.appointment_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.appointment_status, a.appointment_notes FROM nunu_appointments a INNER JOIN nunu_patients p WHERE a.appointment_patient_id = p.patient_id AND ' . $filter . ' ORDER BY a.appointment_date, a.appointment_time ASC;';
+			$q = 'SELECT a.appointment_id, a.appointment_date, a.appointment_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.appointment_service, a.appointment_status, a.appointment_notes FROM nunu_appointments a INNER JOIN nunu_patients p WHERE a.appointment_patient_id = p.patient_id AND ' . $filter . ' ORDER BY a.appointment_date, a.appointment_time ASC;';
 
 			//echo $q;
 			$query = $this->db->query($q);

@@ -122,32 +122,57 @@
 		//Returns field for edit data -- text, textarea, date, dropdowns(sex, blood type, )
 		public function load_field_type() {
 			$type = $this->input->post('type');
-			$value = $this->input->post('value');
+			$current_value = $this->input->post('value');
 
 			switch($type) {
 				case "text":
-					echo '<input type="text" name="edit-control" class="form-control edit-control" value="' . $value . '">';
+					echo '<input type="text" name="edit-control" class="form-control edit-control" value="' . $current_value . '">';
 					break;
 
 				case "email":
-					echo '<input type="email" name="edit-control" class="form-control edit-control" value="' . $value . '">';
+					echo '<input type="email" name="edit-control" class="form-control edit-control" value="' . $current_value . '">';
+					break;
+
+				case "textarea":
+					echo '<textarea rows="6" name="edit-control" class="form-control edit-control" >' . $current_value . '</textarea>';
 					break;
 
 				case "sex":
-					$sex_list = get_sex_list();
+					$sex_list = get_sex_list(); //call to options_helper.php
 
 					$text = '<select name="edit-control" class="form-control edit-control">';
 					foreach($sex_list as $sex): 
-						if($sex['sex_name'] == $value):
-							$text .= '<option selected value="' . $sex['sex_name'] . '">' . $sex['sex_name'] . '</option>';
+						if($sex['config_value'] == $current_value):
+							$text .= '<option selected value="' . $sex['config_value'] . '">' . $sex['config_value'] . '</option>';
 						else:
-							$text .= '<option value="' . $sex['sex_name'] . '">' . $sex['sex_name'] . '</option>';
+							$text .= '<option value="' . $sex['config_value'] . '">' . $sex['config_value'] . '</option>';
 						endif;
 					endforeach;
 					$text .= '</select>';
 
 					echo $text;
 					break;
+
+				case "blood":
+					$blood_list = get_blood_list(); //call to options_helper.php
+
+					if(!strpos($current_value, '-')) {
+						$current_value = trim($current_value) . "+";
+					}
+
+					$text = '<select name="edit-control" class="form-control edit-control">';
+					foreach($blood_list as $blood_type): 
+						if($blood_type['config_value'] == $current_value):
+							$text .= '<option selected value="' . $blood_type['config_value'] . '">' . $blood_type['config_value'] . '</option>';
+						else:
+							$text .= '<option value="' . $blood_type['config_value'] . '">' . $blood_type['config_value'] . '</option>';
+						endif;
+					endforeach;
+					$text .= '</select>';
+
+					echo $text;
+					break;
+
 					
 				default:
 					echo "<span>El elemento no pueder ser cargado, por favor intente de nuevo o contacte con el administrador del sistema.</span>";

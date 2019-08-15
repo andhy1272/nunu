@@ -29,23 +29,13 @@
 				</div>
 				<div class="box-element">
 					<label>Sexo:</label>
-					<?php echo ($patient_data['patient_sex'] == 'M') ? 'Masculino' : 'Femenino'; ?>
-				</div>
-				<div class="box-element">
-					<label>Ultimo Peso:</label>
-					<?php echo $patient_data['patient_last_weight']; ?>	
-				</div>
-				<div class="box-element">
-					<label>Ultima Altura:</label>
-					<?php echo $patient_data['patient_last_height']; ?>	
-				</div>
-				<div class="box-element">
-					<label>Edad:</label>
-					<?php //echo $patient_data['patient_age']; ?>	
+					<span id="patient_sex"><?php echo $patient_data['patient_sex']; ?></span>
+					<button type="button" action="edit" data-type="sex" data-label="Sexo:" data-control-name="patient_sex" data-value="<?php echo $patient_data['patient_sex']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
 					<label>Tipo Sangre:</label>
-					<?php echo $patient_data['patient_blood_type']; ?>	
+					<span id="patient_blood_type"><?php echo $patient_data['patient_blood_type']; ?></span>
+					<button type="button" action="edit" data-type="blood" data-label="Tipo Sangre:" data-control-name="patient_blood_type" data-value="<?php echo $patient_data['patient_blood_type']; ?>">Editar</button>
 				</div>
 			</div>
 		</div>
@@ -72,7 +62,8 @@
 				</div>
 				<div class="box-element">
 					<label>Direcci&oacute;n:</label> <br/>
-					<?php echo $patient_data['patient_address']; ?>	
+					<span id="patient_address"><?php echo $patient_data['patient_address']; ?></span>
+					<button type="button" action="edit" data-type="textarea" data-label="Direcci&oacute;n:" data-control-name="patient_address" data-value="<?php echo $patient_data['patient_address']; ?>">Editar</button>
 				</div>
 			</div>
 		</div>
@@ -82,11 +73,8 @@
 			<div class="box-content">
 				<div class="box-element">
 					<label>Detalles:</label> <br/>
-					<?php echo $patient_data['patient_observations']; ?>	
-				</div>
-				<div class="box-element">
-					<label>Agregado en: </label>
-					<?php echo $patient_data['patient_created_at']; ?>	
+					<span id="patient_observations"><?php echo $patient_data['patient_observations']; ?></span>
+					<button type="button" action="edit" data-type="textarea" data-label="Detalles:" data-control-name="patient_observations" data-value="<?php echo $patient_data['patient_observations']; ?>">Editar</button>
 				</div>
 			</div>
 		</div>
@@ -97,17 +85,6 @@
 		<div class="box-content">
 			<div class="box-element">
 				<label>Detalles:</label> <br/>
-				<p>
-					<?php 
-						$sex_list = get_sex_list();
-						//var_dump($sex_list);
-
-						foreach($sex_list as $sexl): 
-							echo $sexl['sex_name'] . "<br/>";
-
-						endforeach;
-					?>
-				</p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
 				<p><?php echo $patient_data['patient_observations']; ?></p>
@@ -175,11 +152,10 @@
 				$.ajax({
 			  		url: "<?php echo site_url('patients/load_field_type'); ?>", 
 			  		type: "POST",
-					data: "type=" + edit_type + "&value=" + edit_value,
+					data: "type=" + edit_type + "&value=" + edit_value.toString(),
 			  		success: function(result){
 			  			if(result) {
-			  				//$("#" + data.control_name).html(data.new_value);
-			  				//edit_button_clicked.attr('data-value', data.new_value);
+			  				$('#edit-ajax-control').html(result);
 			  			}
 
 			    		console.log(result);

@@ -44,6 +44,7 @@
 		<th>ID</th>
 		<th class="text-left">Fecha / Hora</th>
 		<th>Paciente</th>
+		<th>Servicio</th>
 		<th>Estado</th>
 		<th>Notas</th>
 		<th>&nbsp;</th>
@@ -57,6 +58,7 @@
 		<td>
 			<?php echo $appointment['patient_id_number'] . ' / ' . $appointment['patient_fullname']; ?>		
 		</td>
+		<td><?php echo $appointment['appointment_service']; ?></td>
 		<td><?php echo $appointment['appointment_status']; ?></td>
 		<td><?php echo $appointment['appointment_notes']; ?></td>
 		<td>
