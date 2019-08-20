@@ -27,6 +27,7 @@
 			$data['view'] = $this::VIEW_VIEW;
 			$data['data']['page_title'] = "Detalles del Paciente";
 			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
+			$data['data']['patient_history'] = $this->patient_model->get_view_history($patient_id);
 			$data['data']['error'] = '';
 
 			if(empty($data['data']['patient_data'])) {
@@ -102,7 +103,7 @@
 
 
 		//Function called using AJAX to save modified data
-		public function edit_field() {
+		public function edit_specific_attribute() {
 			
 			$patient_id = $this->input->post('patient_id');
 			$table = "nunu_" . $this->input->post('object_name');
@@ -111,7 +112,7 @@
 
 			$data = array('patient_id' => $patient_id, 'table_name' => $table, 'column_name' => $column, 'new_value' => $new_value);
 
-			$result = $this->patient_model->edit_field($data);
+			$result = $this->patient_model->edit_specific_attribute($data);
 			//$result;
 
 			echo json_encode($result);
@@ -120,7 +121,7 @@
 
 		//Function called using AJAX
 		//Returns field for edit data -- text, textarea, date, dropdowns(sex, blood type, )
-		public function load_field_type() {
+		public function load_control_type() {
 			$type = $this->input->post('type');
 			$current_value = $this->input->post('value');
 
@@ -134,7 +135,24 @@
 					break;
 
 				case "textarea":
-					echo '<textarea rows="6" name="edit-control" class="form-control edit-control" >' . $current_value . '</textarea>';
+					$text = '<textarea rows="6" maxlength="255" name="edit-control" class="form-control edit-control count-chars" >' . $current_value . '</textarea>';
+					$text .= '<span class="char-counter" title="Remain chars">255</span>';
+					echo $text;
+					break;
+
+				case "yesno":
+					$text = '<select name="edit-control" class="form-control edit-control">';
+						if($current_value == 1){ 
+							$text .= '<option selected value="1">Yes</option>';
+							$text .= '<option value="0">No</option>';
+						}
+						else {
+							$text .= '<option value="1">Yes</option>';
+							$text .= '<option selected value="0">No</option>';
+						}
+					$text .= '</select>';
+
+					echo $text;
 					break;
 
 				case "sex":

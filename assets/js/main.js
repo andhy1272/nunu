@@ -16,8 +16,24 @@ $(document).ready( function() {
 		
 	});
 
+	
+	$('.count-chars').keyup(function() {
+		_charLimit = parseInt($(this).attr('maxlength'));
+		_charCount = _charLimit - $(this).val().length;
+
+		$(this).parent().find('.char-counter').html(_charCount);
+	}); 
+
 
 });
 
 
 
+/* onkeyup="countChars(this,255)"
+function countChars(_element, _limit){
+	elem_name = _element.getAttribute('name');
+	alert(elem_name);
+	alert(_element.value.length);
+
+	var x = document.getElementsByTagName("H1")[0].getAttribute("class");
+} */

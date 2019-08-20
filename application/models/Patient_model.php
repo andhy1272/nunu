@@ -19,6 +19,11 @@ class Patient_model extends CI_Model {
 		return $query->row_array();
 	}
 
+	public function get_view_history($patient_id) {
+		$query = $this->db->get('nunu_xml');
+		return $query->row_array();
+	}
+
 	public function get_find_list($keyword) {
 		$query = $this->db->get('nunu_patients');
 
@@ -47,7 +52,7 @@ class Patient_model extends CI_Model {
 
 
 
-	public function edit_field(array $data) {
+	public function edit_specific_attribute(array $data) {
 		/*
 		$q = "UPDATE " . $data['table_name'] . " SET " . $data['column_name'] . " = '" . $data['new_value'] . "' WHERE patient_id = " . $data['patient_id'];
 		

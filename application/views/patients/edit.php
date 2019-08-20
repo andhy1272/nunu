@@ -150,7 +150,7 @@
 
 
 				$.ajax({
-			  		url: "<?php echo site_url('patients/load_field_type'); ?>", 
+			  		url: "<?php echo site_url('patients/load_control_type'); ?>", 
 			  		type: "POST",
 					data: "type=" + edit_type + "&value=" + edit_value.toString(),
 			  		success: function(result){
@@ -198,7 +198,7 @@
 				};
 
 				$.ajax({
-			  		url: "<?php echo site_url('patients/edit_field'); ?>", 
+			  		url: "<?php echo site_url('patients/edit_specific_attribute'); ?>", 
 			  		type: "POST",
 			  		dataType: 'json',
 					data: data,

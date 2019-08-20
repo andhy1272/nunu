@@ -18,7 +18,7 @@
 
 <div class="box-container">
 	<div class="box box-3">
-		<div class="box-name"><span>Informacion General</span></div>
+		<div class="box-name"><span>Informaci&oacute;n General</span></div>
 		<div class="box-content">
 			<div class="box-element">
 				<label>Identificaci&oacute;n:</label>
@@ -53,7 +53,7 @@
 
 	<div class="box box-3">
 		<div class="box-name">
-			<span>Informacion de Contacto</span>
+			<span>Informaci&oacute;n de Contacto</span>
 			<!--<span class="edit-link">Editar</span>-->
 		</div>
 		<div class="box-content">
@@ -77,7 +77,7 @@
 	</div>
 
 	<div class="box box-3">
-		<div class="box-name"><span>Info Adicional</span></div>
+		<div class="box-name"><span>Informaci&oacute;n Adicional</span></div>
 		<div class="box-content">
 			<div class="box-element">
 				<label>Detalles:</label> <br/>
@@ -96,7 +96,22 @@
 	<div class="box-content">
 		<div class="box-element">
 			<label>Detalles:</label> <br/>
-			<p><?php echo $patient_data['patient_observations']; ?></p>
+			<p><?php echo $patient_history['xml_id']; ?></p>
+			<?php 
+				$xml_notes = simplexml_load_string($patient_history['xml_text']);
+				print_r($xml_notes); 
+				echo '<br/><br/>'; 
+
+				foreach($xml_notes as $note) {
+					$aux = (array) $note; 
+					
+					echo $aux['to'] . '<br/>'; 
+					echo $aux['from'] . '<br/>'; 
+					echo $aux['heading'] . '<br/>'; 
+					echo $aux['body'] . '<br/>';
+					echo '<br/><br/>'; 
+				}
+			?>
 			<p><?php echo $patient_data['patient_observations']; ?></p>
 			<p><?php echo $patient_data['patient_observations']; ?></p>
 			<p><?php echo $patient_data['patient_observations']; ?></p>

@@ -92,7 +92,8 @@
 				</div>
 				<div class="box-element">
 					<label>Direcci&oacute;n:</label> <br/>
-					<textarea rows="4" name="patient-address" class="form-control" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>	
+					<textarea rows="4" name="patient-address" maxlength="255" class="form-control count-chars" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>
+					<span class="char-counter" title="Remain chars">255</span>
 				</div>
 			</div>
 		</div>
@@ -119,21 +120,60 @@
 					<span>Heredo Familiares</span>
 				</div>
 				<div class="accordion-tab tab-content tab-1">
-					<div class="box-element">
+					<div class="box-element third-width">
+						<label>Asma:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-asthma" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
 						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
+						<textarea rows="3" maxlength="255" name="background-diabetes" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
 					</div>
-					<div class="box-element">
+					<div class="box-element third-width">
 						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
+						<textarea rows="3" maxlength="255" name="background-hypertension" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
 					</div>
-					<div class="box-element">
+					<div class="box-element third-width">
 						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
+						<textarea rows="3" maxlength="255" name="background-cardiac-ill" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
 					</div>
-					<div class="box-element">
+					<div class="box-element third-width">
 						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
+						<textarea rows="3" maxlength="255" name="background-liver-ill" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Nefropatia:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-nephropathy" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Enf. Mentales:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-mental-ill" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Osteoarticulares:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-osteoarticular" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Enf. Alergicas:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-alergies" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Enf. Endocrinas:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-endrocrine" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
+					</div>
+					<div class="box-element third-width">
+						<label>Neoplasias:</label> <br/>
+						<textarea rows="3" maxlength="255" name="background-neoplasms" class="form-control count-chars"></textarea>
+						<span class="char-counter" title="Remain chars">255</span>
 					</div>
 				</div>
 
@@ -141,88 +181,28 @@
 					<span>Personales Patologicos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-2">
-					<div class="box-element">
-						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
-					</div>
+					
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-3">
 					<span>Personales No Patologicos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-3">
-					<div class="box-element">
-						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
-					</div>
+					
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-4">
 					<span>Neonatales</span>
 				</div>
 				<div class="accordion-tab tab-content tab-4">
-					<div class="box-element">
-						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
-					</div>
+					
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-5">
 					<span>Gineco Obstetricos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-5">
-					<div class="box-element">
-						<label>Diabetes:</label> <br/>
-						<textarea rows="2" name="patient-record-diabetes" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hipertension:</label> <br/>
-						<textarea rows="2" name="patient-record-hipertension" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Cardiopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-cardiopatia" class="form-control"></textarea>
-					</div>
-					<div class="box-element">
-						<label>Hepatopatia:</label> <br/>
-						<textarea rows="2" name="patient-record-hepatopatia" class="form-control"></textarea>
-					</div>
+					
 				</div>
 			</div>
 
