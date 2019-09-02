@@ -23,6 +23,7 @@
 <?= $form_data['patient_sex']; ?>
 
 
+
 <?php echo form_open('patients/create'); ?>
 
 	<div class="box-container">
@@ -48,7 +49,7 @@
 				</div>
 				<div class="box-element">
 					<label>Fecha de Nacimiento:</label>
-					<input type="text" name="patient-birthdate" class="form-control" placeholder="2000-12-31" value="<?= $form_data['patient_birthdate']; ?>">
+					<input type="text" name="patient-birthdate" class="form-control date" value="<?= $form_data['patient_birthdate']; ?>">
 				</div>
 				<div class="box-element">
 					<label>Sexo:</label>
@@ -120,6 +121,26 @@
 					<span>Heredo Familiares</span>
 				</div>
 				<div class="accordion-tab tab-content tab-1">
+
+					<div class="background-question">
+						<p>Alguien en su familia a sufrido de:</p>
+						<ul>
+							<li>- Asma</li>
+							<li>- Diabetes</li>
+							<li>- Hipertension</li>   
+							<li>- Cardiopatia</li>      
+							<li>- Hepatopatia</li> 
+							<li>- Nefropatia</li> 
+							<li>- Enf. Mentales</li> 
+							<li>- Osteoarticulares</li> 
+							<li>- Enf. Alergicas</li> 
+							<li>- Enf. Endocrinas </li> 
+							<li>- Neoplasias</li> 
+						</ul>
+					</div>
+
+
+
 					<div class="box-element third-width">
 						<label>Asma:</label> <br/>
 						<textarea rows="3" maxlength="255" name="background-asthma" class="form-control count-chars"></textarea>
@@ -181,7 +202,22 @@
 					<span>Personales Patologicos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-2">
-					
+					<div class="background-question">
+						<p>Ha sido usted sometido a procedimientos:</p>
+						<ul>
+							<li>Quirurgicos</li>
+							<li>Transfusion</li>
+							<li>Alergias</li>   
+							<li>Traumaticos</li>      
+							<li>Patologia Cronica</li> 
+						</ul>
+					</div>
+					<div class="background-control">
+					</div>
+					<div class="background-data">
+						<textarea class="control visible"></textarea>
+						<textarea class="control hide" name="background-patologic"></textarea>
+					</div>
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-3">
@@ -215,4 +251,10 @@
 		<button type="submit" class="btn green">REGISTRAR</button>
 	</div>
 <?php echo form_close(); ?>
+
+
+
+
+
+
 

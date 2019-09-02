@@ -25,7 +25,12 @@ $(document).ready( function() {
 	}); 
 
 
+	//jQuery UI calendar
+	$('.date').datepicker();
+
+
 });
+
 
 
 

@@ -15,9 +15,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 		<link rel="stylesheet" href="<?php echo site_url('assets/css/default.css'); ?>" type="text/css" media="print" onload="this.media='all'">
 		<link rel="stylesheet" href="<?php echo site_url('assets/css/fontsize-s.css'); ?>" type="text/css" media="print" onload="this.media='all'">
 		<link rel="stylesheet" href="<?php echo site_url('assets/css/pediatric.css'); ?>" type="text/css" media="print" onload="this.media='all'"> 
+		<link rel="stylesheet" href="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/themes/smoothness/jquery-ui.css">
 
 		<!--SCRIPTS-->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 		<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
 
 	</head>

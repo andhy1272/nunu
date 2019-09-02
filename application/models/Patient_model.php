@@ -72,5 +72,35 @@ class Patient_model extends CI_Model {
 	}
 
 
+	public function quick_search($patient_id = null, $patient_name = null) {
+		//SELECT patient_id_number, patient_name, patient_last_name FROM nunu_patients WHERE patient_id_number LIKE '%7%' OR patient_name LIKE '%T%' OR patient_last_name LIKE '%L%' ORDER BY patient_name;
+
+		$q = "SELECT patient_id, patient_id_number, patient_name, patient_last_name FROM nunu_patients WHERE ";
+
+		if (($patient_id != null) && ($patient_name != null)){
+			$q .= "patient_id_number LIKE '%" . $patient_id . "%' OR patient_name LIKE '%" . $patient_name ."%' OR patient_last_name LIKE '%" . $patient_name . "%'";
+		}
+		else {
+			if ($patient_id != null) {
+				$q .= "patient_id_number LIKE '%" . $patient_id . "%'";
+			}
+			else {
+				$q .= "patient_name LIKE '%". $patient_name . "%' OR patient_last_name LIKE '%" . $patient_name . "%'";
+			}
+		}
+
+		$q .= " ORDER BY patient_name";
+		
+		$query = $this->db->query($q);
+		return $query->result_array();
+	}
 
 }
+
+
+
+
+
+
+
+

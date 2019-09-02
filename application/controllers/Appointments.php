@@ -23,7 +23,7 @@
 			$this->load->view('templates/main', $data);
 		}
 
-		//View patient information
+		//View appointment information
 		public function view($patient_id = NULL) {
 			/*
 			$data['page_title'] = "Patient View";
@@ -40,19 +40,17 @@
 		}
 
 
-		//Create a NEW patient
+		//Create a NEW appointment
 		public function create() {
-			/*
-			$data['page_title'] = "Patient Create";
 			$data['view'] = $this::VIEW_CREATE;
-			$data['data']['title'] = "Crear Paciente";
+			$data['data']['page_title'] = "Crear Cita";
+			$data['result'] = "vacio";
 
 			$this->load->view('templates/main', $data);
-			*/
 		}
 
 
-		//Edit patient
+		//Edit appointment
 		public function edit($patient_id) {
 			/*
 			$data['page_title'] = "Patients Edit";

@@ -170,8 +170,6 @@
 				    }
 			  	});
 
-
-
 				$('.edit-container .edit-label').html(edit_label);
 				$('.edit-container .edit-control').val(edit_value);
 				$('.edit-container .edit-hidden').val(edit_hidden);

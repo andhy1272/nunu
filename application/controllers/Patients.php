@@ -59,6 +59,9 @@
 				'patient_observations' => $this->input->post('patient-observations')
 			);
 			$data['form_data'] = $form_data;
+
+			//echo $this->input->post('patient-birthdate');
+			//exit;
 			
 			
 			$this->form_validation->set_rules('patient-id-number', 'ID N&uacute;mero', 'required');
@@ -198,6 +201,15 @@
 		}
 
 
-	}
+		//Function called using AJAX
+		//Returns a simple patient list (id, name) filtering 
+		public function quick_search() {
+			$id = $this->input->post('id');
+			$name = $this->input->post('name');
 
-	//Stephanny aqui
+			$result = $this->patient_model->quick_search($id, $name);
+
+			echo json_encode($result);
+		}
+
+	}
