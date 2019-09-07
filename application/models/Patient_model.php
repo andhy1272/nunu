@@ -47,7 +47,10 @@ class Patient_model extends CI_Model {
 		);
 
 		// Insert user
-		return $this->db->insert('nunu_patients', $data);
+		$this->db->insert('nunu_patients', $data);
+		$insertId = $this->db->insert_id();
+		return $insertId;
+
 	}
 
 

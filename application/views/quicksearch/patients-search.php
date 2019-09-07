@@ -1,6 +1,6 @@
 
-<div class="quicksearch-container">
-	<div class="quicksearch-wrapper">
+<div class="quicksearch-container popup">
+	<div class="popup-wrapper">
 		<div class="box edit-box">
 			<div class="box-name"><span>BUSCAR PACIENTE</span></div>
 			<div class="box-content">
@@ -43,7 +43,7 @@
 	$(document).ready(function() {
 		jsonData = "";
 
-		$('.search-patient-control').click(function() {
+		$('.search-patient-popup').click(function() {
 			$('.quicksearch-container').show();
 		});
 
@@ -93,6 +93,9 @@
 				        console.log("---------AJAX ERROR ENDS----------");
 				    }
 			  	});
+			}
+			else {
+				alert('Porfavor ingrese un ID o un Nombre.');
 			}
 		});
 

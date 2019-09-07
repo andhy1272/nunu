@@ -77,14 +77,16 @@
 				$this->load->view('templates/main', $data);
 			}
 			else {
-				$data['result'] = $this->patient_model->create();
+				$result = $this->patient_model->create();
 
-				$this->session->set_flashdata('patient_created', 'Paciente creado exitosamente');
-
-				$this->load->view('templates/main', $data);
-
-
-				//redirect('user/register');
+				if ($result) {
+					$this->session->set_flashdata('message', 'Paciente creado exitosamente');
+					redirect('patients/edit/' . $result);
+				} 
+				else {
+					$this->load->view('templates/main', $data);
+					$this->session->set_flashdata('error_message', 'Ha ocurrido un error. Por favor intente de nuevo o contacte con el administrador del sistema');
+				}
 			}
 		}
 
@@ -159,42 +161,13 @@
 					break;
 
 				case "sex":
-					$sex_list = get_sex_list(); //call to options_helper.php
-
-					$text = '<select name="edit-control" class="form-control edit-control">';
-					foreach($sex_list as $sex): 
-						if($sex['config_value'] == $current_value):
-							$text .= '<option selected value="' . $sex['config_value'] . '">' . $sex['config_value'] . '</option>';
-						else:
-							$text .= '<option value="' . $sex['config_value'] . '">' . $sex['config_value'] . '</option>';
-						endif;
-					endforeach;
-					$text .= '</select>';
-
-					echo $text;
+					echo get_sex_list($current_value);
 					break;
 
 				case "blood":
-					$blood_list = get_blood_list(); //call to options_helper.php
-
-					if(!strpos($current_value, '-')) {
-						$current_value = trim($current_value) . "+";
-					}
-
-					$text = '<select name="edit-control" class="form-control edit-control">';
-					foreach($blood_list as $blood_type): 
-						if($blood_type['config_value'] == $current_value):
-							$text .= '<option selected value="' . $blood_type['config_value'] . '">' . $blood_type['config_value'] . '</option>';
-						else:
-							$text .= '<option value="' . $blood_type['config_value'] . '">' . $blood_type['config_value'] . '</option>';
-						endif;
-					endforeach;
-					$text .= '</select>';
-
-					echo $text;
+					echo get_blood_list($current_value);
 					break;
 
-					
 				default:
 					echo "<span>El elemento no pueder ser cargado, por favor intente de nuevo o contacte con el administrador del sistema.</span>";
 			}

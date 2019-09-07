@@ -28,6 +28,10 @@
 				<div class="box-element">
 					<label>Paciente:</label>
 					<input type="text" name="patient-name" class="form-control search-patient-control" placeholder="Nombre / ID" readonly>
+
+					<button type="button" class="btn blue search-patient-popup">BUSCAR</button>
+					<button type="button" class="btn green new-patient-popup">NUEVO</button>
+
 					<input type="hidden" name="patient-id" class="patient-id" value="">
 				</div>
 				<div class="box-element">
@@ -59,6 +63,9 @@
 					<input type="text" name="patient-name" class="form-control" placeholder="Motivo">
 				</div>
 			</div>
+
+			<div class="box-content">
+			</div>
 		</div>
 	</div>
 
@@ -76,7 +83,56 @@
 
 
 
+<div class="patient-quickcreation-container popup">
+	<div class="popup-wrapper">
+		<div class="box edit-box">
+			<div class="box-name"><span>CREACION RAPIDA DE PACIENTE</span></div>
+			<div class="box-content">
 
+				<div class="box-element halfs-container">
+					<label>Identificaci&oacute;n:</label>
+					<select name="patient-id-type" class="form-control half-left">
+						<option value="id">Cedula</option>
+						<option value="passport">Pasaporte</option>
+					</select>
+					<input type="text" name="patient-id-number" class="form-control half-right" placeholder="ID Número">
+				</div>
+
+				<div class="box-element">
+					<label for="name-control">Nombre:</label>
+					<input type="text" name="patient-name" class="form-control" placeholder="Nombre">
+				</div>
+
+				<div class="box-element">
+					<label for="name-control">Apellido:</label>
+					<input type="text" name="patient-last-name" class="form-control" placeholder="Apellido">
+				</div>
+
+				<div class="box-element half-width">
+					<label for="name-control">Fecha de Nacimiento:</label>
+					<input type="text" name="patient-birthdate" class="form-control date" placeholder="">
+				</div>
+
+				<div class="box-element half-width">
+					<label for="name-control">Email:</label>
+					<input type="text" name="patient-email" class="form-control" placeholder="Email">
+				</div>
+
+				<div class="box-element half-width">
+					<label for="name-control">Telefono:</label>
+					<input type="text" name="patient-phone1" class="form-control" placeholder="Telefono">
+				</div>
+				
+				<div class="clearfix"></div>
+
+				<div class="actions">
+					<button type="button" class="btn red cancel">CANCELAR</button>
+					<button type="button" class="btn green select">GUARDAR</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
 
 

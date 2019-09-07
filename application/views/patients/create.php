@@ -17,13 +17,6 @@
 <?php endif; ?>
 
 
-<?= $result; ?>
-<?= $form_data['patient_id_type']; ?> 
-<?= $form_data['patient_blood_type']; ?>
-<?= $form_data['patient_sex']; ?>
-
-
-
 <?php echo form_open('patients/create'); ?>
 
 	<div class="box-container">
@@ -33,10 +26,7 @@
 			<div class="box-content">
 				<div class="box-element halfs-container">
 					<label>Identificaci&oacute;n:</label>
-					<select name="patient-id-type" class="form-control half-left">
-						<option value="id">Cedula</option>
-						<option value="passport">Pasaporte</option>
-					</select>
+					<?php echo get_id_type_list(); ?>
 					<input type="text" name="patient-id-number" class="form-control half-right" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
 				</div>
 				<div class="box-element">
@@ -53,25 +43,11 @@
 				</div>
 				<div class="box-element">
 					<label>Sexo:</label>
-					<select name="patient-sex" class="form-control">
-						<option value="No Definido">No Definido</option>
-						<option value="masculino">Masculino</option>
-						<option value="Femenino">Femenino</option>
-					</select>
+					<?php echo get_sex_list(); ?>
 				</div>
 				<div class="box-element">
-					<label>Tipo Sangre:</label>
-					<select name="patient-blood-type" class="form-control">
-						<option value="Otro">Otro</option>
-						<option value="O+">O+</option>
-						<option value="O-">O-</option>
-						<option value="A+">A+</option>
-						<option value="A-">A-</option>
-						<option value="B+">B+</option>
-						<option value="A-">A-</option>
-						<option value="AB+">AB+</option>
-						<option value="AB-">AB-</option>
-					</select>	
+					<label>Tipo Sangre:</label>	
+					<?php echo get_blood_list(); ?>
 				</div>
 			</div>
 		</div>

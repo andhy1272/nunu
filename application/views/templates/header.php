@@ -41,9 +41,13 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 				<?php $this->load->view('templates/sidebar'); ?>
 
 				<div class="content">
-					<?php if($this->session->flashdata('user_registered')): ?>
-						<div class="notifications">
-							<?php echo $this->session->flashdata('user_registered'); ?>
+
+
+					<?php if($this->session->flashdata('message')): ?>
+						<div class="session-notifications">
+							<div class="message">
+								<?php echo $this->session->flashdata('message'); ?>
+							</div>
 						</div>
 					<?php endif; ?>
 

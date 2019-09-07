@@ -12,9 +12,7 @@
 	<tr>
 		<th>ID</th>
 		<th class="text-left">Nombre</th>
-		<th>Sexo</th>
-		<th>Edad</th>
-		<th>Tel&eacute;fono</th>
+		<th>Tel&eacute;fonos</th>
 		<th>Email</th>
 		<th>&nbsp;</th>
 	</tr>
@@ -24,10 +22,14 @@
 		<td class="text-left">
 			<?php echo $patient['patient_name'] . ' ' . $patient['patient_last_name']; ?>	
 		</td>
-		<td><?php echo ($patient['patient_sex'] == 'M') ? 'Masculino' : 'Femenino'; ?></td>
-		<td><?php //echo $patient['patient_age']; ?></td>
-		<td><?php echo $patient['patient_phone1']; ?></td>
-		<td><?php echo $patient['patient_email']; ?></td>
+		<td>
+			<?php echo $patient['patient_phone1']; ?> // <?php echo $patient['patient_phone2']; ?>	
+		</td>
+		<td>
+			<a href="mailto:<?php echo $patient['patient_email']; ?>">
+				<?php echo $patient['patient_email']; ?>	
+			</a>
+		</td>
 		<td>
 			<a href="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>">Ver</a>
 			&nbsp;&nbsp;&nbsp;

@@ -24,7 +24,7 @@ if ( ! function_exists('get_options_list'))
     $CI->load->database();
      
     //get data from database
-    $query = $CI->db->get_where('nunu_config', array('config_key' => $options_key));
+    $query = $CI->db->get_where('nunu_options', array('option_key' => $options_key));
      
     if($query->num_rows() > 0){
       return $query->result_array();
@@ -46,11 +46,32 @@ if ( ! function_exists('get_sex_list'))
 	 * 
 	 * @return	mixed
 	 */
-	function get_sex_list()
+	function get_sex_list($current_value = null)
 	{
-    return get_options_list('options/sex');
+    $sex_list = get_options_list('options/sex');
+
+    $control_html = '<select name="patient-sex" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($sex_list as $sex): 
+      if($sex['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $sex['option_value'] . '">' . $sex['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $sex['option_value'] . '">' . $sex['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
 	}
 }
+
+
+
 
 
 
@@ -64,11 +85,32 @@ if ( ! function_exists('get_id_list'))
    * 
    * @return  mixed
    */
-  function get_id_list()
+  function get_id_type_list($current_value = null)
   {
-    return get_options_list('options/id-type');
+    $id_type_list = get_options_list('options/id-type');
+
+    $control_html = '<select name="patient-id-type" class="form-control half-left">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($id_type_list as $id_type): 
+      if($id_type['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $id_type['option_value'] . '">' . $id_type['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $id_type['option_value'] . '">' . $id_type['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+
+
   }
 }
+
 
 
 
@@ -82,9 +124,33 @@ if ( ! function_exists('get_blood_list'))
    * 
    * @return  mixed
    */
-  function get_blood_list()
+  function get_blood_list($current_value = null)
   {
-    return get_options_list('options/blood-type');
+    $blood_list = get_options_list('options/blood-type');
+
+    if($current_value != null) {
+      if((!strpos($current_value, '-')) && ($current_value != 'Otro')) {
+        $current_value = trim($current_value) . "+";
+      }
+    }
+
+    $control_html = '<select name="patient-blood-type" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';
+    }
+    
+    foreach($blood_list as $blood_type): 
+      if($blood_type['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $blood_type['option_value'] . '">' . $blood_type['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $blood_type['option_value'] . '">' . $blood_type['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
   }
 }
 
