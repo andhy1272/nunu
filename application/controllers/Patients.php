@@ -80,7 +80,7 @@
 				$result = $this->patient_model->create();
 
 				if ($result) {
-					$this->session->set_flashdata('message', 'Paciente creado exitosamente');
+					$this->session->set_flashdata('message_success', 'Paciente creado exitosamente');
 					redirect('patients/edit/' . $result);
 				} 
 				else {

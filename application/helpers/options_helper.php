@@ -89,7 +89,7 @@ if ( ! function_exists('get_id_list'))
   {
     $id_type_list = get_options_list('options/id-type');
 
-    $control_html = '<select name="patient-id-type" class="form-control half-left">';
+    $control_html = '<select name="patient-id-type" class="form-control">';
 
     //if current_value is empty that means is not for edit
     if($current_value != null) {

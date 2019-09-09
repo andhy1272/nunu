@@ -109,7 +109,7 @@
 		});
 
 
-		$('.actions .select').click(function() {
+		$('.quicksearch-container .actions .select').click(function() {
 			index = $('.results-container tbody tr.selected').attr('index');
 
 			patient_name = jsonData[index]['patient_id_number'] + " / " + jsonData[index]['patient_name'] + " " + jsonData[index]['patient_last_name'];
@@ -121,7 +121,7 @@
 		});
 
 
-		$('.actions .cancel').click(function() {
+		$('.quicksearch-container .actions .cancel').click(function() {
 			$('.quicksearch-container').hide();
 		});
 

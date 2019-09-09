@@ -42,15 +42,10 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
 				<div class="content">
 
-
-					<?php if($this->session->flashdata('message')): ?>
-						<div class="session-notifications">
-							<div class="message">
-								<?php echo $this->session->flashdata('message'); ?>
-							</div>
-						</div>
-					<?php endif; ?>
-
+					<?php $this->load->view('templates/session-notifications'); ?>
+					
+					
+					
 
 
 
