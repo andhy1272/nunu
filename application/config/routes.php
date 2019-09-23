@@ -62,6 +62,10 @@ $route['patients'] = 'patients/list';
 $route['appointments'] = 'appointments/list';
 
 
+$route['users'] = 'users/list';
+$route['login'] = 'users/login';
+
+
 //Reduce this 'patients/list/list' to 'patients/list'
 //patients[class on controllers folder] /
 //list[function in that class] /

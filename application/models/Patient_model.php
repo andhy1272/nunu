@@ -29,23 +29,7 @@ class Patient_model extends CI_Model {
 
 	}
 
-	public function create(){
-		//User data array
-		$data = array(
-			'patient_id_number' => $this->input->post('patient-id-number'),
-			'patient_id_type' => $this->input->post('patient-id-type'),
-			'patient_name' => $this->input->post('patient-name'),
-			'patient_last_name' => $this->input->post('patient-last-name'),
-			'patient_birthdate' => $this->input->post('patient-birthdate'),
-			'patient_blood_type' => $this->input->post('patient-blood-type'),
-			'patient_sex' => $this->input->post('patient-sex'),
-			'patient_email' => $this->input->post('patient-email'),
-			'patient_phone1' => $this->input->post('patient-phone1'),
-			'patient_phone2' => $this->input->post('patient-phone2'),
-			'patient_address' => $this->input->post('patient-address'),
-			'patient_observations' => $this->input->post('patient-observations')
-		);
-
+	public function create($data){
 		// Insert user
 		$this->db->insert('nunu_patients', $data);
 		$insertId = $this->db->insert_id();

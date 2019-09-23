@@ -1,10 +1,4 @@
 <?php
-	//Checks if users is logged in
-	if(!$this->session->userdata('user_login')){
-		redirect('login');
-	}
-
-
 
 	$header_data['page_title'] = "NuNu";
 	if (isset($data['page_title'])) {
@@ -15,7 +9,7 @@
 
 
 	//LOADS HEAD AND HEADER
-	$this->load->view('templates/header', $header_data);
+	$this->load->view('templates/login/header', $header_data);
 
 	//LOADS BODY
 	if (isset($data)) {
@@ -25,4 +19,4 @@
 	}
 	
 	//LOADS FOOTER
-	$this->load->view('templates/footer');
+	$this->load->view('templates/login/footer');

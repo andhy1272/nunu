@@ -96,32 +96,32 @@
 
 				<div class="box-element half-width">
 					<label>&nbsp;</label>
-					<input type="text" name="patient-id-number" class="form-control" placeholder="ID Número">
+					<input type="text" name="patient-id-number" class="form-control patient-id-number" placeholder="ID Número">
 				</div>
 
 				<div class="box-element half-width">
 					<label for="name-control">Nombre:</label>
-					<input type="text" name="patient-name" class="form-control" placeholder="Nombre">
+					<input type="text" name="patient-name" class="form-control patient-name" placeholder="Nombre">
 				</div>
 
 				<div class="box-element half-width">
 					<label for="name-control">Apellido:</label>
-					<input type="text" name="patient-last-name" class="form-control" placeholder="Apellido">
+					<input type="text" name="patient-last-name" class="form-control patient-last-name" placeholder="Apellido">
 				</div>
 
 				<div class="box-element half-width">
 					<label for="name-control">Fecha de Nacimiento:</label>
-					<input type="text" name="patient-birthdate" class="form-control date" placeholder="">
+					<input type="text" name="patient-birthdate" class="form-control patient-birthdate date" placeholder="">
 				</div>
 
 				<div class="box-element half-width">
 					<label for="name-control">Email:</label>
-					<input type="text" name="patient-email" class="form-control" placeholder="Email">
+					<input type="text" name="patient-email" class="form-control patient-email" placeholder="Email">
 				</div>
 
 				<div class="box-element half-width">
 					<label for="name-control">Tel&eacute;fono:</label>
-					<input type="text" name="patient-phone1" class="form-control" placeholder="Telefono">
+					<input type="text" name="patient-phone1" class="form-control patient-phone1" placeholder="Telefono">
 				</div>
 				
 				<div class="clearfix"></div>
@@ -147,36 +147,39 @@
 
 		/*Loads Patient list*/
 		$('.patient-quickcreation-container button.save').click(function() {
-			patient_id = $('.patient-quickcreation-container input.id').val();
-			patient_name = $('.patient-quickcreation-container input.name').val();
+			_patient_id_type = $('.patient-quickcreation-container select[name="patient-id-type"]').val();
+			_patient_id_number = $('.patient-quickcreation-container input.patient-id-number').val();
+			_patient_name = $('.patient-quickcreation-container input.patient-name').val();
+			_patient_last_name = $('.patient-quickcreation-container input.patient-last-name').val();
+			_patient_birthdate = $('.patient-quickcreation-container input.patient-birthdate').val();
+			_patient_email = $('.patient-quickcreation-container input.patient-email').val();
+			_patient_phone1 = $('.patient-quickcreation-container input.patient-phone1').val();
 
-			if( (patient_id.trim() != "") || (patient_name.trim() != "") ) {
+
+			if( (_patient_id_type.trim() != "") && (_patient_id_number.trim() != "") && (_patient_name.trim() != "") && (_patient_last_name.trim() != "") && (_patient_birthdate.trim() != "") && (_patient_email.trim() != "") && (_patient_phone1.trim() != "") ) {
 				data = {
-					id: patient_id,
-					name: patient_name
+					patient_id_type: _patient_id_type,
+					patient_id_number: _patient_id_number,
+					patient_name: _patient_name,
+					patient_last_name: _patient_last_name,
+					patient_birthdate: _patient_birthdate,
+					patient_email: _patient_email,
+					patient_phone1: _patient_phone1
 				};
 
 				$.ajax({
-			  		url: "<?php echo site_url('patients/quick_search'); ?>", 
+			  		url: "<?php echo site_url('patients/quick_create'); ?>", 
 			  		type: "POST",
 			  		dataType: "json",
 					data: data,
 			  		success: function(result){
 			  			if(result) {
-			  				tableHTML = "<table>";
-			  				tableHTML += "<thead><tr><th></th><th>ID</th><th>Nombre</th></tr></thead>" 
-			  				tableHTML += "<tbody>";
-			  				$.each(result, function (i, item) {   
-					            tableHTML += "<tr index='" + i + "'>";
-					            tableHTML += "<td class='check'></td>";
-					            tableHTML += "<td>" + item.patient_id_number + "</td>"; 
-					            tableHTML += "<td>" + item.patient_name + " " + item.patient_last_name + "</td>"; 
-					            tableHTML += "</tr>";            
-					        });
-					        tableHTML += "</tbody></table>" 
-					        $('.results-container').html(tableHTML);
+			  				patient_name = _patient_id_number + " / " + _patient_name + " " + _patient_last_name;
+			  				
+			  				$('.search-patient-control').val(patient_name);
+							$('.patient-id').val(result);
 
-					        jsonData = result;
+							$('.patient-quickcreation-container').hide();
 			  			}
 
 			    		console.log(result);
@@ -192,7 +195,7 @@
 			  	});
 			}
 			else {
-				alert('Porfavor ingrese un ID o un Nombre.');
+				alert('Porfavor complete todos los campos.');
 			}
 		});
 

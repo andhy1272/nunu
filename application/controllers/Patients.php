@@ -77,7 +77,7 @@
 				$this->load->view('templates/main', $data);
 			}
 			else {
-				$result = $this->patient_model->create();
+				$result = $this->patient_model->create($form_data);
 
 				if ($result) {
 					$this->session->set_flashdata('message_success', 'Paciente creado exitosamente');
@@ -88,6 +88,23 @@
 					$this->session->set_flashdata('error_message', 'Ha ocurrido un error. Por favor intente de nuevo o contacte con el administrador del sistema');
 				}
 			}
+		}
+
+		public function quick_create() {
+			$form_data = array(
+				'patient_id_type' => $this->input->post('patient_id_type'),
+				'patient_id_number' => $this->input->post('patient_id_number'),
+				'patient_name' => $this->input->post('patient_name'),
+				'patient_last_name' => $this->input->post('patient_last_name'),
+				'patient_birthdate' => $this->input->post('patient_birthdate'),
+				'patient_email' => $this->input->post('patient_email'),
+				'patient_phone1' => $this->input->post('patient_phone1'),
+				'patient_address' => ':)'
+			);
+
+			$result = $this->patient_model->create($form_data);
+
+			echo json_encode($result);
 		}
 
 
