@@ -418,6 +418,26 @@ select {
 
 }
 
+/* Background section */
+.box-background .background-question{
+	width: 35%;
+	float: left;
+	margin-right: 5%;
+}
+
+.box-background .background-question ul{
+	margin-bottom: 15px;
+}
+
+.box-background .background-question strong{
+	font-weight: bold;
+}
+
+.box-background .background-control{
+	width: 60%;
+	float: left;
+}
+
 
 /* ACCORDION */
 .accordion {  }

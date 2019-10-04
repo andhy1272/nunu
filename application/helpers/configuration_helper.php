@@ -36,21 +36,19 @@ if ( ! function_exists('get_configuration_value'))
 
 
 
-if ( ! function_exists('get_patients_list'))
-{
+if ( ! function_exists('get_business_name') ) {
 	/**
-	 * get_patients_list
+	 * get_business_name
 	 *
-	 * Returns the Patients List from Database
+	 * Returns the Business Name from Database
 	 * 
 	 * @return	mixed
 	 */
-	function get_patients_list()
+	function get_business_name()
 	{
     $filters = array('config_key' => $options_key);
-    $filters = array();
 
-    return get_search_list('nunu_patients', $filters);
+    return get_configuration_value('nunu_patients', $filters);
 	}
 }
 

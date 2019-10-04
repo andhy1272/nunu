@@ -88,7 +88,7 @@
 	</div>
 
 
-	<div class="box box-historial">
+	<div class="box box-background">
 		<div class="box-name"><span>ANTECEDENTES</span></div>
 		<div class="box-content">
 
@@ -97,9 +97,8 @@
 					<span>Heredo Familiares</span>
 				</div>
 				<div class="accordion-tab tab-content tab-1">
-
 					<div class="background-question">
-						<p>Alguien en su familia a sufrido de:</p>
+						<p><strong>Alguien en su familia a sufrido de:</strong></p>
 						<ul>
 							<li>- Asma</li>
 							<li>- Diabetes</li>
@@ -114,63 +113,9 @@
 							<li>- Neoplasias</li> 
 						</ul>
 					</div>
-
-
-
-					<div class="box-element third-width">
-						<label>Asma:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-asthma" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Diabetes:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-diabetes" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Hipertension:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-hypertension" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Cardiopatia:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-cardiac-ill" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Hepatopatia:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-liver-ill" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Nefropatia:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-nephropathy" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Enf. Mentales:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-mental-ill" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Osteoarticulares:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-osteoarticular" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Enf. Alergicas:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-alergies" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Enf. Endocrinas:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-endrocrine" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
-					</div>
-					<div class="box-element third-width">
-						<label>Neoplasias:</label> <br/>
-						<textarea rows="3" maxlength="255" name="background-neoplasms" class="form-control count-chars"></textarea>
-						<span class="char-counter" title="Remain chars">255</span>
+					<div class="box-element background-control">
+						<label>Antecedentes:</label> <br/>
+						<textarea rows="10" name="background-family" class="form-control"><?= $form_data_background['background_family']; ?></textarea>
 					</div>
 				</div>
 
@@ -179,20 +124,22 @@
 				</div>
 				<div class="accordion-tab tab-content tab-2">
 					<div class="background-question">
-						<p>Ha sido usted sometido a procedimientos:</p>
+						<p><strong>Datos a recabar:</strong></p>
 						<ul>
-							<li>Quirurgicos</li>
-							<li>Transfusion</li>
-							<li>Alergias</li>   
-							<li>Traumaticos</li>      
-							<li>Patologia Cronica</li> 
+							<li>- Quirurgicos</li>
+							<li>- Transfusion</li>
+							<li>- Alergias</li>   
+							<li>- Traumaticos</li>      
+							<li>- Patologia Cronica</li> 
+							<li>- Hospitalizaciones Previas</li> 
+							<li>- Adicciones</li> 
+							<li>- Digestivas</li> 
+							<li>- Otros</li> 
 						</ul>
 					</div>
-					<div class="background-control">
-					</div>
-					<div class="background-data">
-						<textarea class="control visible"></textarea>
-						<textarea class="control hide" name="background-patologic"></textarea>
+					<div class="box-element background-control">
+						<label>Antecedentes:</label> <br/>
+						<textarea rows="10" name="background-pathalogic" class="form-control"><?= $form_data_background['background_pathalogic']; ?></textarea>
 					</div>
 				</div>
 
@@ -200,21 +147,85 @@
 					<span>Personales No Patologicos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-3">
-					
+					<div class="background-question">
+						<p><strong>Datos a recabar:</strong></p>
+						<ul>
+							<li>- Drogas</li>
+							<li>- Alcohol</li>
+							<li>- Tabaquismo (cig/dia)</li>
+							<li>- Alimentacion (veces/dia)</li>
+							<li>- Actividad Fisica</li>
+							<li>- Inmunizaciones</li>
+						</ul>
+					</div>
+					<div class="box-element background-control">
+						<label>Antecedentes:</label> <br/>
+						<textarea rows="10" name="background-non-pathalogic" class="form-control"><?= $form_data_background['background_non_pathalogic']; ?></textarea>
+					</div>
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-4">
 					<span>Neonatales</span>
 				</div>
 				<div class="accordion-tab tab-content tab-4">
-					
+					<div class="background-question">
+						<p><strong>Datos a recabar:</strong></p>
+						<ul>
+							<li>- Cesarea &oacute Parto</li>
+							<li>- Controles</li>
+							<li>- Ecos</li>
+							<li>- Semanas de Gestacion</li>
+							<li>- Infecciones Urinarias (Si/No) - (Recibio Tratamiento)</li>
+							<li>- Infecciones Vaginales (Si/No) - (Recibio Tratamiento)</li>
+							<li>- Hipertension durante el embarazo (Si/No)</li>
+							<li>- Diabetes Gestacional (Si/No)</li>
+							<li>- Peso al Nacer (Kgs)</li>
+							<li>- Talla al Nacer (cms)</li>
+							<li>- Perimetro Cefalico (cms)</li>    
+						</ul>
+
+						<ul>
+							<li>APGAR</li>
+							<li>- Minuto 1</li>     
+							<li>- Minuto 5</li>
+						</ul>
+					</div>
+					<div class="box-element background-control">
+						<label>Antecedentes:</label> <br/>
+						<textarea rows="15" name="background-neonatal" class="form-control"><?= $form_data_background['background_neonatal']; ?></textarea>
+					</div>
 				</div>
 
 				<div class="accordion-tab tab-title" data-index="tab-5">
 					<span>Gineco Obstetricos</span>
 				</div>
 				<div class="accordion-tab tab-content tab-5">
-					
+					<div class="background-question">
+						<p><strong>Datos a recabar:</strong></p>
+						<ul>
+							<li>- Menarquia</li> 
+							<li>- Menopausia</li> 
+							<li>- Ritmo Menstrual</li>
+							<li>- FUM</li>
+							<li>- FPP</li>
+							<li>- Gestacionales</li>
+							<li>- Actividad Sexual (Si/No)</li>
+							<li>- Met. Anticonceptivo</li>
+							<li>- PAP test</li>
+							<li>- Numero de parejas</li>
+						</ul>
+
+						<ul>
+							<li>PARTOS</li>
+							<li>- Vivos</li>
+							<li>- Cesareas</li>
+							<li>- Abortos</li>
+						</li>
+					</div>
+					<div class="box-element background-control">
+						<label>Antecedentes:</label> <br/>
+						<textarea rows="15" name="background-gyneco-obstetric" class="form-control"><?= $form_data_background['background_gyneco_obstetric']; ?></textarea>
+					</div>
 				</div>
 			</div>
 

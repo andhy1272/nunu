@@ -19,8 +19,8 @@ class Patient_model extends CI_Model {
 		return $query->row_array();
 	}
 
-	public function get_view_history($patient_id) {
-		$query = $this->db->get('nunu_xml');
+	public function get_view_background($patient_id) {
+		$query = $this->db->get_where('nunu_patient_background', array('background_patient_id' => $patient_id));
 		return $query->row_array();
 	}
 
@@ -29,12 +29,22 @@ class Patient_model extends CI_Model {
 
 	}
 
-	public function create($data){
-		// Insert user
+	public function create($data, $data_background = null){
+		// Create patient
 		$this->db->insert('nunu_patients', $data);
 		$insertId = $this->db->insert_id();
-		return $insertId;
 
+		if($insertId){
+			if($data_background == null) {
+				$data_background = array();
+			}
+
+			$data_background['background_patient_id'] = $insertId;
+
+			$this->db->insert('nunu_patient_background', $data_background);
+		}
+
+		return $insertId;
 	}
 
 

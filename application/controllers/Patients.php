@@ -27,7 +27,7 @@
 			$data['view'] = $this::VIEW_VIEW;
 			$data['data']['page_title'] = "Detalles del Paciente";
 			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
-			$data['data']['patient_history'] = $this->patient_model->get_view_history($patient_id);
+			$data['data']['patient_data_background'] = $this->patient_model->get_view_background($patient_id);
 			$data['data']['error'] = '';
 
 			if(empty($data['data']['patient_data'])) {
@@ -60,6 +60,16 @@
 			);
 			$data['form_data'] = $form_data;
 
+			$form_data_background = array(
+				'background_family' => $this->input->post('background-family'),
+				'background_pathalogic' => $this->input->post('background-pathalogic'),
+				'background_non_pathalogic' => $this->input->post('background-non-pathalogic'),
+				'background_neonatal' => $this->input->post('background-neonatal'),
+				'background_gyneco_obstetric' => $this->input->post('background-gyneco-obstetric')
+			);
+			$data['form_data_background'] = $form_data_background;
+
+
 			//echo $this->input->post('patient-birthdate');
 			//exit;
 			
@@ -77,7 +87,7 @@
 				$this->load->view('templates/main', $data);
 			}
 			else {
-				$result = $this->patient_model->create($form_data);
+				$result = $this->patient_model->create($form_data, $form_data_background);
 
 				if ($result) {
 					$this->session->set_flashdata('message_success', 'Paciente creado exitosamente');
@@ -114,6 +124,7 @@
 			$data['data']['page_title'] = "Editar Paciente";
 			
 			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
+			$data['data']['patient_data_background'] = $this->patient_model->get_view_background($patient_id);
 			$data['data']['error'] = '';
 
 			if(empty($data['data']['patient_data'])) {
