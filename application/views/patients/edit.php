@@ -106,8 +106,10 @@
 						</ul>
 					</div>
 					<div class="box-element background-control">
-						<label>Antecedentes:</label> <br/>
-						<textarea rows="10" name="background-family" class="form-control"><?php echo $patient_data_background['background_family']; ?></textarea>
+						<label>Antecedentes Heredo Familiares:</label> <br/>
+						<textarea rows="10" id="background_family" name="background-family" class="form-control" readonly><?php echo $patient_data_background['background_family']; ?></textarea>
+
+						<button type="button" action="edit-background" data-type="textarea" data-label="Antecedentes Heredo Familiares:" data-control-name="background_family" data-value="<?php echo $patient_data_background['background_family']; ?>">Editar</button>
 					</div>
 				</div>
 
@@ -130,8 +132,10 @@
 						</ul>
 					</div>
 					<div class="box-element background-control">
-						<label>Antecedentes:</label> <br/>
-						<textarea rows="10" name="background-pathalogic" class="form-control"><?php echo $patient_data_background['background_pathalogic']; ?></textarea>
+						<label>Antecedentes Personales Patologicos:</label> <br/>
+						<textarea rows="10" id="background_pathalogic" name="background-pathalogic" class="form-control" readonly><?php echo $patient_data_background['background_pathalogic']; ?></textarea>
+
+						<button type="button" action="edit-background" data-type="textarea" data-label="Antecedentes Personales Patologicos:" data-control-name="background_pathalogic" data-value="<?php echo $patient_data_background['background_pathalogic']; ?>">Editar</button>
 					</div>
 				</div>
 
@@ -151,8 +155,10 @@
 						</ul>
 					</div>
 					<div class="box-element background-control">
-						<label>Antecedentes:</label> <br/>
-						<textarea rows="10" name="background-non-pathalogic" class="form-control"><?php echo $patient_data_background['background_non_pathalogic']; ?></textarea>
+						<label>Antecedentes Personales No Patologicos:</label> <br/>
+						<textarea rows="10" id="background_non_pathalogic" name="background-non-pathalogic" class="form-control" readonly><?php echo $patient_data_background['background_non_pathalogic']; ?></textarea>
+
+						<button type="button" action="edit-background" data-type="textarea" data-label="Antecedentes Personales No Patologicos:" data-control-name="background_non_pathalogic" data-value="<?php echo $patient_data_background['background_non_pathalogic']; ?>">Editar</button>
 					</div>
 				</div>
 
@@ -183,8 +189,10 @@
 						</ul>
 					</div>
 					<div class="box-element background-control">
-						<label>Antecedentes:</label> <br/>
-						<textarea rows="15" name="background-neonatal" class="form-control"><?php echo $patient_data_background['background_neonatal']; ?></textarea>
+						<label>Antecedentes Neonatales:</label> <br/>
+						<textarea rows="15" id="background_neonatal" name="background-neonatal" class="form-control" readonly><?php echo $patient_data_background['background_neonatal']; ?></textarea>
+
+						<button type="button" action="edit-background" data-type="textarea" data-label="Antecedentes Neonatales:" data-control-name="background_neonatal" data-value="<?php echo $patient_data_background['background_neonatal']; ?>">Editar</button>
 					</div>
 				</div>
 
@@ -215,8 +223,10 @@
 						</li>
 					</div>
 					<div class="box-element background-control">
-						<label>Antecedentes:</label> <br/>
-						<textarea rows="15" name="background-gyneco-obstetric" class="form-control"><?php echo $patient_data_background['background_gyneco_obstetric']; ?></textarea>
+						<label>Antecedentes Gineco Obstetricos:</label> <br/>
+						<textarea rows="15" id="background_gyneco_obstetric" name="background-gyneco-obstetric" class="form-control" readonly><?php echo $patient_data_background['background_gyneco_obstetric']; ?></textarea>
+
+						<button type="button" action="edit-background" data-type="textarea" data-label="Antecedentes Gineco Obstetricos:" data-control-name="background_gyneco_obstetric" data-value="<?php echo $patient_data_background['background_gyneco_obstetric']; ?>">Editar</button>
 					</div>
 				</div>
 			</div>
@@ -229,7 +239,7 @@
 
 
 
-
+	<!--EDIT CONTROL-->
 	<div class="edit-container">
 		<div class="edit-wrapper">
 			<div class="box edit-box">
@@ -268,12 +278,14 @@
 	<script type="text/javascript">
 		$(document).ready(function() {
 			var edit_button_clicked = "";
+			var edit_action = "";
 
-			$("button[action=edit]").click(function(){
+			$("button[action*=edit]").click(function(){
 				edit_label = $(this).attr('data-label');
 				edit_value = $(this).attr('data-value');
 				edit_type = $(this).attr('data-type');
 				edit_hidden = $(this).attr('data-control-name');
+				edit_action = $(this).attr('action');
 				edit_button_clicked = $(this);
 
 
@@ -316,6 +328,8 @@
 
 
 			function save_edited_data() {
+				ajax_url = "<?php echo site_url('patients/edit_specific_attribute'); ?>";
+
 				data = {
 					patient_id: <?php echo $patient_data['patient_id']; ?>,
 					object_name: 'patients',
@@ -323,8 +337,20 @@
 					new_value: $('.edit-container .edit-control').val()
 				};
 
+				//if is an element of background patient table
+				if(edit_action == "edit-background") {
+					ajax_url = "<?php echo site_url('patients/edit_specific_attribute_background'); ?>"
+
+					data = {
+						patient_id: <?php echo $patient_data['patient_id']; ?>,
+						object_name: 'patient_background',
+						control_name: $('.edit-container .edit-hidden').val(),
+						new_value: $('.edit-container .edit-control').val()
+					};
+				}
+
 				$.ajax({
-			  		url: "<?php echo site_url('patients/edit_specific_attribute'); ?>", 
+			  		url: ajax_url, 
 			  		type: "POST",
 			  		dataType: 'json',
 					data: data,

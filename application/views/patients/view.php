@@ -11,8 +11,8 @@
 	<h1><?php echo $patient_data['patient_name'] . ' ' . $patient_data['patient_last_name']; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>patients/" class="btn blue">ATRAS</a>
-		<a href="<?php echo base_url(); ?>patients/edit/" class="btn green">EDITAR</a>
+		<a href="<?php echo site_url('patients'); ?>" class="btn blue">ATRAS</a>
+		<a href="<?php echo site_url('patients/edit/' . $patient_data['patient_id']); ?>" class="btn green">EDITAR</a>
 	</div>
 </div>
 
@@ -117,8 +117,8 @@
 					</ul>
 				</div>
 				<div class="box-element background-control">
-					<label>Antecedentes:</label> <br/>
-					<textarea rows="10" name="background-family" class="form-control"><?php echo $patient_data_background['background_family']; ?></textarea>
+					<label>Antecedentes Heredo Familiares:</label> <br/>
+					<textarea rows="10" name="background-family" class="form-control" readonly><?php echo $patient_data_background['background_family']; ?></textarea>
 				</div>
 			</div>
 
@@ -141,8 +141,8 @@
 					</ul>
 				</div>
 				<div class="box-element background-control">
-					<label>Antecedentes:</label> <br/>
-					<textarea rows="10" name="background-pathalogic" class="form-control"><?php echo $patient_data_background['background_pathalogic']; ?></textarea>
+					<label>Antecedentes Personales Patologicos:</label> <br/>
+					<textarea rows="10" name="background-pathalogic" class="form-control" readonly><?php echo $patient_data_background['background_pathalogic']; ?></textarea>
 				</div>
 			</div>
 
@@ -162,8 +162,8 @@
 					</ul>
 				</div>
 				<div class="box-element background-control">
-					<label>Antecedentes:</label> <br/>
-					<textarea rows="10" name="background-non-pathalogic" class="form-control"><?php echo $patient_data_background['background_non_pathalogic']; ?></textarea>
+					<label>Antecedentes Personales No Patologicos:</label> <br/>
+					<textarea rows="10" name="background-non-pathalogic" class="form-control" readonly><?php echo $patient_data_background['background_non_pathalogic']; ?></textarea>
 				</div>
 			</div>
 
@@ -194,8 +194,8 @@
 					</ul>
 				</div>
 				<div class="box-element background-control">
-					<label>Antecedentes:</label> <br/>
-					<textarea rows="15" name="background-neonatal" class="form-control"><?php echo $patient_data_background['background_neonatal']; ?></textarea>
+					<label>Antecedentes Neonatales:</label> <br/>
+					<textarea rows="15" name="background-neonatal" class="form-control" readonly><?php echo $patient_data_background['background_neonatal']; ?></textarea>
 				</div>
 			</div>
 
@@ -226,8 +226,8 @@
 					</li>
 				</div>
 				<div class="box-element background-control">
-					<label>Antecedentes:</label> <br/>
-					<textarea rows="15" name="background-gyneco-obstetric" class="form-control"><?php echo $patient_data_background['background_gyneco_obstetric']; ?></textarea>
+					<label>Antecedentes Gineco Obstetricos:</label> <br/>
+					<textarea rows="15" name="background-gyneco-obstetric" class="form-control" readonly><?php echo $patient_data_background['background_gyneco_obstetric']; ?></textarea>
 				</div>
 			</div>
 		</div>

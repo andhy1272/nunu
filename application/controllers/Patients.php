@@ -152,6 +152,23 @@
 		}
 
 
+		//Function called using AJAX to save modified data on background table
+		public function edit_specific_attribute_background() {
+			
+			$patient_id = $this->input->post('patient_id');
+			$table = "nunu_" . $this->input->post('object_name');
+			$column = $this->input->post('control_name');
+			$new_value = $this->input->post('new_value');
+
+			$data = array('patient_id' => $patient_id, 'table_name' => $table, 'column_name' => $column, 'new_value' => $new_value);
+
+			$result = $this->patient_model->edit_specific_attribute_background($data);
+			//$result;
+
+			echo json_encode($result);
+		}
+
+
 		//Function called using AJAX
 		//Returns field for edit data -- text, textarea, date, dropdowns(sex, blood type, )
 		public function load_control_type() {

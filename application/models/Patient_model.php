@@ -69,6 +69,19 @@ class Patient_model extends CI_Model {
 	}
 
 
+	public function edit_specific_attribute_background(array $data) {
+		$data_to_update = array( 
+		    $data['column_name'] => $data['new_value']
+		);
+
+		$this->db->where('background_patient_id', $data['patient_id']);
+
+		$result = $this->db->update($data['table_name'], $data_to_update);
+
+		return $result;
+	}
+
+
 	public function quick_search($patient_id = null, $patient_name = null) {
 		//SELECT patient_id_number, patient_name, patient_last_name FROM nunu_patients WHERE patient_id_number LIKE '%7%' OR patient_name LIKE '%T%' OR patient_last_name LIKE '%L%' ORDER BY patient_name;
 
