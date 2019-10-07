@@ -46,6 +46,22 @@
 			$data['data']['page_title'] = "Crear Cita";
 			$data['result'] = "vacio";
 
+			$form_data = array(
+				'appointment_patient_id' => $this->input->post('patient-id'),
+				'appointment_medic' => $this->input->post('appointment-medic'),
+				'appointment_store' => $this->input->post('appointment-store'),
+				'appointment_service' => $this->input->post('appointment-service'),
+				'appointment_notes' => $this->input->post('appointment-notes')
+			);
+			$data['form_data'] = $form_data;
+
+			$this->form_validation->set_rules('patient-id', 'Paciente', 'required');
+			$this->form_validation->set_rules('appointment-medic', 'Medico', 'required');
+			$this->form_validation->set_rules('appointment-store', 'Sucursal', 'required');
+			$this->form_validation->set_rules('appointment_service', 'Servicio', 'required');
+			$this->form_validation->set_rules('appointment-notes', 'Detalles', 'required');
+
+
 			$this->load->view('templates/main', $data);
 		}
 
