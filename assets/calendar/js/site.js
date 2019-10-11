@@ -3,6 +3,12 @@ var calendars = {};
 
 $(document).ready( function() {
 
+  var calendar_control = $('.calendar-control');
+
+  $('.calendar-control').click(function(){
+    $('.cal-popup').toggle();
+  });
+
   // assuming you've got the appropriate language files,
   // clndr will respect whatever moment's language is set to.
   // moment.lang('ru');
@@ -29,6 +35,10 @@ $(document).ready( function() {
     clickEvents: {
       click: function(target) {
         console.log(target);
+
+        calendar_control.val(target.date['_i']);
+        $('.bottom-controls .selected-date').html(target.date['_i']);
+
         if($(target.element).hasClass('inactive')) {
           console.log('not a valid datepicker date.');
         } else {
@@ -52,6 +62,9 @@ $(document).ready( function() {
       },
       onYearChange: function() {
         console.log('year changed.');
+      },
+      back: function() {
+        console.log('month back.');
       }
     },
     multiDayEvents: {
@@ -78,12 +91,12 @@ $(document).ready( function() {
     if(e.keyCode == 37) {
       // left arrow
       calendars.clndr1.back();
-      calendars.clndr2.back();
+      //calendars.clndr2.back();
     }
     if(e.keyCode == 39) {
       // right arrow
       calendars.clndr1.forward();
-      calendars.clndr2.forward();
+      //calendars.clndr2.forward();
     }
   });
 

@@ -59,6 +59,10 @@
 					</select>
 				</div>
 				<div class="box-element">
+					<label>Fecha:</label>
+					<input type="text" name="appointment-date" class="form-control calendar-control" placeholder="">
+				</div>
+				<div class="box-element">
 					<label>Detalles:</label>
 					<input type="text" name="appointment-notes" class="form-control" placeholder="Detalles">
 				</div>

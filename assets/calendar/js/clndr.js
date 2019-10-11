@@ -23,10 +23,16 @@
 
   // This is the default calendar template. This can be overridden.
   var clndrTemplate = "<div class='clndr-controls'>" +
-    "<div class='clndr-control-button'><p class='clndr-previous-button'>previous</p></div>" +
-    "<div class='month'><%= month %> <%= year %></div>" + 
-    "<div class='clndr-control-button rightalign'><p class='clndr-next-button'>next</p></div>" +
-    "<div class='clndr-control-button rightalign'><p class='clndr-next-year-button'>NY</p></div>" +
+      "<div class='month-container'>" +
+        "<div class='clndr-control-button'><p class='clndr-previous-button'>previous</p></div>" +
+        "<div class='month'><%= month %></div>" + 
+        "<div class='clndr-control-button rightalign'><p class='clndr-next-button'>next</p></div>" +
+      "</div>" +
+      "<div class='year-container'>" +
+        "<div class='clndr-control-button'><p class='clndr-previous-year-button'>PY</p></div>" +
+        "<div class='year'><%= year %></div>" +
+        "<div class='clndr-control-button rightalign'><p class='clndr-next-year-button'>NY</p></div>" +
+      "</div>" +
     "</div>" +
   "<table class='clndr-table' border='0' cellspacing='0' cellpadding='2'>" +
     "<thead>" +
@@ -47,7 +53,11 @@
       "</tr>" +
     "<% } %>" +
     "</tbody>" +
-  "</table>";
+  "</table>" +
+  "<div class='bottom-controls'>" +
+    "<span class='selected-date'></span>" +
+    "<button class='btn green'>SELECCIONAR</button>" +
+  "<div>";
 
   var pluginName = 'clndr';
 
