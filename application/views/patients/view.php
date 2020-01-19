@@ -13,6 +13,7 @@
 	<div class="page-actions">
 		<a href="<?php echo site_url('patients'); ?>" class="btn blue">ATRAS</a>
 		<a href="<?php echo site_url('patients/edit/' . $patient_data['patient_id']); ?>" class="btn green">EDITAR</a>
+		<a href="<?php echo site_url('patients/delete/' . $patient_data['patient_id']); ?>" class="btn red">ELIMINAR</a>
 	</div>
 </div>
 
@@ -30,15 +31,7 @@
 			</div>
 			<div class="box-element">
 				<label>Sexo:</label>
-				<?php echo ($patient_data['patient_sex'] == 'M') ? 'Masculino' : 'Femenino'; ?>
-			</div>
-			<div class="box-element">
-				<label>Ultimo Peso:</label>
-				<?php echo $patient_data['patient_last_weight']; ?>	
-			</div>
-			<div class="box-element">
-				<label>Ultima Altura:</label>
-				<?php echo $patient_data['patient_last_height']; ?>	
+				<?php echo $patient_data['patient_sex']; ?>
 			</div>
 			<div class="box-element">
 				<label>Edad:</label>
@@ -47,6 +40,10 @@
 			<div class="box-element">
 				<label>Tipo Sangre:</label>
 				<?php echo $patient_data['patient_blood_type']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Agregado en: </label>
+				<?php echo $patient_data['patient_created_at']; ?>	
 			</div>
 		</div>
 	</div>
@@ -76,19 +73,6 @@
 		</div>
 	</div>
 
-	<div class="box box-3">
-		<div class="box-name"><span>Informaci&oacute;n Adicional</span></div>
-		<div class="box-content">
-			<div class="box-element">
-				<label>Detalles:</label> <br/>
-				<?php echo $patient_data['patient_observations']; ?>	
-			</div>
-			<div class="box-element">
-				<label>Agregado en: </label>
-				<?php echo $patient_data['patient_created_at']; ?>	
-			</div>
-		</div>
-	</div>
 </div>
 
 <div class="box box-background">
@@ -101,7 +85,6 @@
 			</div>
 			<div class="accordion-tab tab-content tab-1">
 				<div class="background-question">
-					<p><strong>Alguien en su familia a sufrido de:</strong></p>
 					<ul>
 						<li>- Asma</li>
 						<li>- Diabetes</li>
@@ -127,7 +110,6 @@
 			</div>
 			<div class="accordion-tab tab-content tab-2">
 				<div class="background-question">
-					<p><strong>Datos a recabar:</strong></p>
 					<ul>
 						<li>- Quirurgicos</li>
 						<li>- Transfusion</li>
@@ -151,7 +133,6 @@
 			</div>
 			<div class="accordion-tab tab-content tab-3">
 				<div class="background-question">
-					<p><strong>Datos a recabar:</strong></p>
 					<ul>
 						<li>- Drogas</li>
 						<li>- Alcohol</li>
@@ -172,7 +153,6 @@
 			</div>
 			<div class="accordion-tab tab-content tab-4">
 				<div class="background-question">
-					<p><strong>Datos a recabar:</strong></p>
 					<ul>
 						<li>- Cesarea &oacute Parto</li>
 						<li>- Controles</li>
@@ -204,7 +184,6 @@
 			</div>
 			<div class="accordion-tab tab-content tab-5">
 				<div class="background-question">
-					<p><strong>Datos a recabar:</strong></p>
 					<ul>
 						<li>- Menarquia</li> 
 						<li>- Menopausia</li> 

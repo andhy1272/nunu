@@ -9,7 +9,6 @@
 		private const VIEW_VIEW = 'patients/view';
 		private const VIEW_CREATE = 'patients/create';
 
-
 		//Shows patients list
 		public function list() {
 			//if(!file_exists(APPPATH.'views/patients/list.php')){
@@ -22,7 +21,6 @@
 
 			$this->load->view('templates/main', $data);
 		}
-
 
 		//View patient information
 		public function view($patient_id = NULL) {
@@ -58,7 +56,7 @@
 				'patient_phone1' => $this->input->post('patient-phone1'),
 				'patient_phone2' => $this->input->post('patient-phone2'),
 				'patient_address' => $this->input->post('patient-address'),
-				'patient_profesion' => $this->input->post('patient-profesion')
+				'patient_observations' => $this->input->post('patient-observations')
 			);
 			$data['form_data'] = $form_data;
 
@@ -101,7 +99,6 @@
 				}
 			}
 		}
-
 
 		public function quick_create() {
 			$form_data = array(

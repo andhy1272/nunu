@@ -1,17 +1,17 @@
 <div class="sidebar">
 	<ul id="main-menu">
-		<li><a href="<?php echo base_url(); ?>">Inicio</a></li>
-		<li><a href="<?php echo base_url(); ?>appointments/">Citas</a></li>
-		<li><a href="<?php echo base_url(); ?>patients/">Pacientes</a></li>
-		<li><a href="<?php echo base_url(); ?>historial/">Historial</a></li>
+		<li><a class="icon-charts" href="<?php echo base_url(); ?>">Inicio</a></li>
+		<li><a class="icon-document" href="<?php echo base_url(); ?>appointments/">Citas</a></li>
+		<li><a class="icon-agenda" href="<?php echo base_url(); ?>patients/">Pacientes</a></li>
+		<li><a class="icon-document" href="<?php echo base_url(); ?>historial/">Historial</a></li>
 	</ul>
 
-	<div class="tools">
+	<div class="tools-menu">
 		<ul>
-			<li><a href="<?php echo base_url(); ?>reports/">Reportes</a></li>
-			<li><a href="<?php echo base_url(); ?>pediatric-calc/">Caculadora Pediatrica</a></li>
-			<li><a href="<?php echo base_url(); ?>configuration/">Configuracion</a></li>
-			<li><a href="<?php echo base_url(); ?>users/logout">Cerrar Sesion</a></li>
+			<li><a class="" href="<?php echo base_url(); ?>reports/">Reportes</a></li>
+			<li><a class="" href="<?php echo base_url(); ?>pediatric-calc/">Caculadora Pediatrica</a></li>
+			<li><a class="" href="<?php echo base_url(); ?>configuration/">Configuracion</a></li>
+			<li><a class="" href="<?php echo base_url(); ?>users/logout">Cerrar Sesion</a></li>
 		</ul>	
 	</div>
 </div>

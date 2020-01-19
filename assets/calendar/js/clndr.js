@@ -55,8 +55,8 @@
     "</tbody>" +
   "</table>" +
   "<div class='bottom-controls'>" +
-    "<span class='selected-date'></span>" +
-    "<button class='btn green'>SELECCIONAR</button>" +
+    "<span class='selected-date'>Fecha seleccionada: <span class='date'></span></span>" +
+    "<button class='btn green ready'>LISTO</button>" +
   "<div>";
 
   var pluginName = 'clndr';

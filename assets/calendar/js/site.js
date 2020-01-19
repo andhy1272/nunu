@@ -9,6 +9,10 @@ $(document).ready( function() {
     $('.cal-popup').toggle();
   });
 
+  $('.cal-popup').on('click', 'button.ready', function(){
+    $('.cal-popup').hide();
+  });
+
   // assuming you've got the appropriate language files,
   // clndr will respect whatever moment's language is set to.
   // moment.lang('ru');
@@ -37,7 +41,7 @@ $(document).ready( function() {
         console.log(target);
 
         calendar_control.val(target.date['_i']);
-        $('.bottom-controls .selected-date').html(target.date['_i']);
+        $('.bottom-controls .selected-date .date').html(target.date['_i']);
 
         if($(target.element).hasClass('inactive')) {
           console.log('not a valid datepicker date.');

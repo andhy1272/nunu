@@ -24,30 +24,47 @@
 		<div class="box box-3">
 			<div class="box-name"><span>Informaci&oacute;n General</span></div>
 			<div class="box-content">
-				<div class="box-element halfs-container">
+				<div class="box-element half-left">
 					<label>Identificaci&oacute;n:</label>
-					<?php echo get_id_type_list(); ?>
-					<input type="text" name="patient-id-number" class="form-control half-right" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
+					<?php echo get_id_type_list(); //options_helper ?>
 				</div>
-				<div class="box-element">
+
+				<div class="box-element half-right">
+					<label>&nbsp;</label>
+					<input type="text" name="patient-id-number" class="form-control" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
+				</div>
+
+				<div class="box-element half-left">
 					<label>Nombre:</label>
 					<input type="text" name="patient-name" class="form-control" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
 				</div>
-				<div class="box-element">
+				<div class="box-element half-right">
 					<label>Apellidos:</label>
 					<input type="text" name="patient-last-name" class="form-control" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
 				</div>
-				<div class="box-element">
+				<div class="box-element half-left">
 					<label>Fecha de Nacimiento:</label>
 					<input type="text" name="patient-birthdate" class="form-control date" value="<?= $form_data['patient_birthdate']; ?>">
 				</div>
-				<div class="box-element">
+				<div class="box-element half-right">
 					<label>Sexo:</label>
-					<?php echo get_sex_list(); ?>
+					<?php echo get_sex_list(); //options_helper ?>
 				</div>
-				<div class="box-element">
+				<div class="box-element half-left">
 					<label>Tipo Sangre:</label>	
-					<?php echo get_blood_list(); ?>
+					<?php echo get_blood_list(); //options_helper ?>
+				</div>
+				<div class="box-element half-right">
+					<label>Estado civil:</label>	
+					<?php echo get_marital_status_list(); //options_helper ?>
+				</div>
+				<div class="box-element half-left">
+					<label>Educaci&oacute;n:</label>	
+					<?php echo get_education_list(); //options_helper ?>
+				</div>
+				<div class="box-element half-right">
+					<label>Profesi&oacute;n:</label>	
+					<input type="text" name="patient-profesion" class="form-control" value="<?= $form_data['patient_profesion']; ?>" maxlength="255">
 				</div>
 			</div>
 		</div>
@@ -55,11 +72,11 @@
 		<div class="box box-3">
 			<div class="box-name"><span>Informaci&oacute;n de Contacto</span></div>
 			<div class="box-content">
-				<div class="box-element">
+				<div class="box-element half-left">
 					<label>Celular:</label>
 					<input type="text" name="patient-phone1" class="form-control" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone1']; ?>">
 				</div>
-				<div class="box-element">
+				<div class="box-element half-right">
 					<label>Tel&eacute;fono:</label>
 					<input type="text" name="patient-phone2" class="form-control" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone2']; ?>">	
 				</div>
@@ -67,20 +84,20 @@
 					<label>E-mail:</label>
 					<input type="text" name="patient-email" class="form-control" placeholder="nunu.support@gmail.com" value="<?= $form_data['patient_email']; ?>">	
 				</div>
-				<div class="box-element">
-					<label>Direcci&oacute;n:</label> <br/>
-					<textarea rows="4" name="patient-address" maxlength="255" class="form-control count-chars" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>
-					<span class="char-counter" title="Remain chars">255</span>
-				</div>
-			</div>
-		</div>
+				<div class="box-element half-left">
+					<label>Pais:</label>
+					<?php echo get_country_list(); //options_helper ?>
 
-		<div class="box box-3">
-			<div class="box-name"><span>Informaci&oacute;n Adicional</span></div>
-			<div class="box-content">
-				<div class="box-element">
-					<label>Observaciones:</label> <br/>
-					<textarea rows="10" name="patient-observations" class="form-control" placeholder="Observaciones"><?= $form_data['patient_observations']; ?></textarea>
+					<label>Provincia/Estado/Departamento:</label>
+					<?php echo get_province_list(); //options_helper ?>
+
+					<label>Ciudad:</label>
+					<input type="text" name="patient-ciudad" class="form-control" placeholder="Ciudad" value="<?= $form_data['patient_email']; ?>">	
+				</div>
+
+				<div class="box-element half-right">
+					<label>Direcci&oacute;n:</label> <br/>
+					<textarea rows="9" name="patient-address" maxlength="255" class="form-control" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>
 				</div>
 			</div>
 		</div>
@@ -98,7 +115,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-1">
 					<div class="background-question">
-						<p><strong>Alguien en su familia a sufrido de:</strong></p>
 						<ul>
 							<li>- Asma</li>
 							<li>- Diabetes</li>
@@ -124,7 +140,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-2">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Quirurgicos</li>
 							<li>- Transfusion</li>
@@ -148,7 +163,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-3">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Drogas</li>
 							<li>- Alcohol</li>
@@ -169,7 +183,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-4">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Cesarea &oacute Parto</li>
 							<li>- Controles</li>
@@ -201,7 +214,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-5">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Menarquia</li> 
 							<li>- Menopausia</li> 

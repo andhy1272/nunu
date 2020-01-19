@@ -68,16 +68,6 @@
 			</div>
 		</div>
 
-		<div class="box box-3">
-			<div class="box-name"><span>Info Adicional</span></div>
-			<div class="box-content">
-				<div class="box-element">
-					<label>Detalles:</label> <br/>
-					<span id="patient_observations"><?php echo $patient_data['patient_observations']; ?></span>
-					<button type="button" action="edit" data-type="textarea" data-label="Detalles:" data-control-name="patient_observations" data-value="<?php echo $patient_data['patient_observations']; ?>">Editar</button>
-				</div>
-			</div>
-		</div>
 	</div>
 
 	<div class="box box-background">
@@ -90,7 +80,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-1">
 					<div class="background-question">
-						<p><strong>Alguien en su familia a sufrido de:</strong></p>
 						<ul>
 							<li>- Asma</li>
 							<li>- Diabetes</li>
@@ -118,7 +107,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-2">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Quirurgicos</li>
 							<li>- Transfusion</li>
@@ -144,7 +132,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-3">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Drogas</li>
 							<li>- Alcohol</li>
@@ -167,7 +154,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-4">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Cesarea &oacute Parto</li>
 							<li>- Controles</li>
@@ -201,7 +187,6 @@
 				</div>
 				<div class="accordion-tab tab-content tab-5">
 					<div class="background-question">
-						<p><strong>Datos a recabar:</strong></p>
 						<ul>
 							<li>- Menarquia</li> 
 							<li>- Menopausia</li> 

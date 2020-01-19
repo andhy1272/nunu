@@ -73,8 +73,28 @@ body{
 
 /*MAIN MENU*/
 #main-menu li{
-  margin-bottom: 50px;
+  padding: 0 10px;
+  text-align: center;
+  margin-bottom: 30px;
 }
+
+#main-menu [class*='icon-']:before{
+  display: block;
+  font-size: 45px;
+}
+
+#main-menu a {
+  font-size: 10px;
+  text-transform: uppercase;
+}
+
+
+
+/* TOOLS MENU */
+.tools-menu ul li{
+  padding: 0 10px 5px;
+}
+
 
 
 /* CONTENT */

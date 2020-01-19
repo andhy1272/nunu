@@ -50,6 +50,7 @@ body{
 	line-height: 1.5;
 	text-align: left;
 	letter-spacing: 0.5px;
+	word-break: break-word;
 	/*background-color: #94bbe9;*/
 	background-attachment: fixed;
 	background-repeat: no-repeat;
@@ -149,12 +150,12 @@ select {
 
 .half-left{
 	float: left;
-	width: 40% !important;
+	width: 47.5% !important;
 }
 
 .half-right{
 	float: right;
-	width: 55% !important;
+	width: 47.5% !important;
 }
 
 .third-width {
@@ -253,16 +254,16 @@ select {
 	height: 100vh;
 	position: fixed;
 	overflow-y: auto;
-	max-width: 150px;
+	max-width: 100px;
 	flex-basis: 150px;
-	padding: 70px 10px 10px;
+	padding: 70px 0 10px;
 }
 
 /* CONTENT */
 .content{
 	flex: 1;
 	/*height: 100vh;*/
-	padding: 70px 10px 0 170px;
+	padding: 70px 10px 0 120px;
 }
 
 .content-header {
@@ -409,6 +410,7 @@ select {
 }
 
 .box .box-content .box-element {
+	clear: right;
 	display: block;
 	position: relative;
 }
@@ -622,9 +624,13 @@ select {
 }
 
 
+/* PATIENT CREATION */
+
+
 
 /* PATIENT QUICK CREATION BOX */
 .patient-quickcreation-container {
+
 
 }
 
@@ -741,11 +747,90 @@ select {
 
 
 
+/* APPOINTMENTS */
+.hour-control,
+.calendar-control {
+	cursor: pointer;
+}
+
+
+.appointment-create .patient-section {
+	overflow: hidden;
+}
+
+.appointment-create .patient-section label {
+	display: block !important;
+}
+
+.appointment-create .patient-section input {
+	width: 65%;
+	float: left;
+}
+
+.appointment-create .patient-section button {
+	float: left;
+	margin-top: 2px;
+}
+
+.appointment-create .hour-section {
+	overflow: hidden;
+}
+
+.appointment-create .hour-section label{
+	display: block !important;
+}
+
+.appointment-create .hour-section input {
+	width: 65%;
+	float: left;
+}
+
+.appointment-create .hour-section button {
+	float: left;
+	margin-top: 2px;
+}
 
 
 
+.appointment-day-list {
+	width: 100%;
+	background: #FFF;
+	overflow: hidden;
+	border-radius: 0.25rem;
+	border: 2px solid #CED4DA;
+}
 
+.appointment-day-list .appointment-item {
+	padding: 5px;
+	position: relative;
+}
 
+.appointment-day-list .appointment-item:nth-child(2n+1) {
+	background-color: #F5F5F5;
+}	
+
+.appointment-day-list .appointment-item:hover {
+	background-color: #CCC;
+}	
+
+.appointment-day-list .appointment-item input {
+	top: 10px;
+    left: 10px;
+	position: absolute;
+}
+
+.appointment-day-list .appointment-item label{
+	width: 100%;
+	cursor: pointer;
+	padding-left: 35px !important;
+}
+
+.appointment-day-list .appointment-item .appointment-name{
+	margin-left: 35px;
+    padding-left: 10px;
+    padding-top: 5px;
+    border-top: 1px solid #AAA;
+}
 
 
 

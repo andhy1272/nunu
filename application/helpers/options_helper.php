@@ -73,9 +73,6 @@ if ( ! function_exists('get_sex_list'))
 
 
 
-
-
-
 if ( ! function_exists('get_id_list'))
 {
   /**
@@ -106,11 +103,8 @@ if ( ! function_exists('get_id_list'))
     $control_html .= '</select>';
 
     return $control_html;
-
-
   }
 }
-
 
 
 
@@ -153,6 +147,192 @@ if ( ! function_exists('get_blood_list'))
     return $control_html;
   }
 }
+
+
+
+
+if ( ! function_exists('get_marital_status_list'))
+{
+  /**
+   * get_marital_status_list
+   *
+   * Returns the Marital Status List from Database
+   * 
+   * @return  mixed
+   */
+  function get_marital_status_list($current_value = null)
+  {
+    $marital_status_list = get_options_list('options/marital-status');
+
+    $control_html = '<select name="patient-marital-status" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';
+    }
+    
+    foreach($marital_status_list as $marital_status): 
+      if($marital_status['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $marital_status['option_value'] . '">' . $marital_status['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $marital_status['option_value'] . '">' . $marital_status['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
+
+if ( ! function_exists('get_education_list'))
+{
+  /**
+   * get_education_list
+   *
+   * Returns the Education List from Database
+   * 
+   * @return  mixed
+   */
+  function get_education_list($current_value = null)
+  {
+    $education_list = get_options_list('options/education');
+
+    $control_html = '<select name="patient-education" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($education_list as $education): 
+      if($education['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $education['option_value'] . '">' . $education['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $education['option_value'] . '">' . $education['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
+
+if ( ! function_exists('get_country_list'))
+{
+  /**
+   * get_country_list
+   *
+   * Returns the Country List from Database
+   * 
+   * @return  mixed
+   */
+  function get_country_list($current_value = null)
+  {
+    $country_list = get_options_list('options/country');
+
+    $control_html = '<select name="patient-country" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($country_list as $country): 
+      if($country['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $country['option_value'] . '">' . $country['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $country['option_value'] . '">' . $country['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
+
+if ( ! function_exists('get_province_list'))
+{
+  /**
+   * get_province_list
+   *
+   * Returns the Province List from Database
+   * 
+   * @return  mixed
+   */
+  function get_province_list($current_value = null)
+  {
+    $province_list = get_options_list('options/province');
+
+    $control_html = '<select name="patient-province" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($current_value != null) {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($province_list as $province): 
+      if($province['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $province['option_value'] . '">' . $province['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $province['option_value'] . '">' . $province['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
