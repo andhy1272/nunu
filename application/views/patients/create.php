@@ -31,20 +31,20 @@
 
 				<div class="box-element half-right">
 					<label>&nbsp;</label>
-					<input type="text" name="patient-id-number" class="form-control" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
+					<input type="text" name="patient-id-number" class="form-control required" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
 				</div>
 
 				<div class="box-element half-left">
 					<label>Nombre:</label>
-					<input type="text" name="patient-name" class="form-control" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
+					<input type="text" name="patient-name" class="form-control required" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
 				</div>
 				<div class="box-element half-right">
 					<label>Apellidos:</label>
-					<input type="text" name="patient-last-name" class="form-control" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
+					<input type="text" name="patient-last-name" class="form-control required" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
 				</div>
 				<div class="box-element half-left">
 					<label>Fecha de Nacimiento:</label>
-					<input type="text" name="patient-birthdate" class="form-control date" value="<?= $form_data['patient_birthdate']; ?>">
+					<input type="text" name="patient-birthdate" class="form-control calendar-control" value="<?= $form_data['patient_birthdate']; ?>" placeholder="2000-12-31" readonly>
 				</div>
 				<div class="box-element half-right">
 					<label>Sexo:</label>
@@ -254,6 +254,6 @@
 
 
 
-
+<?php $this->load->view('templates/calendar'); ?>
 
 

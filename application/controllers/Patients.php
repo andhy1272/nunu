@@ -52,11 +52,17 @@
 				'patient_name' => $this->input->post('patient-name'),
 				'patient_last_name' => $this->input->post('patient-last-name'),
 				'patient_birthdate' => $this->input->post('patient-birthdate'),
-				'patient_blood_type' => $this->input->post('patient-blood-type'),
 				'patient_sex' => $this->input->post('patient-sex'),
+				'patient_blood_type' => $this->input->post('patient-blood-type'),
+				'patient_marital_status' => $this->input->post('patient-marital-status'),
+				'patient_education' => $this->input->post('patient-education'),
+				'patient_profesion' => $this->input->post('patient-profesion'),
 				'patient_email' => $this->input->post('patient-email'),
 				'patient_phone1' => $this->input->post('patient-phone1'),
 				'patient_phone2' => $this->input->post('patient-phone2'),
+				'patient_country' => $this->input->post('patient-country'),
+				'patient_province' => $this->input->post('patient-province'),
+				'patient_city' => $this->input->post('patient-city'),
 				'patient_address' => $this->input->post('patient-address'),
 				'patient_profesion' => $this->input->post('patient-profesion')
 			);

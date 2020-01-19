@@ -20,6 +20,7 @@
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
 	<script src="<?php echo base_url(); ?>assets/js/main.js"></script>
+	<script src="<?php echo base_url(); ?>assets/js/validation.js"></script>
 
 	<!----CALENDAR -------->
 	<script type="text/javascript" src="<?php echo site_url('assets/calendar/js/jquery.openCarousel.js');?>"></script> 

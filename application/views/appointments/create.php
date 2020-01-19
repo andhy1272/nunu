@@ -60,7 +60,7 @@
 				</div>
 				<div class="box-element">
 					<label>Fecha:</label>
-					<input type="text" name="appointment-date" class="form-control calendar-control" placeholder="2000-01-01" readonly>
+					<input type="text" name="appointment-date" class="form-control calendar-control" placeholder="2000-12-31" readonly>
 				</div>
 				<div class="box-element hour-section">
 					<label>Hora:</label>
