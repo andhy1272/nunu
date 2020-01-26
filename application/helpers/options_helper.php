@@ -46,14 +46,14 @@ if ( ! function_exists('get_sex_list'))
 	 * 
 	 * @return	mixed
 	 */
-	function get_sex_list($current_value = null)
+	function get_sex_list($action = 'create', $current_value = null)
 	{
     $sex_list = get_options_list('options/sex');
 
     $control_html = '<select name="patient-sex" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
  
@@ -82,14 +82,14 @@ if ( ! function_exists('get_id_list'))
    * 
    * @return  mixed
    */
-  function get_id_type_list($current_value = null)
+  function get_id_type_list($action = 'create', $current_value = null)
   {
     $id_type_list = get_options_list('options/id-type');
 
     $control_html = '<select name="patient-id-type" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
  
@@ -118,11 +118,11 @@ if ( ! function_exists('get_blood_list'))
    * 
    * @return  mixed
    */
-  function get_blood_list($current_value = null)
+  function get_blood_list($action = 'create', $current_value = null)
   {
     $blood_list = get_options_list('options/blood-type');
 
-    if($current_value != null) {
+    if($action == 'edit') {
       if((!strpos($current_value, '-')) && ($current_value != 'Otro')) {
         $current_value = trim($current_value) . "+";
       }
@@ -131,7 +131,7 @@ if ( ! function_exists('get_blood_list'))
     $control_html = '<select name="patient-blood-type" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';
     }
     
@@ -160,14 +160,14 @@ if ( ! function_exists('get_marital_status_list'))
    * 
    * @return  mixed
    */
-  function get_marital_status_list($current_value = null)
+  function get_marital_status_list($action = 'create', $current_value = null)
   {
     $marital_status_list = get_options_list('options/marital-status');
 
     $control_html = '<select name="patient-marital-status" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';
     }
     
@@ -196,14 +196,14 @@ if ( ! function_exists('get_education_list'))
    * 
    * @return  mixed
    */
-  function get_education_list($current_value = null)
+  function get_education_list($action = 'create', $current_value = null)
   {
     $education_list = get_options_list('options/education');
 
     $control_html = '<select name="patient-education" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
  
@@ -232,14 +232,14 @@ if ( ! function_exists('get_country_list'))
    * 
    * @return  mixed
    */
-  function get_country_list($current_value = null)
+  function get_country_list($action = 'create', $current_value = null)
   {
     $country_list = get_options_list('options/country');
 
     $control_html = '<select name="patient-country" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
  
@@ -268,14 +268,14 @@ if ( ! function_exists('get_province_list'))
    * 
    * @return  mixed
    */
-  function get_province_list($current_value = null)
+  function get_province_list($action = 'create', $current_value = null)
   {
     $province_list = get_options_list('options/province');
 
     $control_html = '<select name="patient-province" class="form-control">';
 
     //if current_value is empty that means is not for edit
-    if($current_value != null) {
+    if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
  

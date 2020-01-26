@@ -28,23 +28,21 @@
 					<label>Identificaci&oacute;n:</label>
 					<?php echo get_id_type_list(); //options_helper ?>
 				</div>
-
 				<div class="box-element half-right">
 					<label>&nbsp;</label>
-					<input type="text" name="patient-id-number" class="form-control required" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
+					<input type="text" name="patient-id-number" class="form-control val-required" placeholder="ID Número" value="<?= $form_data['patient_id_number']; ?>">
 				</div>
-
 				<div class="box-element half-left">
 					<label>Nombre:</label>
-					<input type="text" name="patient-name" class="form-control required" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
+					<input type="text" name="patient-name" class="form-control val-required" placeholder="Nombre" value="<?= $form_data['patient_name']; ?>">
 				</div>
 				<div class="box-element half-right">
 					<label>Apellidos:</label>
-					<input type="text" name="patient-last-name" class="form-control required" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
+					<input type="text" name="patient-last-name" class="form-control val-required" placeholder="Apellidos" value="<?= $form_data['patient_last_name']; ?>">
 				</div>
 				<div class="box-element half-left">
 					<label>Fecha de Nacimiento:</label>
-					<input type="text" name="patient-birthdate" class="form-control calendar-control" value="<?= $form_data['patient_birthdate']; ?>" placeholder="2000-12-31" readonly>
+					<input type="text" name="patient-birthdate" class="form-control val-date-older val-required calendar-control" value="<?= $form_data['patient_birthdate']; ?>" placeholder="2000-12-31" readonly>
 				</div>
 				<div class="box-element half-right">
 					<label>Sexo:</label>
@@ -74,7 +72,7 @@
 			<div class="box-content">
 				<div class="box-element half-left">
 					<label>Celular:</label>
-					<input type="text" name="patient-phone1" class="form-control" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone1']; ?>">
+					<input type="text" name="patient-phone1" class="form-control val-required" placeholder="+(000) 111 2233" value="<?= $form_data['patient_phone1']; ?>">
 				</div>
 				<div class="box-element half-right">
 					<label>Tel&eacute;fono:</label>
@@ -85,19 +83,19 @@
 					<input type="text" name="patient-email" class="form-control" placeholder="nunu.support@gmail.com" value="<?= $form_data['patient_email']; ?>">	
 				</div>
 				<div class="box-element half-left">
-					<label>Pais:</label>
+					<label>Pa&iacute;s:</label>
 					<?php echo get_country_list(); //options_helper ?>
 
 					<label>Provincia/Estado/Departamento:</label>
 					<?php echo get_province_list(); //options_helper ?>
 
 					<label>Ciudad:</label>
-					<input type="text" name="patient-ciudad" class="form-control" placeholder="Ciudad" value="<?= $form_data['patient_email']; ?>">	
+					<input type="text" name="patient-city" class="form-control" placeholder="Ciudad" value="<?= $form_data['patient_city']; ?>">	
 				</div>
 
 				<div class="box-element half-right">
 					<label>Direcci&oacute;n:</label> <br/>
-					<textarea rows="9" name="patient-address" maxlength="255" class="form-control" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>
+					<textarea rows="9" name="patient-address" maxlength="255" class="form-control val-required" placeholder="Direcci&oacute;n"><?= $form_data['patient_address']; ?></textarea>
 				</div>
 			</div>
 		</div>

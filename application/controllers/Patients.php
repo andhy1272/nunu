@@ -63,8 +63,7 @@
 				'patient_country' => $this->input->post('patient-country'),
 				'patient_province' => $this->input->post('patient-province'),
 				'patient_city' => $this->input->post('patient-city'),
-				'patient_address' => $this->input->post('patient-address'),
-				'patient_profesion' => $this->input->post('patient-profesion')
+				'patient_address' => $this->input->post('patient-address')
 			);
 			$data['form_data'] = $form_data;
 
@@ -215,11 +214,27 @@
 					break;
 
 				case "sex":
-					echo get_sex_list($current_value);
+					echo get_sex_list('edit', $current_value); //options_helper 
 					break;
 
 				case "blood":
-					echo get_blood_list($current_value);
+					echo get_blood_list('edit', $current_value); //options_helper 
+					break;
+
+				case "marital_status":
+					echo get_marital_status_list('edit', $current_value); //options_helper 
+					break;
+
+				case "education":
+					echo get_education_list('edit', $current_value); //options_helper
+					break;
+
+				case "country":
+					echo get_country_list('edit', $current_value); //options_helper
+					break;
+
+				case "province":
+					echo get_province_list('edit', $current_value); //options_helper
 					break;
 
 				default:

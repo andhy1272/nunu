@@ -37,6 +37,21 @@
 					<span id="patient_blood_type"><?php echo $patient_data['patient_blood_type']; ?></span>
 					<button type="button" action="edit" data-type="blood" data-label="Tipo Sangre:" data-control-name="patient_blood_type" data-value="<?php echo $patient_data['patient_blood_type']; ?>">Editar</button>
 				</div>
+				<div class="box-element">
+					<label>Estado civil:</label>
+					<span id="patient_marital_status"><?php echo $patient_data['patient_marital_status']; ?></span>
+					<button type="button" action="edit" data-type="marital_status" data-label="Estado civil:" data-control-name="patient_marital_status" data-value="<?php echo $patient_data['patient_marital_status']; ?>">Editar</button>	
+				</div>
+				<div class="box-element">
+					<label>Educaci&oacute;n:</label>
+					<span id="patient_education"><?php echo $patient_data['patient_education']; ?></span>
+					<button type="button" action="edit" data-type="education" data-label="Educaci&oacute;n:" data-control-name="patient_education" data-value="<?php echo $patient_data['patient_education']; ?>">Editar</button>
+				</div>
+				<div class="box-element">
+					<label>Profesi&oacute;n:</label>
+					<span id="patient_profesion"><?php echo $patient_data['patient_profesion']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="Profesi&oacute;n:" data-control-name="patient_profesion" data-value="<?php echo $patient_data['patient_profesion']; ?>">Editar</button>
+				</div>
 			</div>
 		</div>
 
@@ -58,10 +73,28 @@
 				</div>
 				<div class="box-element">
 					<label>Email:</label>
-					<?php echo $patient_data['patient_email']; ?>	
+					<span id="patient_email"><?php echo $patient_data['patient_email']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="Email:" data-control-name="patient_email" data-value="<?php echo $patient_data['patient_email']; ?>">Editar</button>
+				</div>
+
+				<div class="box-element">
+					<label>Pa&iacute;s:</label>
+					<span id="patient_country"><?php echo $patient_data['patient_country']; ?></span>
+					<button type="button" action="edit" data-type="country" data-label="Pa&iacute;s:" data-control-name="patient_country" data-value="<?php echo $patient_data['patient_country']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
-					<label>Direcci&oacute;n:</label> <br/>
+					<label>Provincia/Estado/Departamento:</label>
+					<span id="patient_province"><?php echo $patient_data['patient_province']; ?></span>
+					<button type="button" action="edit" data-type="province" data-label="Provincia/Estado/Departamento:" data-control-name="patient_province" data-value="<?php echo $patient_data['patient_province']; ?>">Editar</button>	
+				</div>
+				<div class="box-element">
+					<label>Ciudad:</label>
+					<span id="patient_city"><?php echo $patient_data['patient_city']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="Ciudad:" data-control-name="patient_city" data-value="<?php echo $patient_data['patient_city']; ?>">Editar</button>
+				</div>
+
+				<div class="box-element">
+					<label>Direcci&oacute;n:</label>
 					<span id="patient_address"><?php echo $patient_data['patient_address']; ?></span>
 					<button type="button" action="edit" data-type="textarea" data-label="Direcci&oacute;n:" data-control-name="patient_address" data-value="<?php echo $patient_data['patient_address']; ?>">Editar</button>
 				</div>
@@ -321,6 +354,8 @@
 					control_name: $('.edit-container .edit-hidden').val(),
 					new_value: $('.edit-container .edit-control').val()
 				};
+
+				console.log(data);
 
 				//if is an element of background patient table
 				if(edit_action == "edit-background") {

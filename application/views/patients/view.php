@@ -42,6 +42,18 @@
 				<?php echo $patient_data['patient_blood_type']; ?>	
 			</div>
 			<div class="box-element">
+				<label>Estado civil:</label>
+				<?php echo $patient_data['patient_marital_status']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Educaci&oacute;n:</label>
+				<?php echo $patient_data['patient_education']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Profesi&oacute;n:</label>
+				<?php echo $patient_data['patient_profesion']; ?>	
+			</div>
+			<div class="box-element">
 				<label>Agregado en: </label>
 				<?php echo $patient_data['patient_created_at']; ?>	
 			</div>
@@ -67,7 +79,19 @@
 				<?php echo $patient_data['patient_email']; ?>	
 			</div>
 			<div class="box-element">
-				<label>Direcci&oacute;n:</label> <br/>
+				<label>Pa&iacute;s:</label>
+				<?php echo $patient_data['patient_country']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Provincia/Estado/Departamento:</label>
+				<?php echo $patient_data['patient_province']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Ciudad:</label>
+				<?php echo $patient_data['patient_city']; ?>	
+			</div>
+			<div class="box-element">
+				<label>Direcci&oacute;n:</label>
 				<?php echo $patient_data['patient_address']; ?>	
 			</div>
 		</div>
