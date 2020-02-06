@@ -14,6 +14,7 @@
 		<a href="<?php echo site_url('patients'); ?>" class="btn blue">ATRAS</a>
 		<a href="<?php echo site_url('patients/edit/' . $patient_data['patient_id']); ?>" class="btn green">EDITAR</a>
 		<a href="<?php echo site_url('patients/delete/' . $patient_data['patient_id']); ?>" class="btn red">ELIMINAR</a>
+		<a href="<?php echo site_url('patients/pdf/' . $patient_data['patient_id']); ?>" class="btn red">PDF</a>
 	</div>
 </div>
 

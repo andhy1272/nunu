@@ -339,6 +339,7 @@ select {
 }
 
 .grid-list td {
+	cursor: pointer;
 	border-right: 1px dashed #BBB;
 }
 
@@ -623,6 +624,24 @@ select {
 	content: "†";
 }
 
+/* WIDGET */
+
+.dashboard-container {
+	display: flex;
+}
+
+.dashboard-container .widget {
+	flex: 1;
+	display: flex;
+	margin-right: 3.33%;
+}
+
+.dashboard-container .widget .widget-wrapper {
+	width: 100%;
+}
+
+
+
 
 /* PATIENT CREATION */
 
@@ -754,45 +773,45 @@ select {
 }
 
 
-.appointment-create .patient-section {
+.agenda-create .patient-section {
 	overflow: hidden;
 }
 
-.appointment-create .patient-section label {
+.agenda-create .patient-section label {
 	display: block !important;
 }
 
-.appointment-create .patient-section input {
+.agenda-create .patient-section input {
 	width: 65%;
 	float: left;
 }
 
-.appointment-create .patient-section button {
+.agenda-create .patient-section button {
 	float: left;
 	margin-top: 2px;
 }
 
-.appointment-create .hour-section {
+.agenda-create .hour-section {
 	overflow: hidden;
 }
 
-.appointment-create .hour-section label{
+.agenda-create .hour-section label{
 	display: block !important;
 }
 
-.appointment-create .hour-section input {
+.agenda-create .hour-section input {
 	width: 65%;
 	float: left;
 }
 
-.appointment-create .hour-section button {
+.agenda-create .hour-section button {
 	float: left;
 	margin-top: 2px;
 }
 
 
 
-.appointment-day-list {
+.agenda-day-list {
 	width: 100%;
 	background: #FFF;
 	overflow: hidden;
@@ -800,32 +819,32 @@ select {
 	border: 2px solid #CED4DA;
 }
 
-.appointment-day-list .appointment-item {
+.agenda-day-list .agenda-item {
 	padding: 5px;
 	position: relative;
 }
 
-.appointment-day-list .appointment-item:nth-child(2n+1) {
+.agenda-day-list .agenda-item:nth-child(2n+1) {
 	background-color: #F5F5F5;
 }	
 
-.appointment-day-list .appointment-item:hover {
+.agenda-day-list .agenda-item:hover {
 	background-color: #CCC;
 }	
 
-.appointment-day-list .appointment-item input {
+.agenda-day-list .agenda-item input {
 	top: 10px;
     left: 10px;
 	position: absolute;
 }
 
-.appointment-day-list .appointment-item label{
+.agenda-day-list .agenda-item label{
 	width: 100%;
 	cursor: pointer;
 	padding-left: 35px !important;
 }
 
-.appointment-day-list .appointment-item .appointment-name{
+.agenda-day-list .agenda-item .agenda-name{
 	margin-left: 35px;
     padding-left: 10px;
     padding-top: 5px;

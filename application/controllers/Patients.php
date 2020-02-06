@@ -237,6 +237,20 @@
 					echo get_province_list('edit', $current_value); //options_helper
 					break;
 
+				case "id_type":
+					echo get_id_type_list('edit', $current_value); //options_helper 
+					break;
+
+				case "date":
+					$text = '<input type="text" name="edit-control" class="form-control edit-control calendar-control" value='. $current_value .' readonly>';
+					$text .= '<script type="text/javascript">
+							var url = "'. site_url("assets/calendar/js/site.js") .'";
+							$.getScript(url);
+  						</script>';
+
+  					echo $text;
+					break;
+
 				default:
 					echo "<span>El elemento no pueder ser cargado, por favor intente de nuevo o contacte con el administrador del sistema.</span>";
 			}

@@ -1,7 +1,7 @@
 <div class="sidebar">
 	<ul id="main-menu">
 		<li><a class="icon-charts" href="<?php echo base_url(); ?>">Inicio</a></li>
-		<li><a class="icon-book" href="<?php echo base_url(); ?>appointments/">Agenda</a></li>
+		<li><a class="icon-book" href="<?php echo base_url(); ?>agenda/">Agenda</a></li>
 		<li><a class="icon-agenda" href="<?php echo base_url(); ?>patients/">Pacientes</a></li>
 		<li><a class="icon-document" href="<?php echo base_url(); ?>historial/">Historial</a></li>
 	</ul>

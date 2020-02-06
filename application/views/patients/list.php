@@ -2,7 +2,6 @@
 	<h1><?= $page_title; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>patients/" class="btn blue">ATRAS</a>
 		<a href="<?php echo base_url(); ?>patients/create/" class="btn green">NUEVO</a>
 	</div>
 </div>
@@ -17,12 +16,14 @@
 		<th>&nbsp;</th>
 	</tr>
 <?php foreach($patients_list as $patient): ?>
-	<tr class="patient-<?php echo $patient['patient_id']; ?>">
-		<td><?php echo $patient['patient_id_number']; ?></td>
-		<td class="text-left">
+	<tr class="patient-<?php echo $patient['patient_id']; ?> click-view" view-url="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>">
+		<td class="click-view-control">
+			<?php echo $patient['patient_id_number']; ?>	
+		</td>
+		<td class="text-left click-view-control">
 			<?php echo $patient['patient_name'] . ' ' . $patient['patient_last_name']; ?>	
 		</td>
-		<td>
+		<td class="click-view-control">
 			<?php echo $patient['patient_phone1']; ?> // <?php echo $patient['patient_phone2']; ?>	
 		</td>
 		<td>
@@ -31,9 +32,13 @@
 			</a>
 		</td>
 		<td>
-			<a href="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>">Ver</a>
+			<a href="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>" class="view-link">
+				<span>Ver</span>
+			</a>
 			&nbsp;&nbsp;&nbsp;
-			<a href="<?php echo site_url('patients/edit/' . $patient['patient_id']); ?>">Editar</a>
+			<a href="<?php echo site_url('patients/edit/' . $patient['patient_id']); ?>" class="edit-link">
+				<span>Editar</span>
+			</a>
 		</td>
 	</tr>
 <?php endforeach; ?>

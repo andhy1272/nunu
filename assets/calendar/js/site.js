@@ -3,7 +3,11 @@ var calendars = {};
 
 $(document).ready( function() {
 
-  var calendar_control = $('.calendar-control');
+  var calendar_control = $('.calendar-control.edit-control'); //For edit use
+
+  $('.calendar-control').click(function() {
+    calendar_control = $(this);  //For normal use
+  });
 
   $('.calendar-control').click(function(){
     $('.cal-popup').toggle();

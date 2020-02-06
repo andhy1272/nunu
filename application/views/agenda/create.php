@@ -2,8 +2,8 @@
 	<h1><?= $page_title; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>appointments/" class="btn blue">ATRAS</a>
-		<a href="<?php echo base_url(); ?>appointments/" class="btn red">CANCELAR</a>
+		<a href="<?php echo base_url(); ?>agenda/" class="btn blue">ATRAS</a>
+		<a href="<?php echo base_url(); ?>agenda/" class="btn red">CANCELAR</a>
 	</div>
 </div>
 
@@ -18,9 +18,9 @@
 
 
 
-<?php echo form_open('appointments/create'); ?>
+<?php echo form_open('agenda/create'); ?>
 
-	<div class="box-container appointment-create">
+	<div class="box-container agenda-create">
 
 		<div class="box">
 			<div class="box-name"><span>Informaci&oacute;n General</span></div>
@@ -36,15 +36,15 @@
 				</div>
 				<div class="box-element">
 					<label>Medico:</label>
-					<select name="appointment-medic" class="form-control">
+					<select name="agenda-medic" class="form-control">
 						<option value="Medico01">Medico 01</option>
-						<option value="Medico01">Medico 02</option>
-						<option value="Medico01">Medico 03</option>
+						<option value="Medico02">Medico 02</option>
+						<option value="Medico03">Medico 03</option>
 					</select>
 				</div>
 				<div class="box-element">
-					<label>Sucursal:</label>
-					<select name="appointment-store" class="form-control">
+					<label>Establecimiento:</label>
+					<select name="agenda-store" class="form-control">
 						<option value="Clinica01">Clinica 01</option>
 						<option value="Clinica02">Clinica 02</option>
 
@@ -52,7 +52,7 @@
 				</div>
 				<div class="box-element">
 					<label>Servicio:</label>
-					<select name="appointment-service" class="form-control">
+					<select name="agenda-service" class="form-control">
 						<option value="servicio02">Procedimiento</option>
 						<option value="servicio01">Consulta General</option>
 						<option value="servicio01">Consulta Pediatrica</option>
@@ -60,62 +60,62 @@
 				</div>
 				<div class="box-element">
 					<label>Fecha:</label>
-					<input type="text" name="appointment-date" class="form-control calendar-control" placeholder="2000-12-31" readonly>
+					<input type="text" name="agenda-date" class="form-control calendar-control" placeholder="2000-12-31" readonly>
 				</div>
 				<div class="box-element hour-section">
 					<label>Hora:</label>
-					<input type="text" name="appointment-hour" class="form-control hour-control" placeholder="00:00" readonly>
+					<input type="text" name="agenda-hour" class="form-control hour-control" placeholder="00:00" readonly>
 					<button class="btn blue show-day-hours">VER HORAS</button>
 				</div>
 				<div class="box-element">
 					<label>Detalles:</label>
-					<input type="text" name="appointment-notes" class="form-control" placeholder="Detalles">
+					<input type="text" name="agenda-notes" class="form-control" placeholder="Detalles">
 				</div>
 			</div>
 
 			<div class="box-content">
 				<div class="box-element">
 					<label>Lista de Citas:</label>
-					<div class="appointment-day-list">
-						<div class="appointment-item disabled">
+					<div class="agenda-day-list">
+						<div class="agenda-item disabled">
 							<input type="radio" name="hour" id="08:00" value="08:00">
 							<label for="08:00">08:00</label>
-							<div class="appointment-name">Andrey Picado Fernadez</div>
+							<div class="agenda-name">Andrey Picado Fernadez</div>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="09:00" value="09:00">
 							<label for="09:00">09:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="10:00" value="10:00">
 							<label for="10:00">10:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="11:00" value="11:00">
 							<label for="11:00">11:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="12:00" value="12:00">
 							<label for="12:00">12:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="13:00" value="13:00">
 							<label for="13:00">13:00</label>
 						</div>
-						<div class="appointment-item disabled">
+						<div class="agenda-item disabled">
 							<input type="radio" name="hour" id="14:00" value="14:00">
 							<label for="14:00">14:00</label>
-							<div class="appointment-name">Nataly Barreto Cardenas</div>
+							<div class="agenda-name">Nataly Barreto Cardenas</div>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="15:00" value="15:00">
 							<label for="15:00">15:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="16:00" value="16:00">
 							<label for="16:00">16:00</label>
 						</div>
-						<div class="appointment-item">
+						<div class="agenda-item">
 							<input type="radio" name="hour" id="17:00" value="17:00">
 							<label for="17:00">17:00</label>
 						</div>
@@ -124,14 +124,14 @@
 					<script type="text/javascript">
 						$(document).ready(function(){
 
-							$('.appointment-day-list .appointment-item:not(.disabled)').click(function(){
+							$('.agenda-day-list .agenda-item:not(.disabled)').click(function(){
 								hour = $(this).find('input').val();
 
 								console.log(hour);
 								$('.hour-control').val(hour);
 							});
 
-							$('.appointment-day-list .appointment-item.disabled').click(function(e){
+							$('.agenda-day-list .agenda-item.disabled').click(function(e){
 								e.preventDefault();
 								alert('La hora seleccionada no esta disponible');
 							});
@@ -155,7 +155,7 @@
 
 <?php $this->load->view('quicksearch/patients-search'); ?>
 
-<?php $this->load->view('appointments/patients-quick-create'); ?>
+<?php $this->load->view('agenda/patients-quick-create'); ?>
 
 <?php $this->load->view('templates/calendar'); ?>
 

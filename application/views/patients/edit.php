@@ -21,11 +21,16 @@
 			<div class="box-content">
 				<div class="box-element">
 					<label>Identificaci&oacute;n:</label>
-					<?php echo $patient_data['patient_id_number']; ?> / <?php echo $patient_data['patient_id_type']; ?>	
+					<span id="patient_id_number"><?php echo $patient_data['patient_id_number']; ?></span>
+					<button type="button" action="edit" data-type="text" data-label="N&uacute;mero Identificaci&oacute;n::" data-control-name="patient_id_number" data-value="<?php echo $patient_data['patient_id_number']; ?>">Editar</button>
+					/ 
+					<span id="patient_id_type"><?php echo $patient_data['patient_id_type']; ?></span>
+					<button type="button" action="edit" data-type="id_type" data-label="Tipo Identificaci&oacute;n:" data-control-name="patient_id_type" data-value="<?php echo $patient_data['patient_id_type']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
 					<label>Fecha Nacimiento:</label>
-					<?php echo $patient_data['patient_birthdate']; ?>	
+					<span id="patient_birthdate"><?php echo $patient_data['patient_birthdate']; ?></span>
+					<button type="button" action="edit" data-type="date" data-label="Fecha Nacimiento:" data-control-name="patient_birthdate" data-value="<?php echo $patient_data['patient_birthdate']; ?>">Editar</button>
 				</div>
 				<div class="box-element">
 					<label>Sexo:</label>
@@ -399,3 +404,5 @@
 	</script>
 
 <?php endif; ?>
+
+<?php $this->load->view('templates/calendar'); ?>

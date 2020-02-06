@@ -59,7 +59,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['patients'] = 'patients/list';
 //$route['patients/id/$1'] = 'patients/view/$1';
 
-$route['appointments'] = 'appointments/list';
+$route['agenda'] = 'agenda/list';
 
 
 $route['users'] = 'users/list';

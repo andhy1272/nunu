@@ -2,6 +2,7 @@
 /* Accordion */
 $(document).ready( function() {
 
+	//
 	$('.accordion .tab-title').click(function() {
 		index = $(this).attr('data-index');
 
@@ -12,9 +13,17 @@ $(document).ready( function() {
 			$('.accordion .tab-content.' + index).addClass('open').slideDown("slow");
 		});
 		*/
-		
-		
 	});
+
+
+	$('.grid-list tr.click-view td.click-view-control').click(function() {
+		//click event of <a> cant be triggered - BUG?
+		$(this).parent().find('td a.view-link span').trigger("click");
+	});
+
+
+
+
 
 	
 	$('.count-chars').keyup(function() {
@@ -23,10 +32,6 @@ $(document).ready( function() {
 
 		$(this).parent().find('.char-counter').html(_charCount);
 	}); 
-
-
-	//jQuery UI calendar
-	$('.date').datepicker();
 
 
 });
