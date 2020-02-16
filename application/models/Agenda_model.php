@@ -47,6 +47,13 @@
 		}
 
 
+
+		public function appointments_per_day($date, $store) {
+			$query = $this->db->get_where('nunu_agenda', array('agenda_date' => $date, 'agenda_store' => $store));
+			return $query->result_array();
+		}
+
+
 //SELECT a.appointment_id, a.appointment_date, a.appointment_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.appointment_status, a.appointment_notes FROM nunu_appointments a INNER JOIN nunu_patients p WHERE a.appointment_patient_id = p.patient_id AND a.appointment_date >= CURDATE() ORDER BY a.appointment_date, a.appointment_time ASC;
 
 

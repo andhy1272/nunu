@@ -295,6 +295,41 @@ if ( ! function_exists('get_province_list'))
 
 
 
+if ( ! function_exists('get_services_list'))
+{
+  /**
+   * get_services_list
+   *
+   * Returns the Service List from Database
+   * 
+   * @return  mixed
+   */
+  function get_services_list($action = 'create', $current_value = null)
+  {
+    $service_list = get_options_list('options/service');
+
+    $control_html = '<select name="service-list" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($action == 'edit') {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($service_list as $service): 
+      if($service['option_value'] == $current_value):
+        $control_html .= '<option selected value="' . $service['option_value'] . '">' . $service['option_value'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $service['option_value'] . '">' . $service['option_value'] . '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
 
 
 
@@ -369,6 +404,123 @@ if ( ! function_exists('get_appointment_state_list'))
     return get_options_list('options/appointment-state');
   }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+if ( ! function_exists('get_staff_list'))
+{
+  /**
+   * get_staff_list
+   *
+   * Returns the Staff List requested from Database
+   * 
+   * @return  mixed
+   */
+  function get_staff_list($action = 'create', $current_value = null)
+  {
+    //get main CodeIgniter object
+    $CI =& get_instance();
+     
+    //load databse library
+    $CI->load->database();
+     
+    //get data from database
+    $query = $CI->db->get_where('nunu_staff', array('staff_active' => 1));
+     
+    if($query->num_rows() > 0){
+      $staff_list = $query->result_array();
+    }else{
+      $staff_list = array('vacio');
+    }
+
+
+
+    $control_html = '<select name="staff-member" class="form-control">';
+
+    //if current_value is empty that means is not for edit
+    if($action == 'edit') {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($staff_list as $staff): 
+      if($staff['staff_name'] == $current_value):
+        $control_html .= '<option selected value="' . $staff['staff_name'] . '">' . $staff['staff_name'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $staff['staff_name'] . '">'; 
+        $control_html .= $staff['staff_name'] . " [" . $staff['staff_job'] . " - " . $staff['staff_speciality'] . "]";
+        $control_html .= '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
+
+
+
+if ( ! function_exists('get_stores_list'))
+{
+  /**
+   * get_stores_list
+   *
+   * Returns the Stores List requested from Database
+   * 
+   * @return  mixed
+   */
+  function get_stores_list($action = 'create', $current_value = null)
+  {
+    //get main CodeIgniter object
+    $CI =& get_instance();
+     
+    //load databse library
+    $CI->load->database();
+     
+    //get data from database
+    $query = $CI->db->get_where('nunu_stores', array('store_active' => 1));
+     
+    if($query->num_rows() > 0){
+      $store_list = $query->result_array();
+    }else{
+      $store_list = array('vacio');
+    }
+
+
+
+    $control_html = '<select name="store" class="form-control store-list">';
+
+    //if current_value is empty that means is not for edit
+    if($action == 'edit') {
+      $control_html = '<select name="edit-control" class="form-control edit-control">';;
+    }
+ 
+    foreach($store_list as $store): 
+      if($store['store_name'] == $current_value):
+        $control_html .= '<option selected value="' . $store['store_id'] . '">' . $store['store_name'] . '</option>';
+      else:
+        $control_html .= '<option value="' . $store['store_id'] . '">'; 
+        $control_html .= $store['store_name'];
+        $control_html .= '</option>';
+      endif;
+    endforeach;
+    $control_html .= '</select>';
+
+    return $control_html;
+  }
+}
+
 
 
 

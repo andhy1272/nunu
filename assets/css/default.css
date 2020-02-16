@@ -791,20 +791,20 @@ select {
 	margin-top: 2px;
 }
 
-.agenda-create .hour-section {
+.agenda-create .date-section {
 	overflow: hidden;
 }
 
-.agenda-create .hour-section label{
+.agenda-create .date-section label{
 	display: block !important;
 }
 
-.agenda-create .hour-section input {
-	width: 65%;
+.agenda-create .date-section input {
+	width: 70%;
 	float: left;
 }
 
-.agenda-create .hour-section button {
+.agenda-create .date-section button {
 	float: left;
 	margin-top: 2px;
 }
@@ -832,26 +832,26 @@ select {
 	background-color: #CCC;
 }	
 
-.agenda-day-list .agenda-item input {
-	top: 10px;
-    left: 10px;
-	position: absolute;
-}
-
 .agenda-day-list .agenda-item label{
 	width: 100%;
 	cursor: pointer;
-	padding-left: 35px !important;
+}
+
+.agenda-day-list .agenda-item label span{
+	float: right;
+	font-size: 10px;
+	font-weight: normal;
+	padding-right: 10px;
 }
 
 .agenda-day-list .agenda-item .agenda-name{
-	margin-left: 35px;
-    padding-left: 10px;
-    padding-top: 5px;
-    border-top: 1px solid #AAA;
+	padding: 5px 0 0 30px;
+    border-top: 1px solid #DDD;
 }
 
-
+.agenda-day-list .agenda-item .agenda-notes{
+	padding: 0 0 0 30px;
+}
 
 
 

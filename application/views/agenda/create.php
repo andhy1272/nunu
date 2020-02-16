@@ -29,43 +29,27 @@
 					<label>Paciente:</label>
 					<input type="text" name="patient-name" class="form-control search-patient-control" placeholder="Nombre / ID" readonly>
 
-					<button type="button" class="btn blue search-patient-popup">BUSCAR</button>
-					<button type="button" class="btn green new-patient-popup">NUEVO</button>
+					<button type="button" class="btn blue search-patient-popup" title="Busqueda de pacientes ya existentes">BUSCAR</button>
+					<button type="button" class="btn green new-patient-popup" title="Creacion rapida de paciente nuevo">NUEVO</button>
 
 					<input type="hidden" name="patient-id" class="patient-id" value="">
 				</div>
 				<div class="box-element">
-					<label>Medico:</label>
-					<select name="agenda-medic" class="form-control">
-						<option value="Medico01">Medico 01</option>
-						<option value="Medico02">Medico 02</option>
-						<option value="Medico03">Medico 03</option>
-					</select>
-				</div>
-				<div class="box-element">
 					<label>Establecimiento:</label>
-					<select name="agenda-store" class="form-control">
-						<option value="Clinica01">Clinica 01</option>
-						<option value="Clinica02">Clinica 02</option>
-
-					</select>
+					<?php echo get_stores_list(); //options_helper ?>
 				</div>
 				<div class="box-element">
 					<label>Servicio:</label>
-					<select name="agenda-service" class="form-control">
-						<option value="servicio02">Procedimiento</option>
-						<option value="servicio01">Consulta General</option>
-						<option value="servicio01">Consulta Pediatrica</option>
-					</select>
+					<?php echo get_services_list(); //options_helper ?>
 				</div>
-				<div class="box-element">
+				<div class="box-element date-section">
 					<label>Fecha:</label>
-					<input type="text" name="agenda-date" class="form-control calendar-control" placeholder="2000-12-31" readonly>
+					<input type="text" name="agenda-date" class="form-control agenda-date calendar-control" value="<?php echo date("Y-m-d"); ?>" readonly>
+					<button type="button" class="btn blue show-appointements" title="Muestra las citas para la fecha seleccionada" >VER CITAS</button>
 				</div>
 				<div class="box-element hour-section">
 					<label>Hora:</label>
 					<input type="text" name="agenda-hour" class="form-control hour-control" placeholder="00:00" readonly>
-					<button class="btn blue show-day-hours">VER HORAS</button>
 				</div>
 				<div class="box-element">
 					<label>Detalles:</label>
@@ -75,65 +59,69 @@
 
 			<div class="box-content">
 				<div class="box-element">
-					<label>Lista de Citas:</label>
-					<div class="agenda-day-list">
+					<label>Lista de citas para la fecha seleccionada:</label>
+					<div class="agenda-day-list agenda-day-hours-list-container">
+
 						<div class="agenda-item disabled">
-							<input type="radio" name="hour" id="08:00" value="08:00">
-							<label for="08:00">08:00</label>
-							<div class="agenda-name">Andrey Picado Fernadez</div>
+							<label>&nbsp;</label>
 						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="09:00" value="09:00">
-							<label for="09:00">09:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="10:00" value="10:00">
-							<label for="10:00">10:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="11:00" value="11:00">
-							<label for="11:00">11:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="12:00" value="12:00">
-							<label for="12:00">12:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="13:00" value="13:00">
-							<label for="13:00">13:00</label>
-						</div>
-						<div class="agenda-item disabled">
-							<input type="radio" name="hour" id="14:00" value="14:00">
-							<label for="14:00">14:00</label>
-							<div class="agenda-name">Nataly Barreto Cardenas</div>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="15:00" value="15:00">
-							<label for="15:00">15:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="16:00" value="16:00">
-							<label for="16:00">16:00</label>
-						</div>
-						<div class="agenda-item">
-							<input type="radio" name="hour" id="17:00" value="17:00">
-							<label for="17:00">17:00</label>
-						</div>
+
 					</div>
+
 
 					<script type="text/javascript">
 						$(document).ready(function(){
 
-							$('.agenda-day-list .agenda-item:not(.disabled)').click(function(){
-								hour = $(this).find('input').val();
+							$('.show-appointements').click(function(){
 
-								console.log(hour);
-								$('.hour-control').val(hour);
-							});
+								agenda_store = $('.agenda-create select.store-list').val();
+								agenda_date = $('.agenda-create input.agenda-date').val();
 
-							$('.agenda-day-list .agenda-item.disabled').click(function(e){
-								e.preventDefault();
-								alert('La hora seleccionada no esta disponible');
+								if( (agenda_date.trim() != "") && (agenda_store.trim() != "") ) {
+									data = {
+										date: agenda_date,
+										store: agenda_store
+									};
+
+									
+									$.ajax({
+								  		url: "<?php echo site_url('agenda/appointments_per_day'); ?>", 
+								  		type: "POST",
+								  		dataType: "json",
+										data: data,
+								  		success: function(result){
+								  			_html = "<div class='agenda-item disabled'>";
+								  			_html += "<label>No hay citas para esta fecha</label>";
+								  			_html += "</div>";
+
+								  			if(result && result.length > 0) {
+								  				_html = "";
+								  				$.each(result, function (i, item) {   
+								  					_html += "<div index='" + i + "' class='agenda-item'>";
+										            _html += "<label for='" + item.agenda_time + "'>" + item.agenda_time + " <span>" + item.agenda_service + "</span></label>";
+										            _html += "<div class='agenda-name'>" + item.agenda_patient_id + "</div>";
+										            _html += "<div class='agenda-notes'>" + item.agenda_notes + "</div>";
+										            _html += "</div>";         
+										        });
+								  			}
+
+								  			$('.agenda-day-hours-list-container').html(_html);
+
+								    		console.log(result);
+								    		console.log("AJAX SUCCESS");
+								  		},
+								  		error: function (request, status, error) {
+								  			console.log("---------AJAX ERROR BEGIN---------");
+								  			console.log(error);
+									        console.log(request.status);
+									        console.log(request.responseText);
+									        console.log("---------AJAX ERROR ENDS----------");
+									    }
+								  	});
+								}
+								else {
+									alert('Porfavor ingrese un ID o un Nombre.');
+								}
 							});
 						});
 					</script>

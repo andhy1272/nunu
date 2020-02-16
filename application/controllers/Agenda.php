@@ -75,4 +75,17 @@
 		}
 
 
+
+		//Function called using AJAX
+		//Returns a list of hours for an specific day (date, store)
+		public function appointments_per_day() {
+			$date = $this->input->post('date');
+			$store = $this->input->post('store');
+
+			$result = $this->agenda_model->appointments_per_day($date, $store);
+
+			echo json_encode($result);
+		}
+
+
 	}
