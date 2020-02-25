@@ -499,7 +499,7 @@ if ( ! function_exists('get_stores_list'))
 
 
 
-    $control_html = '<select name="store" class="form-control store-list">';
+    $control_html = '<select name="store-list" class="form-control store-list">';
 
     //if current_value is empty that means is not for edit
     if($action == 'edit') {

@@ -767,9 +767,27 @@ select {
 
 
 /* APPOINTMENTS */
-.hour-control,
 .calendar-control {
 	cursor: pointer;
+}
+
+.agenda-create .hour-section {
+	overflow: hidden;
+}
+
+.agenda-create .hour-section label {
+	display: block !important;
+}
+
+.agenda-create .hour-section span {
+	float: left;
+	padding: 0 10px;
+	font-size: 25px;
+}
+
+.agenda-create .hour-section select {
+	float: left;
+	width: 75px;
 }
 
 

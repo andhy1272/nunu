@@ -24,19 +24,18 @@
 		}
 
 		//View agenda information
-		public function view($patient_id = NULL) {
-			/*
-			$data['page_title'] = "Patient View";
+		public function view($agenda_id = NULL) {
+
 			$data['view'] = $this::VIEW_VIEW;
-			$data['data']['patient_data'] = $this->patient_model->get_view($patient_id);
+			$data['data']['page_title'] = "Ver Cita";
+			$data['data']['agenda_data'] = $this->agenda_model->get_view($agenda_id);
 			$data['data']['error'] = '';
 
-			if(empty($data['data']['patient_data'])) {
-				$data['data']['error'] = 'El paciente no se encontra en la Base de Datos';
+			if(empty($data['data']['agenda_data'])) {
+				$data['data']['error'] = 'Ha ocurrido un error al cargar la cita.';
 			}
 
 			$this->load->view('templates/main', $data);
-			*/
 		}
 
 
@@ -47,22 +46,35 @@
 			$data['result'] = "vacio";
 
 			$form_data = array(
-				'appointment_patient_id' => $this->input->post('patient-id'),
-				'appointment_medic' => $this->input->post('appointment-medic'),
-				'appointment_store' => $this->input->post('appointment-store'),
-				'appointment_service' => $this->input->post('appointment-service'),
-				'appointment_notes' => $this->input->post('appointment-notes')
+				'agenda_date' => $this->input->post('agenda-date'),
+				'agenda_time' => $this->input->post('agenda-hour') . ":" . $this->input->post('agenda-minutes') . ":00",
+				'agenda_patient_id' => $this->input->post('patient-id'),
+				'agenda_service' => $this->input->post('service-list'),
+				'agenda_status' => "ontime",
+				'agenda_notes' => $this->input->post('agenda-notes'),
+				'agenda_store' => $this->input->post('store-list')
 			);
-			$data['form_data'] = $form_data;
 
 			$this->form_validation->set_rules('patient-id', 'Paciente', 'required');
-			$this->form_validation->set_rules('appointment-medic', 'Medico', 'required');
-			$this->form_validation->set_rules('appointment-store', 'Sucursal', 'required');
-			$this->form_validation->set_rules('appointment_service', 'Servicio', 'required');
-			$this->form_validation->set_rules('appointment-notes', 'Detalles', 'required');
+			$this->form_validation->set_rules('store-list', 'Establecimiento', 'required');
+			$this->form_validation->set_rules('service-list', 'Servicio', 'required');
 
 
-			$this->load->view('templates/main', $data);
+			if($this->form_validation->run() === FALSE) {
+				$this->load->view('templates/main', $data);
+			}
+			else {
+				$result = $this->agenda_model->create($form_data);
+
+				if ($result) {
+					$this->session->set_flashdata('message_success', 'Cita creada exitosamente');
+					redirect('agenda/');
+				} 
+				else {
+					$this->load->view('templates/main', $data);
+					$this->session->set_flashdata('error_message', 'Ha ocurrido un error. Por favor intente de nuevo o contacte con el administrador del sistema');
+				}
+			}
 		}
 
 

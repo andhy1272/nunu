@@ -49,7 +49,33 @@
 				</div>
 				<div class="box-element hour-section">
 					<label>Hora:</label>
-					<input type="text" name="agenda-hour" class="form-control hour-control" placeholder="00:00" readonly>
+					<select name="agenda-hour" class="agenda-hour form-control">
+						<?php  
+						$hours = 7;
+						while($hours < 24) {
+							$hour = $hours;
+							if($hour < 10){ $hour = "0" . $hour; }
+						?>
+							<option value="<?php echo $hour; ?>"><?php echo $hour; ?></option>
+						<?php
+							$hours++;
+						}
+						?>
+					</select>
+					<span> : </span>
+					<select name="agenda-minutes" class="agenda-minutes form-control">
+						<?php  
+						$minutes = 0;
+						while($minutes < 60) {
+							$minute = $minutes;
+							if($minute < 10){ $minute = "0" . $minute; }
+						?>
+							<option value="<?php echo $minute; ?>"><?php echo $minute; ?></option>
+						<?php
+							$minutes += 5;
+						}
+						?>
+					</select>
 				</div>
 				<div class="box-element">
 					<label>Detalles:</label>
@@ -99,7 +125,7 @@
 								  				$.each(result, function (i, item) {   
 								  					_html += "<div index='" + i + "' class='agenda-item'>";
 										            _html += "<label for='" + item.agenda_time + "'>" + item.agenda_time + " <span>" + item.agenda_service + "</span></label>";
-										            _html += "<div class='agenda-name'>" + item.agenda_patient_id + "</div>";
+										            _html += "<div class='agenda-name'>" + item.patient_fullname + "</div>";
 										            _html += "<div class='agenda-notes'>" + item.agenda_notes + "</div>";
 										            _html += "</div>";         
 										        });
