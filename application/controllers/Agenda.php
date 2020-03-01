@@ -25,7 +25,6 @@
 
 		//View agenda information
 		public function view($agenda_id = NULL) {
-
 			$data['view'] = $this::VIEW_VIEW;
 			$data['data']['page_title'] = "Ver Cita";
 			$data['data']['agenda_data'] = $this->agenda_model->get_view($agenda_id);
@@ -79,11 +78,17 @@
 
 
 		//Edit agenda
-		public function edit($patient_id) {
-			/*
-			$data['page_title'] = "Patients Edit";
-			//tengo q ver si se salva todo o solo lo nuevo
-			*/
+		public function edit($agenda_id) {
+			$data['view'] = $this::VIEW_EDIT;
+			$data['data']['page_title'] = "Editar Cita";
+			$data['data']['agenda_data'] = $this->agenda_model->get_view($agenda_id);
+			$data['data']['error'] = '';
+
+			if(empty($data['data']['agenda_data'])) {
+				$data['data']['error'] = 'Ha ocurrido un error al cargar la cita.';
+			}
+
+			$this->load->view('templates/main', $data);
 		}
 
 
@@ -98,6 +103,63 @@
 
 			echo json_encode($result);
 		}
+
+
+
+		//Function called using AJAX
+		//Returns field for edit data -- text, textarea, date, dropdowns(sex, blood type, )
+		public function load_control_type() {
+			$type = $this->input->post('type');
+			$current_value = $this->input->post('value');
+
+			switch($type) {
+				case "text":
+					echo '<input type="text" name="edit-control" class="form-control edit-control" value="' . $current_value . '">';
+					break;
+
+				case "status":
+					echo get_status_list('edit', $current_value); //options_helper 
+					break;
+
+				case "service":
+					echo get_service_list('edit', $current_value); //options_helper
+					break;
+
+				case "time":
+					$text = '<input type="text" name="edit-control" class="form-control edit-control calendar-control" value='. $current_value .' readonly>';
+					$text .= '<script type="text/javascript">
+							var url = "'. site_url("assets/calendar/js/site.js") .'";
+							$.getScript(url);
+  						</script>';
+
+  					echo $text;
+					break;
+
+				default:
+					echo "<span>El elemento no pueder ser cargado, por favor intente de nuevo o contacte con el administrador del sistema.</span>";
+			}
+		}
+
+
+
+		//Function called using AJAX to save modified data
+		public function edit_specific_attribute() {
+			
+			$agenda_id = $this->input->post('agenda_id');
+			$table = "nunu_" . $this->input->post('object_name');
+			$column = $this->input->post('control_name');
+			$new_value = $this->input->post('new_value');
+
+			$data = array('agenda_id' => $agenda_id, 'table_name' => $table, 'column_name' => $column, 'new_value' => $new_value);
+
+			$result = $this->agenda_model->edit_specific_attribute($data);
+			//$result;
+
+			echo json_encode($result);
+		}
+
+
+
 
 
 	}

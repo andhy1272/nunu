@@ -33,7 +33,8 @@
 .icon-key:before{content:'\004b';}
 .icon-lab:before{content:'\004c';}
 .icon-mail:before{content:'\004d';}
-.icon-calc:before{content:'\004e';}
+.icon-calc:before{content:'\006e';}
+.icon-agenda:before{content:'\006e';}
 .icon-equalizer:before{content:'\004f';}
 .icon-switch:before{content:'\0050';}
 .icon-book:before{content:'\0051';}
@@ -59,7 +60,6 @@
 .icon-ambulance:before{content:'\006b';}
 .icon-minus:before{content:'\006c';}
 .icon-menu-vertical:before{content:'\006d';}
-.icon-agenda:before{content:'\006e';}
 .icon-pill:before{content:'\006f';}
 .icon-map-marker:before{content:'\0070';}
 .icon-scissors:before{content:'\0071';}

@@ -43,7 +43,7 @@
 
 		public function get_view($agenda_id) {
 
-			$q = 'SELECT a.agenda_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.agenda_service, a.agenda_status, a.agenda_notes FROM nunu_agenda a INNER JOIN nunu_patients p WHERE a.agenda_patient_id = p.patient_id AND a.agenda_id = ' . $agenda_id . ';';
+			$q = 'SELECT a.agenda_id, a.agenda_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.agenda_service, a.agenda_status, a.agenda_notes FROM nunu_agenda a INNER JOIN nunu_patients p WHERE a.agenda_patient_id = p.patient_id AND a.agenda_id = ' . $agenda_id . ';';
 
 			//echo $q;
 			$query = $this->db->query($q);
@@ -72,6 +72,19 @@
 			$insertId = $this->db->insert_id();
 
 			return $insertId;
+		}
+
+
+		public function edit_specific_attribute(array $data) {
+			$data_to_update = array( 
+			    $data['column_name'] => $data['new_value']
+			);
+
+			$this->db->where('agenda_id', $data['agenda_id']);
+
+			$result = $this->db->update($data['table_name'], $data_to_update);
+
+			return $result;
 		}
 
 
