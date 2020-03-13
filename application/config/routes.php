@@ -61,6 +61,7 @@ $route['patients'] = 'patients/list';
 
 $route['agenda'] = 'agenda/list';
 
+$route['atention'] = 'atention/create';
 
 $route['users'] = 'users/list';
 $route['login'] = 'users/login';

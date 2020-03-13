@@ -68,6 +68,18 @@ a:active{opacity: 0.7;}
 
 img{max-width:100%;}
 
+fieldset {
+	border-radius: 5px;
+	margin-bottom: 20px;
+	padding: 5px 10px 10px;
+	border: 1px solid #ccc;
+	box-shadow: 3px 3px 3px rgba(0,0,0,0.1);
+}
+
+legend {
+	padding-left: 5px;
+	padding-right: 5px;
+}
 
 h1{
 	margin-bottom: 20px;
@@ -164,6 +176,9 @@ select {
 	padding-right: 2%;
 }
 
+.float-left { float: left; }
+
+.float-right { float: right; }
 
 
 /* HEADER */
@@ -374,7 +389,8 @@ select {
 	flex-direction: row;
 }
 
-.box-3 {
+.box-3,
+.box-margins {
 	flex: 1;
 	float: left;
 	margin-right: 3.333%;
@@ -872,6 +888,79 @@ select {
 .agenda-day-list .agenda-item .agenda-notes{
 	padding: 0 0 0 30px;
 }
+
+
+
+/* ATTENTION */
+
+.atention-create .atention-general {
+
+}
+
+.atention-create .atention-tabs {
+	flex: 3;
+}
+
+.atention-create {
+
+}
+
+.atention-create .atention-signs-section {
+	width: 47%;
+	float: left;
+	margin-right: 5%;
+}
+
+.atention-create .atention-antropometric-section{
+	width: 47%;
+	float: left;
+}
+
+.atention-create .atention-exploration-section .box-element {
+	width: 47%;
+}
+
+
+
+
+
+/*  TABS  */
+.tabs-container {
+ 	overflow: hidden;
+}
+
+.tabs-container .tab-tiles {
+	overflow: hidden;
+}
+
+.tabs-container .tab-tiles li {
+	float: left;
+	color: #FFF;
+	cursor: pointer;
+	margin-right: 5px;
+	text-transform: uppercase;
+	background-color: #37474F;
+	padding: 10px 15px 5px 15px;
+	border-radius: 10px 10px 0 0;
+}
+
+.tabs-container .tab-tiles li.active,
+.tabs-container .tab-tiles li:hover {
+	opacity: 0.7;
+}
+
+.tabs-container .tab-contents > div {
+	display: none;
+	padding: 15px 15px 20px;
+	border: 1px solid #37474F;
+}
+
+.tabs-container .tab-contents > div.active {
+	display: block;
+}
+
+
+
 
 
 

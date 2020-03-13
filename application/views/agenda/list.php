@@ -16,18 +16,18 @@
 		</ul>
 	</div>
 
-	<?php echo form_open('agenda'); ?>
+	<?php echo form_open('agenda', array('method' => 'get')); ?>
 		<div class="filters">
 			<div class="input-group">
 				<label>Fecha</label>
 				<ul>
 					<li>
 						<label>Desde:</label>
-						<input type="text" name="date_from" class="form-control calendar-control" placeholder="2000-12-31" readonly>
+						<input type="text" name="date_from" class="form-control calendar-control" value="<?php echo date("Y-m-d"); ?>" readonly>
 					</li>
 					<li>
 						<label>Hasta:</label>
-						<input type="text" name="date_to" class="form-control calendar-control" placeholder="2000-12-31" readonly>
+						<input type="text" name="date_to" class="form-control calendar-control" value="<?php echo date("Y-m-d"); ?>" readonly>
 					</li>
 				</ul>
 			</div>

@@ -2,7 +2,14 @@
 	<h1><?php echo $agenda_data['patient_fullname']; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>agenda/" class="btn blue">ATRAS</a>
+		<?php
+			$back_url = site_url('agenda');
+			if (isset($_SERVER['HTTP_REFERER'])) {
+				$back_url = $_SERVER['HTTP_REFERER'];
+			}
+		?>
+		<a href="<?php echo $back_url; ?>" class="btn blue">ATRAS</a>
+
 		<a href="<?php echo base_url(); ?>agenda/edit/<?php echo $agenda_data['agenda_id']; ?>" class="btn green">EDITAR</a>
 	</div>
 </div>

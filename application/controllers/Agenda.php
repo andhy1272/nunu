@@ -122,7 +122,7 @@
 					break;
 
 				case "service":
-					echo get_service_list('edit', $current_value); //options_helper
+					echo get_services_list('edit', $current_value); //options_helper
 					break;
 
 				case "time":

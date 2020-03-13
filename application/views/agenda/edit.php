@@ -2,7 +2,13 @@
 	<h1><?php echo $agenda_data['patient_fullname']; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>agenda/" class="btn blue">ATRAS</a>
+		<?php
+			$back_url = site_url('agenda');
+			if (isset($_SERVER['HTTP_REFERER'])) {
+				$back_url = $_SERVER['HTTP_REFERER'];
+			}
+		?>
+		<a href="<?php echo $back_url; ?>" class="btn blue">ATRAS</a>
 	</div>
 </div>
 
@@ -22,7 +28,8 @@
 			</div>
 			<div class="box-element">
 				<label>Servicio:</label>
-				<?php echo $agenda_data['agenda_service']; ?>	
+				<span id="agenda_service"><?php echo $agenda_data['agenda_service']; ?></span>
+				<button type="button" action="edit" data-type="service" data-label="Servicio:" data-control-name="agenda_service" data-value="<?php echo $agenda_data['agenda_service']; ?>">Editar</button>
 			</div>
 			<div class="box-element">
 				<label>Notas:</label>

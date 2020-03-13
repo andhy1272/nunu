@@ -2,7 +2,13 @@
 	<h1><?= $page_title; ?></h1>
 
 	<div class="page-actions">
-		<a href="<?php echo base_url(); ?>users/" class="btn blue">ATRAS</a>
+		<?php
+			$back_url = site_url('users');
+			if (isset($_SERVER['HTTP_REFERER'])) {
+				$back_url = $_SERVER['HTTP_REFERER'];
+			}
+		?>
+		<a href="<?php echo $back_url; ?>" class="btn blue">ATRAS</a>
 	</div>
 </div>
 

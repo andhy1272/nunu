@@ -11,8 +11,8 @@
 
 		public function get_list($from = null, $to = null) {
 
-			$from = $this->input->post('date_from');
-			$to = $this->input->post('date_to');
+			$from = $this->input->get('date_from');
+			$to = $this->input->get('date_to');
 			$filter = '';
 
 			if ( (($from !== null) && ($from !== '')) && (($to !== null) && ($to !== '')) ) {

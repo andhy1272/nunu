@@ -372,20 +372,6 @@ if ( ! function_exists('get_services_list'))
 
 
 
-if ( ! function_exists('get_service_list'))
-{
-  /**
-   * get_service_list
-   *
-   * Returns the Service List from Database for Appointments creation
-   * 
-   * @return  mixed
-   */
-  function get_service_list()
-  {
-    return get_options_list('options/service');
-  }
-}
 
 
 
