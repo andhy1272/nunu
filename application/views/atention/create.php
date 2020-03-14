@@ -216,23 +216,23 @@
 						</div>
 
 						<div data-index="tab-2">
-							Something 02
+							Diagnostico
 						</div>
 
 						<div data-index="tab-3">
-							Something 03
+							Prescripcion
 						</div>
 
 						<div data-index="tab-4">
-							Something 04
+							<?php echo get_exams_list(); //options_helper ?>
 						</div>
 
 						<div data-index="tab-5">
-							Something 05
+							Imagenes
 						</div>
 
 						<div data-index="tab-6">
-							Something 06
+							Procedimientos
 						</div>
 					</div>
 				</div>
@@ -245,7 +245,7 @@
 	</div>
 
 	<div class="actions page-actions">
-		<a href="<?php echo base_url(); ?>patients/" class="btn red">CANCELAR</a>
+		<a href="<?php echo base_url(); ?>" class="btn red">CANCELAR</a>
 		<button type="reset" class="btn blue">LIMPIAR</button>
 		<button type="submit" class="btn green">GUARDAR</button>
 	</div>

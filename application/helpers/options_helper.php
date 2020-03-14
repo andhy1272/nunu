@@ -510,6 +510,54 @@ if ( ! function_exists('get_stores_list'))
 
 
 
+if ( ! function_exists('get_exams_list'))
+{
+  /**
+   * get_exams_list
+   *
+   * Returns the Exams List requested from Database
+   * 
+   * @return  mixed
+   */
+  function get_exams_list($action = 'create', $current_value = null)
+  {
+    //get main CodeIgniter object
+    $CI =& get_instance();
+     
+    //load databse library
+    $CI->load->database();
+
+    $q = 'SELECT cat.examcat_name, exam.exam_name  FROM nunu_exams AS exam, nunu_exam_categories AS cat WHERE cat.examcat_enable = 1 AND exam.exam_enable = 1 AND cat.examcat_id = exam.exam_category;';
+
+    $query = $CI->db->query($q);
+
+    $exam_list = $query->result_array();
+
+    $category = '';
+    $exams_html = '';
+ 
+    foreach($exam_list as $exam): 
+      if($category != $exam['examcat_name']){
+        $category = $exam['examcat_name'];
+        $exams_html .= "</fieldset><fieldset>";
+        $exams_html .= "<legend>" . $category . "</legend>";
+      }
+
+        $name = strtolower( preg_replace("/[^a-zA-Z]/", "", $exam['exam_name']) );
+        $exams_html .= '<input type="checkbox" name="' . $name . '" value="' . $exam['exam_name'] . '">'; 
+        $exams_html .= '<label for="' . $name . '">' . $exam['exam_name'] . '</label>';
+        $exams_html .= '<br/>';
+    endforeach;
+
+    $exams_html .= "</fieldset>";
+
+    return $exams_html;
+  }
+}
+
+
+
+
 
 
 
