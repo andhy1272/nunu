@@ -103,7 +103,7 @@
 		$('.results-container').on('click', 'tbody tr', function() {
 			_current_row = $(this);
 
-			$('.results-container tbody tr').removeClass('selected');
+			$('.quicksearch-container .results-container tbody tr').removeClass('selected');
 
 			_current_row.addClass('selected');
 		});

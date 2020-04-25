@@ -543,10 +543,11 @@ if ( ! function_exists('get_exams_list'))
         $exams_html .= "<legend>" . $category . "</legend>";
       }
 
-        $name = strtolower( preg_replace("/[^a-zA-Z]/", "", $exam['exam_name']) );
-        $exams_html .= '<input type="checkbox" name="' . $name . '" value="' . $exam['exam_name'] . '">'; 
+        $name = strtolower( preg_replace("/[^a-zA-Z0-9]/", "", $exam['exam_name']) );
+        $exams_html .= '<div class="exam-elem">';
+        $exams_html .= '<input type="checkbox" name="' . $name . '" id="' . $name . '" value="' . $exam['exam_name'] . '">'; 
         $exams_html .= '<label for="' . $name . '">' . $exam['exam_name'] . '</label>';
-        $exams_html .= '<br/>';
+        $exams_html .= '</div>';
     endforeach;
 
     $exams_html .= "</fieldset>";

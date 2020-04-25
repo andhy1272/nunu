@@ -15,7 +15,7 @@
 
 <?php echo form_open('atention/create'); ?>
 
-	<div class="box-container atention-create">
+	<div class="box-container atention atention-create">
 
 		<div class="box box-margins atention-general">
 			<div class="box-name"><span>Informaci&oacute;n General</span></div>
@@ -78,9 +78,8 @@
 			</div>
 		</div>
 
-
 		<div class="box atention-tabs">
-			<div class="box-name"><span>Tabs</span></div>
+			<div class="box-name"><span>Evoluci&oacute;n</span></div>
 			<div class="box-content">
 				
 				<div class="tabs-container">
@@ -215,21 +214,50 @@
 							</fieldset>
 						</div>
 
+
 						<div data-index="tab-2">
-							Diagnostico
+							<fieldset class="cie10-diagnosis">
+								<legend>Diagnostico CIE-10</legend>
+								<button type="button" class="btn blue cie10-search-popup">AGREGAR</button>
+								<br/><br/>
+								<textarea name="atention-cie10-diagnosis" class="form-control cie10-results" rows="6"></textarea>
+							</fieldset>
+							<fieldset class="open-diagnosis">
+								<legend>Diagnostico Abierto</legend>
+								<textarea name="atention-open-diagnosis" class="form-control" rows="6"></textarea>
+							</fieldset>
 						</div>
+
 
 						<div data-index="tab-3">
-							Prescripcion
+							<fieldset class="prescription">
+								<legend>Prescripci&oacute;n</legend>
+								<button type="button" class="btn blue drugs-search-popup">AGREGAR MEDICAMENTO</button>
+								<br/><br/>
+								<table class="drugs-results results">
+									<thead>
+										<td>Medicamentos</td>
+										<td width="100">Cant.</td>
+										<td>Indicaciones</td>
+										<td width="100">&nbsp;</td>
+									</thead>
+
+									<tbody></tbody>
+								</table>
+								<input type="hidden" name="prescription-ids" id="prescription-ids" value="">
+							</fieldset>
 						</div>
 
-						<div data-index="tab-4">
+
+						<div data-index="tab-4" class="tab-exams">
 							<?php echo get_exams_list(); //options_helper ?>
 						</div>
+
 
 						<div data-index="tab-5">
 							Imagenes
 						</div>
+
 
 						<div data-index="tab-6">
 							Procedimientos
@@ -254,13 +282,13 @@
 
 
 
-<?php $this->load->view('quicksearch/patients-search'); ?>
+<?php //$this->load->view('quicksearch/patients-search'); ?>
 
 <?php $this->load->view('templates/calendar'); ?>
 
+<?php $this->load->view('cie10/search'); ?>
 
-
-
+<?php $this->load->view('drugs/search'); ?>
 
 
 

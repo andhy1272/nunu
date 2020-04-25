@@ -16,8 +16,9 @@
    font-style: normal;
    font-weight: normal;
    line-height: 1;
+   font-size: 12px;
    -webkit-font-smoothing: antialiased;
-   -moz-osx-font-smoothing: grayscale
+   -moz-osx-font-smoothing: grayscale;
 }
 
 .icon-clip:before{content:'\0041';}
