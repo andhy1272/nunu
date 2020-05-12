@@ -1099,6 +1099,26 @@ select {
 	font-size: 10px;
 }
 
+/*agenda search*/
+.agenda-search-container .results-container .time {
+	display: block;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+.agenda-search-container .results-container .patient {
+	display: block;
+	text-transform: uppercase;
+}
+
+.agenda-search-container .results-container .service {
+	display: block;
+	font-size: 10px;
+}
+
+.agenda-search-container .results-container .notes {
+	text-transform: capitalize;
+}
 
 
 /*RESULTS TABLE*/

@@ -15,7 +15,7 @@
 
 <?php echo form_open('atention/create'); ?>
 
-	<div class="box-container atention atention-create">
+	<div class="box-container atention atention-edit">
 
 		<div class="box box-margins atention-general">
 			<div class="box-name"><span>Informaci&oacute;n General</span></div>
@@ -75,8 +75,15 @@
 					<label>Detalles:</label>
 					<input type="text" name="agenda-notes" class="form-control" placeholder="Detalles">
 				</div>
+
+				<div class="actions">
+					<a href="<?php echo base_url(); ?>" class="btn red">CANCELAR</a>
+					<button type="submit" class="btn green">CREAR</button>
+				</div>
 			</div>
 		</div>
+
+
 
 		<div class="box atention-tabs">
 			<div class="box-name"><span>Evoluci&oacute;n</span></div>
@@ -98,19 +105,19 @@
 								<legend>Signos Vitales</legend>
 								<div class="box-element">
 									<label title="Presion Arterial">P.A.(mmHg):</label>
-									<input type="text" name="atention-blood-pressure" class="form-control" value="">
+									<input type="text" name="atention-blood-pressure" class="form-control" oninput="this.value = this.value.replace(/[^0-9 /-]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 								<div class="box-element">
 									<label title="Frecuencia Cardiaca">F.C.(Ipm):</label>
-									<input type="text" name="atention-heart-rate" class="form-control" value="">
+									<input type="text" name="atention-heart-rate" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 								<div class="box-element">
 									<label title="Frecuencia Respiratoria">F.R.(rpm):</label>
-									<input type="text" name="atention-breath-rate" class="form-control" value="">
+									<input type="text" name="atention-breath-rate" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 								<div class="box-element">
 									<label title="Temperatura">Temperatura(°C):</label>
-									<input type="text" name="atention-temperature" class="form-control" value="">
+									<input type="text" name="atention-temperature" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 							</fieldset>
 
@@ -118,19 +125,46 @@
 								<legend>Antropometr&iacute;a</legend>
 								<div class="box-element">
 									<label title="Peso">Peso(Kg):</label>
-									<input type="text" name="atention-weight" class="form-control" value="">
+									<input type="text" name="atention-weight" class="form-control BMI-weight" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 								<div class="box-element">
 									<label title="Estatura">Estatura(cm):</label>
-									<input type="text" name="atention-height" class="form-control" value="">
+									<input type="text" name="atention-height" class="form-control BMI-height" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 								<div class="box-element">
 									<label title="Indice Masa Corporal">I.M.C.:</label>
-									<input type="text" name="atention-bmi" class="form-control" value="">
+									<input type="text" name="atention-BMI" class="form-control BMI-result" value="">
+									<script type="text/javascript">
+										$(document).ready(function() {
+											$('.BMI-result').click(function() {
+												calc_BMI();
+											});
+
+											$('.BMI-weight').focusout(function() {
+												calc_BMI();
+											});
+
+											$('.BMI-height').focusout(function() {
+												calc_BMI();
+											});
+										});
+
+										function calc_BMI() {
+											_weight = $('.BMI-weight').val();
+											_height = $('.BMI-height').val();
+
+											if ( (_weight != "") && (_height != "") ) {
+												_height = _height / 100;
+												_imc = _weight / (_height * _height);
+
+												$('.BMI-result').val(_imc.toFixed(2));
+											}
+										}
+									</script>
 								</div>
 								<div class="box-element">
 									<label title="Perimetro Cefalico">Perimetro Cef&aacute;lico(cm):</label>
-									<input type="text" name="atention-head-circunference" class="form-control" value="">
+									<input type="text" name="atention-head-circunference" class="form-control" oninput="this.value = this.value.replace(/[^0-9.]/g, '').replace(/(\..*)\./g, '$1');" value="">
 								</div>
 							</fieldset>
 
@@ -178,7 +212,7 @@
 								</div>
 								<div class="box-element float-right">
 									<label title="ORL">ORL:</label>
-									<textarea name="atention-orl" class="form-control"></textarea>
+									<textarea name="atention-ENT" class="form-control"></textarea>
 								</div>
 								<div class="box-element float-left">
 									<label title="Cuello">Cuello:</label>
@@ -186,7 +220,7 @@
 								</div>
 								<div class="box-element float-right">
 									<label title="Torax">Torax:</label>
-									<textarea name="atention-chest" class="form-control"></textarea>
+									<textarea name="atention-thorax" class="form-control"></textarea>
 								</div>
 								<div class="box-element float-left">
 									<label title="Abdomen">Abdomen:</label>

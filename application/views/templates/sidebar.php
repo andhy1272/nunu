@@ -3,7 +3,7 @@
 		<li><a class="icon-empty-dash" href="<?php echo base_url(); ?>">Inicio</a></li>
 		<li><a class="icon-book" href="<?php echo base_url(); ?>agenda/">Agenda</a></li>
 		<li><a class="icon-user" href="<?php echo base_url(); ?>patients/">Pacientes</a></li>
-		<li><a class="icon-stethoscope" href="<?php echo base_url(); ?>atention/">Atenci&oacute;n</a></li>
+		<li><a class="icon-stethoscope" href="<?php echo base_url(); ?>attention/">Atenci&oacute;n</a></li>
 	</ul>
 
 	<div class="tools-menu">

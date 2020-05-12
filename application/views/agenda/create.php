@@ -124,7 +124,7 @@
 										data: data,
 								  		success: function(result){
 								  			_html = "<div class='agenda-item disabled'>";
-								  			_html += "<label>No hay citas para esta fecha</label>";
+								  			_html += "<label>No hay citas programadas para esta fecha</label>";
 								  			_html += "</div>";
 
 								  			if(result && result.length > 0) {

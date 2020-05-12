@@ -527,7 +527,7 @@ if ( ! function_exists('get_exams_list'))
     //load databse library
     $CI->load->database();
 
-    $q = 'SELECT cat.examcat_name, exam.exam_name  FROM nunu_exams AS exam, nunu_exam_categories AS cat WHERE cat.examcat_enable = 1 AND exam.exam_enable = 1 AND cat.examcat_id = exam.exam_category;';
+    $q = 'SELECT cat.examcat_id, cat.examcat_name, exam.exam_id, exam.exam_name  FROM nunu_exams AS exam, nunu_exam_categories AS cat WHERE cat.examcat_enable = 1 AND exam.exam_enable = 1 AND cat.examcat_id = exam.exam_category;';
 
     $query = $CI->db->query($q);
 
@@ -543,9 +543,10 @@ if ( ! function_exists('get_exams_list'))
         $exams_html .= "<legend>" . $category . "</legend>";
       }
 
-        $name = strtolower( preg_replace("/[^a-zA-Z0-9]/", "", $exam['exam_name']) );
+        $name = strtolower( preg_replace("/[^a-zA-Z0-9]/", "", $category . $exam['exam_name']) );
+        $value = $exam['examcat_id'] . "%" . $category . "%" . $exam['exam_id'] . "%" . $exam['exam_name'];
         $exams_html .= '<div class="exam-elem">';
-        $exams_html .= '<input type="checkbox" name="' . $name . '" id="' . $name . '" value="' . $exam['exam_name'] . '">'; 
+        $exams_html .= '<input type="checkbox" name="exams[]" id="' . $name . '" value="' . $value . '">'; 
         $exams_html .= '<label for="' . $name . '">' . $exam['exam_name'] . '</label>';
         $exams_html .= '</div>';
     endforeach;

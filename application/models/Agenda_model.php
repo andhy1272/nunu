@@ -88,6 +88,37 @@
 		}
 
 
+
+		//Request data for search control
+		public function search($date) {
+
+			$q = 'SELECT a.*, 
+					p.patient_id, 
+					p.patient_id_number, 
+					CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, 
+					s.store_id, 
+					s.store_name
+				FROM 
+					nunu_agenda AS a, 
+					nunu_patients AS p, 
+					nunu_stores AS s
+				WHERE 
+					a.agenda_patient_id = p.patient_id AND 
+					a.agenda_store = s.store_id AND 
+					a.agenda_date  = "' . $date . '"
+				ORDER BY 
+					a.agenda_time ASC;'
+			;
+
+			$query = $this->db->query($q);
+
+			return $query->result_array();
+		}
+
+/*
+SELECT a.*, p.patient_id, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, s.store_id, s.store_name FROM nunu_agenda AS a, nunu_patients AS p, nunu_stores AS s WHERE a.agenda_patient_id = p.patient_id AND a.agenda_store = s.store_id AND a.agenda_date = "2020-05-12" ORDER By a.agenda_time DESC;
+*/
+
 //SELECT a.appointment_id, a.appointment_date, a.appointment_time, p.patient_id_number, CONCAT(p.patient_name, " ", p.patient_last_name) AS patient_fullname, a.appointment_status, a.appointment_notes FROM nunu_appointments a INNER JOIN nunu_patients p WHERE a.appointment_patient_id = p.patient_id AND a.appointment_date >= CURDATE() ORDER BY a.appointment_date, a.appointment_time ASC;
 
 

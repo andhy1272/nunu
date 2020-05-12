@@ -141,7 +141,7 @@
 				_drug += "<input type='hidden' name='generic-" + _id_aux + "' value='" + _generic_aux + "'>";
 				_drug += "</td>";
 
-				_drug += "<td class='qty'><input type='text' class='form-control' name='cant-" + _id_aux + "' value='1'></td>";
+				_drug += "<td class='qty'><input type='text' class='form-control' name='qty-" + _id_aux + "' value='1'></td>";
 
 				_drug += "<td><textarea class='form-control' name='indic-" + _id_aux + "'>" + _indications_aux + "</textarea></td>";
 
