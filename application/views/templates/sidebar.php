@@ -4,6 +4,11 @@
 		<li><a class="icon-book" href="<?php echo base_url(); ?>agenda/">Agenda</a></li>
 		<li><a class="icon-user" href="<?php echo base_url(); ?>patients/">Pacientes</a></li>
 		<li><a class="icon-stethoscope" href="<?php echo base_url(); ?>attention/">Atenci&oacute;n</a></li>
+
+		<li><hr/></li>
+		<li><a class="icon-folder" href="<?php echo base_url(); ?>records/">Expedientes</a></li>
+		<li><a class="icon-document" href="<?php echo base_url(); ?>reports/">Reportes</a></li>
+		<li><a class="icon-charts" href="<?php echo base_url(); ?>graphics/">Graficos</a></li>
 	</ul>
 
 	<div class="tools-menu">
