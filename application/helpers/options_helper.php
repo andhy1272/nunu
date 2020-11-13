@@ -12,20 +12,20 @@ if ( ! function_exists('get_options_list'))
    * get_options_list
    *
    * Returns the Options List requested from Database
-   * 
+   *
    * @return  mixed
    */
   function get_options_list($options_key)
   {
     //get main CodeIgniter object
     $CI =& get_instance();
-     
+
     //load databse library
     $CI->load->database();
-     
+
     //get data from database
     $query = $CI->db->get_where('nunu_options', array('option_key' => $options_key));
-     
+
     if($query->num_rows() > 0){
       return $query->result_array();
     }else{
@@ -43,7 +43,7 @@ if ( ! function_exists('get_sex_list'))
 	 * get_sex_list
 	 *
 	 * Returns the Sex List from Database
-	 * 
+	 *
 	 * @return	mixed
 	 */
 	function get_sex_list($action = 'create', $current_value = null)
@@ -56,8 +56,8 @@ if ( ! function_exists('get_sex_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($sex_list as $sex): 
+
+    foreach($sex_list as $sex):
       if($sex['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $sex['option_value'] . '">' . $sex['option_value'] . '</option>';
       else:
@@ -79,7 +79,7 @@ if ( ! function_exists('get_id_list'))
    * get_id_list
    *
    * Returns the IDs List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_id_type_list($action = 'create', $current_value = null)
@@ -92,8 +92,8 @@ if ( ! function_exists('get_id_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($id_type_list as $id_type): 
+
+    foreach($id_type_list as $id_type):
       if($id_type['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $id_type['option_value'] . '">' . $id_type['option_value'] . '</option>';
       else:
@@ -115,7 +115,7 @@ if ( ! function_exists('get_blood_list'))
    * get_blood_list
    *
    * Returns the Blood Type List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_blood_list($action = 'create', $current_value = null)
@@ -134,8 +134,8 @@ if ( ! function_exists('get_blood_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';
     }
-    
-    foreach($blood_list as $blood_type): 
+
+    foreach($blood_list as $blood_type):
       if($blood_type['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $blood_type['option_value'] . '">' . $blood_type['option_value'] . '</option>';
       else:
@@ -157,7 +157,7 @@ if ( ! function_exists('get_marital_status_list'))
    * get_marital_status_list
    *
    * Returns the Marital Status List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_marital_status_list($action = 'create', $current_value = null)
@@ -170,8 +170,8 @@ if ( ! function_exists('get_marital_status_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';
     }
-    
-    foreach($marital_status_list as $marital_status): 
+
+    foreach($marital_status_list as $marital_status):
       if($marital_status['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $marital_status['option_value'] . '">' . $marital_status['option_value'] . '</option>';
       else:
@@ -193,7 +193,7 @@ if ( ! function_exists('get_education_list'))
    * get_education_list
    *
    * Returns the Education List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_education_list($action = 'create', $current_value = null)
@@ -206,8 +206,8 @@ if ( ! function_exists('get_education_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($education_list as $education): 
+
+    foreach($education_list as $education):
       if($education['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $education['option_value'] . '">' . $education['option_value'] . '</option>';
       else:
@@ -229,7 +229,7 @@ if ( ! function_exists('get_country_list'))
    * get_country_list
    *
    * Returns the Country List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_country_list($action = 'create', $current_value = null)
@@ -242,8 +242,8 @@ if ( ! function_exists('get_country_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($country_list as $country): 
+
+    foreach($country_list as $country):
       if($country['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $country['option_value'] . '">' . $country['option_value'] . '</option>';
       else:
@@ -265,7 +265,7 @@ if ( ! function_exists('get_province_list'))
    * get_province_list
    *
    * Returns the Province List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_province_list($action = 'create', $current_value = null)
@@ -278,8 +278,8 @@ if ( ! function_exists('get_province_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($province_list as $province): 
+
+    foreach($province_list as $province):
       if($province['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $province['option_value'] . '">' . $province['option_value'] . '</option>';
       else:
@@ -301,7 +301,7 @@ if ( ! function_exists('get_services_list'))
    * get_services_list
    *
    * Returns the Service List from Database
-   * 
+   *
    * @return  mixed
    */
   function get_services_list($action = 'create', $current_value = null)
@@ -314,8 +314,8 @@ if ( ! function_exists('get_services_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($service_list as $service): 
+
+    foreach($service_list as $service):
       if($service['option_value'] == $current_value):
         $control_html .= '<option selected value="' . $service['option_value'] . '">' . $service['option_value'] . '</option>';
       else:
@@ -382,7 +382,7 @@ if ( ! function_exists('get_appointment_state_list'))
    * get_appointment_state_list
    *
    * Returns the Appointment State from Database for Appointments creation
-   * 
+   *
    * @return  mixed
    */
   function get_appointment_state_list()
@@ -410,20 +410,20 @@ if ( ! function_exists('get_staff_list'))
    * get_staff_list
    *
    * Returns the Staff List requested from Database
-   * 
+   *
    * @return  mixed
    */
   function get_staff_list($action = 'create', $current_value = null)
   {
     //get main CodeIgniter object
     $CI =& get_instance();
-     
+
     //load databse library
     $CI->load->database();
-     
+
     //get data from database
     $query = $CI->db->get_where('nunu_staff', array('staff_active' => 1));
-     
+
     if($query->num_rows() > 0){
       $staff_list = $query->result_array();
     }else{
@@ -438,12 +438,12 @@ if ( ! function_exists('get_staff_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($staff_list as $staff): 
+
+    foreach($staff_list as $staff):
       if($staff['staff_name'] == $current_value):
         $control_html .= '<option selected value="' . $staff['staff_name'] . '">' . $staff['staff_name'] . '</option>';
       else:
-        $control_html .= '<option value="' . $staff['staff_name'] . '">'; 
+        $control_html .= '<option value="' . $staff['staff_name'] . '">';
         $control_html .= $staff['staff_name'] . " [" . $staff['staff_job'] . " - " . $staff['staff_speciality'] . "]";
         $control_html .= '</option>';
       endif;
@@ -463,20 +463,20 @@ if ( ! function_exists('get_stores_list'))
    * get_stores_list
    *
    * Returns the Stores List requested from Database
-   * 
+   *
    * @return  mixed
    */
   function get_stores_list($action = 'create', $current_value = null)
   {
     //get main CodeIgniter object
     $CI =& get_instance();
-     
+
     //load databse library
     $CI->load->database();
-     
+
     //get data from database
     $query = $CI->db->get_where('nunu_stores', array('store_active' => 1));
-     
+
     if($query->num_rows() > 0){
       $store_list = $query->result_array();
     }else{
@@ -491,12 +491,12 @@ if ( ! function_exists('get_stores_list'))
     if($action == 'edit') {
       $control_html = '<select name="edit-control" class="form-control edit-control">';;
     }
- 
-    foreach($store_list as $store): 
+
+    foreach($store_list as $store):
       if($store['store_name'] == $current_value):
         $control_html .= '<option selected value="' . $store['store_id'] . '">' . $store['store_name'] . '</option>';
       else:
-        $control_html .= '<option value="' . $store['store_id'] . '">'; 
+        $control_html .= '<option value="' . $store['store_id'] . '">';
         $control_html .= $store['store_name'];
         $control_html .= '</option>';
       endif;
@@ -516,14 +516,14 @@ if ( ! function_exists('get_exams_list'))
    * get_exams_list
    *
    * Returns the Exams List requested from Database
-   * 
+   *
    * @return  mixed
    */
   function get_exams_list($action = 'create', $current_value = null)
   {
     //get main CodeIgniter object
     $CI =& get_instance();
-     
+
     //load databse library
     $CI->load->database();
 
@@ -535,8 +535,8 @@ if ( ! function_exists('get_exams_list'))
 
     $category = '';
     $exams_html = '';
- 
-    foreach($exam_list as $exam): 
+
+    foreach($exam_list as $exam):
       if($category != $exam['examcat_name']){
         $category = $exam['examcat_name'];
         $exams_html .= "</fieldset><fieldset>";
@@ -546,7 +546,7 @@ if ( ! function_exists('get_exams_list'))
         $name = strtolower( preg_replace("/[^a-zA-Z0-9]/", "", $category . $exam['exam_name']) );
         $value = $exam['examcat_id'] . "%" . $category . "%" . $exam['exam_id'] . "%" . $exam['exam_name'];
         $exams_html .= '<div class="exam-elem">';
-        $exams_html .= '<input type="checkbox" name="exams[]" id="' . $name . '" value="' . $value . '">'; 
+        $exams_html .= '<input type="checkbox" name="exams[]" id="' . $name . '" value="' . $value . '" data-id="' . $exam['exam_id'] . '">'; 
         $exams_html .= '<label for="' . $name . '">' . $exam['exam_name'] . '</label>';
         $exams_html .= '</div>';
     endforeach;
@@ -556,14 +556,3 @@ if ( ! function_exists('get_exams_list'))
     return $exams_html;
   }
 }
-
-
-
-
-
-
-
-
-
-
-

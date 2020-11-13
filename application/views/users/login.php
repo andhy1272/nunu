@@ -18,17 +18,17 @@
 		<div class="box-name"><span>Iniciar Sesi&oacute;n</span></div>
 		<div class="box-content">
 			<div class="box-element">
-				<label>Alias:</label>
-				<input type="text" name="user-alias" class="form-control" placeholder="Alias" autofocus>
+				<label>Usuario:</label>
+				<input type="text" name="user-alias" class="form-control" placeholder="Usuario" autofocus>
 			</div>
 			<div class="box-element">
 				<label>Contrase&ntilde;a:</label>
 				<input type="password" name="user-password" class="form-control" placeholder="Contrase&ntilde;a">
-			</div>	
+			</div>
 
 			<div class="actions">
 				<button type="submit" class="btn green">ACEPTAR</button>
-			</div>		
+			</div>
 		</div>
 	</div>
 </div>

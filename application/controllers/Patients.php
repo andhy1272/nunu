@@ -11,14 +11,23 @@
 
 
 		//Shows patients list
-		public function list() {
+		public function list($offset = 0) {
 			//if(!file_exists(APPPATH.'views/patients/list.php')){
 			//	show_404();
 			//}
 
+			//Pagination Config
+			$pag_conf['base_url'] = base_url() . "patients/list/";
+			$pag_conf['total_rows'] = $this->db->count_all('nunu_patients');
+			$pag_conf['per_page'] = 15;
+			$pag_conf['uri_segment'] = 3;
+
+			//Init Pagination
+			$this->pagination->initialize($pag_conf);
+
 			$data['view'] = $this::VIEW_LIST;
 			$data['data']['page_title'] = "Pacientes";
-			$data['data']['patients_list'] = $this->patient_model->get_list();
+			$data['data']['patients_list'] = $this->patient_model->get_list('name', $pag_conf['per_page'], $offset);
 
 			$this->load->view('templates/main', $data);
 		}

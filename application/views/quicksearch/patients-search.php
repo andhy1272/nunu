@@ -25,8 +25,8 @@
 
 				<div class="box-element results">
 					<label for="name-control">Resultados</label>
-					<div class="results-container">
-						
+					<div class="results-container results-container-patients">
+
 					</div>
 				</div>
 
@@ -60,24 +60,24 @@
 				};
 
 				$.ajax({
-			  		url: "<?php echo site_url('patients/quick_search'); ?>", 
+			  		url: "<?php echo site_url('patients/quick_search'); ?>",
 			  		type: "POST",
 			  		dataType: "json",
 					data: data,
 			  		success: function(result){
 			  			if(result) {
 			  				tableHTML = "<table>";
-			  				tableHTML += "<thead><tr><th></th><th>ID</th><th>Nombre</th></tr></thead>" 
+			  				tableHTML += "<thead><tr><th></th><th>ID</th><th>Nombre</th></tr></thead>"
 			  				tableHTML += "<tbody>";
-			  				$.each(result, function (i, item) {   
+			  				$.each(result, function (i, item) {
 					            tableHTML += "<tr index='" + i + "'>";
 					            tableHTML += "<td class='check'></td>";
-					            tableHTML += "<td>" + item.patient_id_number + "</td>"; 
-					            tableHTML += "<td>" + item.patient_name + " " + item.patient_last_name + "</td>"; 
-					            tableHTML += "</tr>";            
+					            tableHTML += "<td>" + item.patient_id_number + "</td>";
+					            tableHTML += "<td>" + item.patient_name + " " + item.patient_last_name + "</td>";
+					            tableHTML += "</tr>";
 					        });
-					        tableHTML += "</tbody></table>" 
-					        $('.results-container').html(tableHTML);
+					        tableHTML += "</tbody></table>"
+					        $('.results-container-patients').html(tableHTML);
 
 					        jsonData = result;
 			  			}
@@ -103,7 +103,7 @@
 		$('.results-container').on('click', 'tbody tr', function() {
 			_current_row = $(this);
 
-			$('.quicksearch-container .results-container tbody tr').removeClass('selected');
+			$('.quicksearch-container .results-container-patients tbody tr').removeClass('selected');
 
 			_current_row.addClass('selected');
 		});

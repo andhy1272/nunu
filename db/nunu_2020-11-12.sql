@@ -7,7 +7,7 @@
 #
 # Host: localhost (MySQL 5.7.25)
 # Database: nunu
-# Generation Time: 2020-03-14 17:00:42 +0000
+# Generation Time: 2020-11-13 03:35:19 +0000
 # ************************************************************
 
 
@@ -35,27 +35,210 @@ CREATE TABLE `nunu_agenda` (
   `agenda_created_at` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `agenda_notes` varchar(1024) NOT NULL,
   `agenda_store` int(11) NOT NULL,
+  `attention_id` int(11) DEFAULT NULL,
   PRIMARY KEY (`agenda_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 LOCK TABLES `nunu_agenda` WRITE;
 /*!40000 ALTER TABLE `nunu_agenda` DISABLE KEYS */;
 
-INSERT INTO `nunu_agenda` (`agenda_id`, `agenda_date`, `agenda_time`, `agenda_patient_id`, `agenda_service`, `agenda_status`, `agenda_created_at`, `agenda_notes`, `agenda_store`)
+INSERT INTO `nunu_agenda` (`agenda_id`, `agenda_date`, `agenda_time`, `agenda_patient_id`, `agenda_service`, `agenda_status`, `agenda_created_at`, `agenda_notes`, `agenda_store`, `attention_id`)
 VALUES
-	(1,'2019-08-31','09:20:00',1,'Consulta Medicina General','ontime','2019-07-13 21:23:35','Van a venir los abuelos tambien.',1),
-	(2,'2019-08-21','14:50:00',1,'Consulta Pediatria','ontime','2019-07-13 21:39:33','',1),
-	(3,'2019-08-21','10:00:00',1,'Consulta Pediatria','ontime','2019-07-13 21:40:19','a new note here',1),
-	(4,'2020-02-16','09:00:00',1,'Medicina General','ontime','2020-02-16 11:04:59','algunas notas aqui',1),
-	(5,'2020-02-16','17:00:00',1,'Medicina Pediatrica','ontime','2020-02-16 11:26:05','otras notas mas',1),
-	(6,'2020-02-20','00:00:00',3,'Procedimiento','ontime','2020-02-19 21:51:36','Cura de Herida',1),
-	(7,'2020-02-22','00:00:00',9,'Consulta Medicina General','ontime','2020-02-22 12:24:32','test 01',1),
-	(8,'2020-02-22','00:00:00',20,'Procedimiento','ontime','2020-02-22 12:27:37','reparacion de cuerdas vocales :P',1),
-	(9,'2020-02-22','07:20:00',1,'Consulta Pediatria','ontime','2020-02-22 12:29:30','test 02',1),
-	(10,'2020-02-22','07:05:00',5,'Consulta Medicina General','ontime','2020-02-22 12:35:08','',1),
-	(11,'2020-02-22','18:45:00',22,'Consulta Pediatria','ontime','2020-02-22 13:16:01','test 03',1);
+	(1,'2019-08-31','09:20:00',1,'Consulta Medicina General','ontime','2019-07-13 21:23:35','Van a venir los abuelos tambien.',1,NULL),
+	(2,'2019-08-21','14:50:00',1,'Consulta Pediatria','ontime','2019-07-13 21:39:33','',1,NULL),
+	(3,'2019-08-21','10:00:00',1,'Consulta Pediatria','ontime','2019-07-13 21:40:19','a new note here',1,NULL),
+	(4,'2020-02-16','09:00:00',1,'Medicina General','ontime','2020-02-16 11:04:59','algunas notas aqui',1,NULL),
+	(5,'2020-02-16','17:00:00',1,'Medicina Pediatrica','ontime','2020-02-16 11:26:05','otras notas mas',1,NULL),
+	(6,'2020-02-20','00:00:00',3,'Procedimiento','ontime','2020-02-19 21:51:36','Cura de Herida',1,NULL),
+	(7,'2020-02-22','00:00:00',9,'Consulta Medicina General','ontime','2020-02-22 12:24:32','test 01',1,NULL),
+	(8,'2020-02-22','00:00:00',20,'Procedimiento','ontime','2020-02-22 12:27:37','reparacion de cuerdas vocales :P',1,NULL),
+	(9,'2020-02-22','07:20:00',1,'Consulta Pediatria','ontime','2020-02-22 12:29:30','test 02',1,NULL),
+	(10,'2020-02-22','07:05:00',5,'Consulta Medicina General','ontime','2020-02-22 12:35:08','',1,NULL),
+	(11,'2020-02-22','18:45:00',22,'Consulta Pediatria','ontime','2020-02-22 13:16:01','test 03',1,NULL),
+	(12,'2020-05-10','17:00:00',3,'Consulta Pediatria','ontime','2020-05-10 15:24:08','nino sano',1,NULL),
+	(13,'2020-05-12','10:10:00',1,'Consulta Medicina General','ontime','2020-05-11 21:11:15','Cura de Herida',1,NULL),
+	(14,'2020-05-12','17:50:00',19,'Consulta Pediatria','ontime','2020-05-11 21:13:40','niño sano',1,NULL),
+	(15,'2020-05-12','07:00:00',22,'Procedimiento','ontime','2020-05-11 21:16:56','operacion a corazon abierto',1,NULL),
+	(16,'2020-09-29','15:25:00',1,'Procedimiento','ontime','2020-09-29 20:35:27','Cura de Herida',1,NULL),
+	(17,'2020-09-30','07:15:00',16,'Consulta Medicina General','ontime','2020-09-29 20:37:06','',1,NULL),
+	(18,'2020-10-18','07:00:00',1,'Procedimiento','ontime','2020-10-17 22:19:25','coser herida',1,NULL),
+	(19,'2020-10-19','13:15:00',20,'Consulta Medicina General','ontime','2020-10-18 20:12:41','',1,NULL),
+	(20,'2020-10-18','23:40:00',5,'Consulta Medicina General','ontime','2020-10-18 21:29:13','los detalles aqui 5656',1,NULL),
+	(21,'2020-10-18','23:40:00',5,'Consulta Medicina General','ontime','2020-10-18 21:29:38','los detalles aqui 5656',1,NULL),
+	(22,'2020-10-18','20:30:00',16,'Procedimiento','ontime','2020-10-18 21:32:03','detalles 909090',1,NULL),
+	(23,'2020-10-18','15:00:00',6,'Consulta Pediatria','ontime','2020-10-18 21:33:06','ya se paso la hora',1,NULL),
+	(24,'2020-10-18','16:40:00',2,'Procedimiento','ontime','2020-10-18 21:57:25','cura',1,NULL),
+	(25,'2020-10-25','15:45:00',14,'Procedimiento','ontime','2020-10-24 19:45:04','cura 23',1,NULL),
+	(26,'2020-10-24','18:10:00',9,'Consulta Medicina General','ontime','2020-10-24 19:52:46','',1,NULL),
+	(27,'2020-10-25','14:20:00',19,'Consulta Medicina General','ontime','2020-10-24 20:12:17','',1,NULL),
+	(28,'2020-10-25','17:05:00',11,'Consulta Pediatria','ontime','2020-10-24 20:13:24','niño sano',1,NULL),
+	(29,'2020-10-25','07:00:00',15,'Consulta Medicina General','ontime','2020-10-24 20:14:38','',1,NULL),
+	(30,'2020-10-25','09:00:00',13,'Consulta Medicina General','ontime','2020-10-24 20:15:48','',1,NULL),
+	(31,'2020-10-24','13:05:00',22,'Procedimiento','ontime','2020-10-24 20:16:25','uña encarnada',1,NULL),
+	(32,'2020-10-25','14:20:00',8,'Consulta Medicina General','ontime','2020-10-24 20:17:00','',1,NULL),
+	(33,'2020-10-25','13:10:00',2,'Consulta Pediatria','ontime','2020-10-24 20:18:08','',1,NULL),
+	(34,'2020-10-25','07:00:00',18,'Consulta Medicina General','ontime','2020-10-24 20:19:48','',1,NULL),
+	(35,'2020-11-08','09:20:00',10,'Consulta Pediatria','ontime','2020-11-07 19:31:44','llegaran 5 min tarde',1,NULL),
+	(36,'2020-11-10','11:20:00',11,'Consulta Pediatria','ontime','2020-11-09 20:34:01','niño sano 2',1,NULL),
+	(37,'2020-11-12','14:30:00',7,'Procedimiento','ontime','2020-11-11 19:14:46','cura en brazo',1,NULL);
 
 /*!40000 ALTER TABLE `nunu_agenda` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_attention
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_attention`;
+
+CREATE TABLE `nunu_attention` (
+  `attention_id` int(11) NOT NULL AUTO_INCREMENT,
+  `attention_agenda_id` int(11) DEFAULT NULL,
+  `attention_date` date NOT NULL,
+  `attention_time` time NOT NULL,
+  `attention_patient_id` int(11) NOT NULL,
+  `attention_service` varchar(255) NOT NULL,
+  `attention_attended_at` datetime NOT NULL,
+  `attention_notes` varchar(1024) DEFAULT NULL,
+  `attention_store` int(11) NOT NULL,
+  PRIMARY KEY (`attention_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_attention` WRITE;
+/*!40000 ALTER TABLE `nunu_attention` DISABLE KEYS */;
+
+INSERT INTO `nunu_attention` (`attention_id`, `attention_agenda_id`, `attention_date`, `attention_time`, `attention_patient_id`, `attention_service`, `attention_attended_at`, `attention_notes`, `attention_store`)
+VALUES
+	(1,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 17:58:46','llegaran 5 min tarde',1),
+	(2,34,'2020-10-25','07:00:00',18,'Consulta Medicina General','2020-11-08 17:59:44','',1),
+	(3,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:08:50','llegaran 5 min tarde',1),
+	(4,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:09:04','llegaran 5 min tarde',1),
+	(5,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:19:38','llegaran 5 min tarde',1),
+	(6,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:22:16','llegaran 5 min tarde',1),
+	(7,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:22:35','llegaran 5 min tarde',1),
+	(8,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:23:46','llegaran 5 min tarde',1),
+	(9,35,'2020-11-08','09:20:00',10,'Consulta Pediatria','2020-11-08 18:28:38','llegaran 5 min tarde',1),
+	(10,36,'2020-11-10','11:20:00',11,'Consulta Pediatria','2020-11-09 20:35:11','niño sano 2',1),
+	(11,36,'2020-11-10','11:20:00',11,'Consulta Pediatria','2020-11-10 20:15:06','niño sano 2',1),
+	(12,37,'2020-11-12','14:30:00',7,'Procedimiento','2020-11-11 19:15:23','cura en brazo',1);
+
+/*!40000 ALTER TABLE `nunu_attention` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_attention_diagnosis
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_attention_diagnosis`;
+
+CREATE TABLE `nunu_attention_diagnosis` (
+  `attention_id` int(11) NOT NULL,
+  `atention_cie10_diagnosis` text,
+  `atention_open_diagnosis` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_attention_diagnosis` WRITE;
+/*!40000 ALTER TABLE `nunu_attention_diagnosis` DISABLE KEYS */;
+
+INSERT INTO `nunu_attention_diagnosis` (`attention_id`, `atention_cie10_diagnosis`, `atention_open_diagnosis`)
+VALUES
+	(11,'A950 - Fiebre amarilla selvatica','Diagnostico abierto 78');
+
+/*!40000 ALTER TABLE `nunu_attention_diagnosis` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_attention_exams
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_attention_exams`;
+
+CREATE TABLE `nunu_attention_exams` (
+  `attention_id` int(11) NOT NULL,
+  `attention_exam_category` varchar(255) NOT NULL,
+  `attention_exam_id` int(11) NOT NULL,
+  `attention_exam_name` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_attention_exams` WRITE;
+/*!40000 ALTER TABLE `nunu_attention_exams` DISABLE KEYS */;
+
+INSERT INTO `nunu_attention_exams` (`attention_id`, `attention_exam_category`, `attention_exam_id`, `attention_exam_name`)
+VALUES
+	(11,'HEMATOLOGIA',27,'Ferritina'),
+	(11,'ELECTROLITOS',127,'Litio'),
+	(11,'ENDOCRINOLOGIA Y MARCADORES TUMORALES',217,'17 OH Progesterona'),
+	(11,'ANTIGENOS Y ANTICUERPOS DE INYECCIONES',374,'ANTI - Toxoplasma Gond II IgG_____ IgM_____ IgA_____');
+
+/*!40000 ALTER TABLE `nunu_attention_exams` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_attention_physical_exam
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_attention_physical_exam`;
+
+CREATE TABLE `nunu_attention_physical_exam` (
+  `attention_id` int(11) NOT NULL,
+  `attention_blood_pressure` varchar(50) DEFAULT NULL,
+  `attention_heart_rate` varchar(50) DEFAULT NULL,
+  `attention_breath_rate` varchar(50) DEFAULT NULL,
+  `attention_temperature` varchar(50) DEFAULT NULL,
+  `attention_weight` varchar(50) DEFAULT NULL,
+  `attention_height` varchar(50) DEFAULT NULL,
+  `attention_BMI` varchar(50) DEFAULT NULL,
+  `attention_head_circunference` varchar(50) DEFAULT NULL,
+  `attention_skin` varchar(255) DEFAULT NULL,
+  `attention_skin_details` text,
+  `attention_conscience` varchar(255) DEFAULT NULL,
+  `attention_walk` text,
+  `attention_biotype` text,
+  `attention_neurologic` text,
+  `attention_head` text,
+  `attention_ENT` text,
+  `attention_neck` text,
+  `attention_thorax` text,
+  `attention_abdomen` text,
+  `attention_genitourinary` text,
+  `attention_spine` text,
+  `attention_limbs` text,
+  `attention_observations` text
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_attention_physical_exam` WRITE;
+/*!40000 ALTER TABLE `nunu_attention_physical_exam` DISABLE KEYS */;
+
+INSERT INTO `nunu_attention_physical_exam` (`attention_id`, `attention_blood_pressure`, `attention_heart_rate`, `attention_breath_rate`, `attention_temperature`, `attention_weight`, `attention_height`, `attention_BMI`, `attention_head_circunference`, `attention_skin`, `attention_skin_details`, `attention_conscience`, `attention_walk`, `attention_biotype`, `attention_neurologic`, `attention_head`, `attention_ENT`, `attention_neck`, `attention_thorax`, `attention_abdomen`, `attention_genitourinary`, `attention_spine`, `attention_limbs`, `attention_observations`)
+VALUES
+	(11,'blood presure','rate heart','rate breath','50','34','140','24.5','66','Cianosis','Amarillito','Orientado','zig zag','Picnico','Neurologico normal','grande cabeza','Orejas, Nariz, Garganta','cuello rigido','torax encogido','abdomen plano','genitales OK','columna vertebral OK','Extremidades OK','Otras observaciones');
+
+/*!40000 ALTER TABLE `nunu_attention_physical_exam` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_attention_prescription
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_attention_prescription`;
+
+CREATE TABLE `nunu_attention_prescription` (
+  `attention_id` int(11) NOT NULL,
+  `attention_prescription_drug_name` varchar(255) DEFAULT NULL,
+  `attention_prescription_drug_generic` varchar(255) DEFAULT NULL,
+  `attention_prescription_drug_qty` varchar(50) DEFAULT NULL,
+  `attention_prescription_drug_indications` varchar(1024) DEFAULT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_attention_prescription` WRITE;
+/*!40000 ALTER TABLE `nunu_attention_prescription` DISABLE KEYS */;
+
+INSERT INTO `nunu_attention_prescription` (`attention_id`, `attention_prescription_drug_name`, `attention_prescription_drug_generic`, `attention_prescription_drug_qty`, `attention_prescription_drug_indications`)
+VALUES
+	(11,'Paracetamol / 500 miligramos','Paracetamol','19','Tomar una tableta cada 12 horas'),
+	(11,'Ibuprofeno / 400 miligramos','Ibuprofeno','13','Tomar una tableta cada 12 horas, cuando se acaben las otras');
+
+/*!40000 ALTER TABLE `nunu_attention_prescription` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -66,17 +249,17 @@ DROP TABLE IF EXISTS `nunu_cie10_categories`;
 
 CREATE TABLE `nunu_cie10_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `clave` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idSubGrupo` int(11) NOT NULL,
+  `key` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id_subgroup` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_subGrupos` (`idSubGrupo`)
+  KEY `fk_subGrupos` (`id_subgroup`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `nunu_cie10_categories` WRITE;
 /*!40000 ALTER TABLE `nunu_cie10_categories` DISABLE KEYS */;
 
-INSERT INTO `nunu_cie10_categories` (`id`, `clave`, `descripcion`, `idSubGrupo`)
+INSERT INTO `nunu_cie10_categories` (`id`, `key`, `description`, `id_subgroup`)
 VALUES
 	(1,'A00','Cólera',1),
 	(2,'A01','Fiebres tifoidea y paratifoidea',1),
@@ -2132,17 +2315,17 @@ DROP TABLE IF EXISTS `nunu_cie10_diagnostic`;
 
 CREATE TABLE `nunu_cie10_diagnostic` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `clave` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idCategoria` int(11) NOT NULL,
+  `key` varchar(10) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id_category` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_categorias` (`idCategoria`)
+  KEY `fk_categorias` (`id_category`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `nunu_cie10_diagnostic` WRITE;
 /*!40000 ALTER TABLE `nunu_cie10_diagnostic` DISABLE KEYS */;
 
-INSERT INTO `nunu_cie10_diagnostic` (`id`, `clave`, `descripcion`, `idCategoria`)
+INSERT INTO `nunu_cie10_diagnostic` (`id`, `key`, `description`, `id_category`)
 VALUES
 	(1,'A000','Colera debido a vibrio cholerae o1, biotipo cholerae',1),
 	(2,'A001','Colera debido a vibrio cholerae o1, biotipo el tor',1),
@@ -5924,7 +6107,7 @@ VALUES
 	(5427,'K267','Ulcera duodenal cronica sin hemorragia ni perforacion',1117),
 	(5428,'K269','Ulcera duodenal no especificada como aguda ni cronica, sin hemorragia ni perforacion',1117);
 
-INSERT INTO `nunu_cie10_diagnostic` (`id`, `clave`, `descripcion`, `idCategoria`)
+INSERT INTO `nunu_cie10_diagnostic` (`id`, `key`, `description`, `id_category`)
 VALUES
 	(5435,'K270','Ulcera peptica, de sitio no especificado aguda con hemorragia',1118),
 	(5436,'K271','Ulcera peptica, de sitio no especificado aguda con perforacion',1118),
@@ -9525,7 +9708,7 @@ VALUES
 	(10722,'T381','Envenenamiento por hormonas y sus sustitutos y antagonistas sinteticos, no clasificados en otra parte: hormonas tiroideas y sustitutos',2070),
 	(10723,'T382','Envenenamiento por hormonas y sus sustitutos y antagonistas sinteticos, no clasificados en otra parte: drogas antitiroideas',2070);
 
-INSERT INTO `nunu_cie10_diagnostic` (`id`, `clave`, `descripcion`, `idCategoria`)
+INSERT INTO `nunu_cie10_diagnostic` (`id`, `key`, `description`, `id_category`)
 VALUES
 	(10724,'T383','Envenenamiento por hormonas y sus sustitutos y antagonistas sinteticos, no clasificados en otra parte: insulina y drogas hipoglucemiantes orales [antidiabeticas]',2070),
 	(10725,'T384','Envenenamiento por hormonas y sus sustitutos y antagonistas sinteticos, no clasificados en otra parte: anticonceptivos orales',2070),
@@ -12021,7 +12204,7 @@ VALUES
 	(14371,'X641','Envenenamiento autoinfligido intencionalmente por, y exposicion a otras drogas medicamentos y sustancias biologicas, y los no especificados: institucion residencial',2510),
 	(14372,'X642','Envenenamiento autoinfligido intencionalmente por, y exposicion a otras drogas medicamentos y sustancias biologicas, y los no especificados: escuelas, otras instituciones y areas administrativas publicas',2510);
 
-INSERT INTO `nunu_cie10_diagnostic` (`id`, `clave`, `descripcion`, `idCategoria`)
+INSERT INTO `nunu_cie10_diagnostic` (`id`, `key`, `description`, `id_category`)
 VALUES
 	(14373,'X643','Envenenamiento autoinfligido intencionalmente por, y exposicion a otras drogas medicamentos y sustancias biologicas, y los no especificados: areas de deporte y atletismo',2510),
 	(14374,'X644','Envenenamiento autoinfligido intencionalmente por, y exposicion a otras drogas medicamentos y sustancias biologicas, y los no especificados: calles y carreteras',2510),
@@ -14170,7 +14353,7 @@ VALUES
 	(17655,'Z823','Historia familiar de apoplejia',2869),
 	(17656,'Z824','Historia familiar de enfermedad isquemica del corazon y otras enfermedades del sistema circulatorio',2869);
 
-INSERT INTO `nunu_cie10_diagnostic` (`id`, `clave`, `descripcion`, `idCategoria`)
+INSERT INTO `nunu_cie10_diagnostic` (`id`, `key`, `description`, `id_category`)
 VALUES
 	(17657,'Z825','Historia familiar de asma y de otras enfermedades cronicas de las vias respiratorias inferiores',2869),
 	(17658,'Z826','Historia familiar de artritis y otras enfermedades del sistema osteomuscular y tejido conjuntivo',2869),
@@ -14335,15 +14518,15 @@ DROP TABLE IF EXISTS `nunu_cie10_groups`;
 
 CREATE TABLE `nunu_cie10_groups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `clave` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(122) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `key` varchar(6) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` varchar(122) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `nunu_cie10_groups` WRITE;
 /*!40000 ALTER TABLE `nunu_cie10_groups` DISABLE KEYS */;
 
-INSERT INTO `nunu_cie10_groups` (`id`, `clave`, `descripcion`)
+INSERT INTO `nunu_cie10_groups` (`id`, `key`, `description`)
 VALUES
 	(1,'I','Ciertas enfermedades infecciosas y parasitarias'),
 	(2,'II','Neoplasias'),
@@ -14379,17 +14562,17 @@ DROP TABLE IF EXISTS `nunu_cie10_subgroups`;
 
 CREATE TABLE `nunu_cie10_subgroups` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `clave` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `descripcion` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL,
-  `idGrupo` int(11) NOT NULL,
+  `key` varchar(8) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `description` varchar(256) COLLATE utf8mb4_unicode_ci NOT NULL DEFAULT '',
+  `id_group` int(11) NOT NULL,
   PRIMARY KEY (`id`),
-  KEY `fk_gruposCie10` (`idGrupo`)
+  KEY `fk_gruposCie10` (`id_group`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 LOCK TABLES `nunu_cie10_subgroups` WRITE;
 /*!40000 ALTER TABLE `nunu_cie10_subgroups` DISABLE KEYS */;
 
-INSERT INTO `nunu_cie10_subgroups` (`id`, `clave`, `descripcion`, `idGrupo`)
+INSERT INTO `nunu_cie10_subgroups` (`id`, `key`, `description`, `id_group`)
 VALUES
 	(1,'|I1','Enfermedades infecciosas intestinales',1),
 	(2,'|I10','Fiebres virales trasmitidas por artrópodos y fiebres virales hemorrágicas',1),
@@ -14682,6 +14865,90 @@ VALUES
 	(9,'agenda/appointment-frequency','1');
 
 /*!40000 ALTER TABLE `nunu_config` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_drugs
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_drugs`;
+
+CREATE TABLE `nunu_drugs` (
+  `drug_id` int(11) NOT NULL AUTO_INCREMENT,
+  `drug_name` varchar(255) NOT NULL,
+  `drug_generic` varchar(255) NOT NULL,
+  `drug_posology` varchar(255) NOT NULL,
+  `drug_observations` varchar(255) NOT NULL,
+  PRIMARY KEY (`drug_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_drugs` WRITE;
+/*!40000 ALTER TABLE `nunu_drugs` DISABLE KEYS */;
+
+INSERT INTO `nunu_drugs` (`drug_id`, `drug_name`, `drug_generic`, `drug_posology`, `drug_observations`)
+VALUES
+	(1,'Paracetamol','Paracetamol','500 miligramos','Tomar una tableta cada 12 horas'),
+	(2,'Ibuprofeno','Ibuprofeno','400 miligramos','Tomar una tableta cada 12 horas'),
+	(3,'Paracetamol','Paracetamol','1 Gramo','Tomar 1 tableta cada 12horas');
+
+/*!40000 ALTER TABLE `nunu_drugs` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_drugs_categories
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_drugs_categories`;
+
+CREATE TABLE `nunu_drugs_categories` (
+  `drugcat_id` int(11) NOT NULL AUTO_INCREMENT,
+  `drugcat_name` varchar(255) NOT NULL,
+  PRIMARY KEY (`drugcat_id`),
+  UNIQUE KEY `drugcatname` (`drugcat_name`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_drugs_categories` WRITE;
+/*!40000 ALTER TABLE `nunu_drugs_categories` DISABLE KEYS */;
+
+INSERT INTO `nunu_drugs_categories` (`drugcat_id`, `drugcat_name`)
+VALUES
+	(1,'Analgesico'),
+	(2,'Antiacido'),
+	(3,'Antialergico'),
+	(4,'Antibiotico'),
+	(5,'Antiinflamatorio'),
+	(6,'Antipiretico');
+
+/*!40000 ALTER TABLE `nunu_drugs_categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table nunu_drugs_cats_rel
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `nunu_drugs_cats_rel`;
+
+CREATE TABLE `nunu_drugs_cats_rel` (
+  `drugcat_id` int(11) NOT NULL,
+  `drug_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+LOCK TABLES `nunu_drugs_cats_rel` WRITE;
+/*!40000 ALTER TABLE `nunu_drugs_cats_rel` DISABLE KEYS */;
+
+INSERT INTO `nunu_drugs_cats_rel` (`drugcat_id`, `drug_id`)
+VALUES
+	(1,1),
+	(5,1),
+	(6,1),
+	(1,2),
+	(5,2),
+	(6,2),
+	(1,3),
+	(5,3),
+	(6,3);
+
+/*!40000 ALTER TABLE `nunu_drugs_cats_rel` ENABLE KEYS */;
 UNLOCK TABLES;
 
 
@@ -15228,7 +15495,7 @@ VALUES
 	(1,17,'Asma: Abuela Materna\n\nEnf. Mentales: Hermano Menor\n\nCardiopatias algunas\n\n\n','Digestivos: Colon irritable\n\nt','Drogas: Cocaina y Marihuana\n\nFuma: 20 al dia\n\nAlimentacion: 2 veces al dia','Cesarea\n\nSemanas Gestacion: 30 1/2\n\nInfecciones Urinarias: SI pero no se trato\n\n\n\n','Menarquia: 9 a;os\n\nNum parejas: 6\n'),
 	(2,18,NULL,NULL,NULL,NULL,NULL),
 	(3,11,'- Hermana tiene asma\n\n- Abuela diabetica\n\n- Papa ha sufrido ataques al corazon\n\n- Tio con Cancer esofago\n\n- Tia con Cancer de Mama\n\n- Primos sindrome down\n',NULL,'Consume Marihuana',NULL,'4 partos vivos'),
-	(4,1,'Abuelo: Asmatico\ntio: cardiopata',NULL,NULL,NULL,NULL),
+	(4,1,'Abuelo: Asmatico\ntio: cardiopata','algo de info aqui',NULL,NULL,NULL),
 	(5,19,'','','','',''),
 	(6,20,'Tio tiene asma','','','',''),
 	(7,21,NULL,NULL,NULL,NULL,NULL),
@@ -15311,7 +15578,7 @@ LOCK TABLES `nunu_patients` WRITE;
 
 INSERT INTO `nunu_patients` (`patient_id`, `patient_id_number`, `patient_id_type`, `patient_name`, `patient_last_name`, `patient_birthdate`, `patient_blood_type`, `patient_sex`, `patient_marital_status`, `patient_education`, `patient_profesion`, `patient_email`, `patient_phone1`, `patient_phone2`, `patient_country`, `patient_province`, `patient_city`, `patient_address`, `patient_last_weight`, `patient_last_height`, `patient_created_at`)
 VALUES
-	(1,'113390963','Cedula','Andrey Asdrubal','Picado Fernandez','1988-01-12','B+','Femenino','','','','andhy1272@gmail.com','8949-7211','+506 7211-8949','','','','Cruce a sabanilla, Casa esquinera color caoba. Guadalupe, San Jose, Costa Rica, y un poquito mas arriba jeje: :P pichudokjhkdf ht\\\noijsdfoije',NULL,NULL,'2019-05-05 10:58:50'),
+	(1,'113390963','Cedula','Andrey Asdrubal','Picado Fernandez','1988-01-12','O+','Masculino','','Universitaria','Ingeniero en sistemas','andhy1272@gmail.com','8949-7211','+506 7211-8949','Costa Rica','','Perez Zeledon','Cruce a sabanilla, Casa esquinera color caoba. Guadalupe, San Jose, Costa Rica, y un poquito mas arriba jeje: :P pichudokjhkdf ht\\\noijsdfoije',NULL,NULL,'2019-05-05 10:58:50'),
 	(2,'1759199852','Cedula','Nataly','Barreto','1988-01-12','O+','Femenino','','','','natalybarretoc@gmail.com','0986383930','+(506) 8949-7211','','','','Quito, Quitumbe, Conj Guayanay 2, casa DC002',NULL,NULL,'2019-08-02 22:04:09'),
 	(3,'F509834','passport','Anastasia','Guevara','1997-09-20','A+','Femenino','','','','anastasiaGue@gmail.com','677-99999-aaaaa','(+506) 6780-4566 / (+506) 6780-4566 / (+506) 6780-','','','','En su casa. pero fuera',NULL,NULL,'2019-08-02 22:15:03'),
 	(4,'G568900','Pasaporte','Tereza ','Carrazco Guevara','1988-01-12','B+','Femenino','','','','terechacague@gmail.com','765 0987','0969675432','','','','6703 Nw 7th St\r\nCasa Esquinera color verde',NULL,NULL,'2019-09-06 22:14:31'),
@@ -15331,7 +15598,7 @@ VALUES
 	(18,'133098989','Cedula','Geronimo Antonio','Heredia Villegas','1988-01-23',NULL,NULL,'','','','geronimo454@yahoo.com','7878 9312',NULL,'','','',':)',NULL,NULL,'2019-09-27 00:01:31'),
 	(19,'T787783','Pasaporte','Clodomiro Matias','Arguello Mata','2012-03-05','A+','Masculino','Divorciad@','Universitaria','Quimico','clodomam@gmail.com','343233-33','553 9003 32','Costa Rica','Cañar',NULL,'la direccion completa va a qui',NULL,NULL,'2020-01-21 21:44:08'),
 	(20,'788877998-1','Cedula','Edit','Piaf','2019-12-29','AB+','Femenino','Divorciad@','Universitaria','Cantante singer 2','editpiaf@hotmail.com','90888380','+77 887 9903','Venezuela','Los Ríos','Murcia','Cerca del estadio del Real..',NULL,NULL,'2020-01-21 21:48:52'),
-	(21,'1111122222','Cedula','Petronilo','vargas acuña','0000-00-00',NULL,NULL,'','','','petronilova@hotmail.com','78787878',NULL,'','',NULL,':)',NULL,NULL,'2020-02-05 22:10:19'),
+	(21,'1111122222','Cedula','Petronilo','vargas acuña','2020-04-22',NULL,NULL,'','','','petronilova@hotmail.com','78787878',NULL,'','',NULL,':)',NULL,NULL,'2020-02-05 22:10:19'),
 	(22,'1-1545-0987','Cedula','Veronica Maria','Davalos Muñoz','2002-11-21',NULL,NULL,'','','','verodavaloz@hotmail.com','6767-0988',NULL,'','',NULL,':)',NULL,NULL,'2020-02-22 13:15:15');
 
 /*!40000 ALTER TABLE `nunu_patients` ENABLE KEYS */;

@@ -44,6 +44,8 @@ $(document).ready( function() {
       click: function(target) {
         console.log(target);
 
+        $('.cal-popup .cal-control .clndr .clndr-table tr .day').removeClass('selected-date');
+        $(target.element).addClass('selected-date');
         calendar_control.val(target.date['_i']);
         $('.bottom-controls .selected-date .date').html(target.date['_i']);
 

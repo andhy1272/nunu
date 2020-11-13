@@ -188,7 +188,7 @@ select.form-control:focus::-ms-value {
 
 
 .actions{
-  margin-top: 40px;
+  margin-top: 20px;
   text-align: right;
 }
 
@@ -211,64 +211,65 @@ select.form-control:focus::-ms-value {
   border-radius: 0.25rem;
   margin-left: 10px;
   letter-spacing: 1px;
-  	
+
   cursor: pointer;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
   text-shadow: -1px -1px 0 rgba(0, 0, 0, 0.2);
 
-  color: #666; 
-  background: #f9f9f9; 
+  color: #666;
+  opacity: 0.7;
+  background: #f9f9f9;
   border: 2px solid #ddd;
 }
 
 .btn:hover{
   opacity: 1;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
 }
 
 .btn.blue{
   /*
-  color: #5091b2; 
+  color: #5091b2;
   background: #FFF; */
 
-  color: #FFF; 
-  background: #5091B2; 
+  color: #FFF;
+  background: #5091B2;
 
-  /*background: #e9f7fe; 
+  /*background: #e9f7fe;
   border: 2px solid #b6d7e8;*/
 
   border: 2px solid #FFF;
 }
 
 .btn.green{
-  /* 
-  color :#5f9025; 
+  /*
+  color :#5f9025;
   background: #FFF; */
-  color :#FFF; 
-  background: #5F9025; 
+  color :#FFF;
+  background: #5F9025;
 
   /*background: #ebf6e0;
   border:2px solid #b3dc82; */
-  
-  border:2px solid #FFF; 
+
+  border:2px solid #FFF;
 }
 
 .btn.red{
   /*
-  color: #de5959; 
+  color: #de5959;
   background: #FFF; */
 
-  color: #FFF; 
-  background: #DE5959; 
+  color: #FFF;
+  background: #DE5959;
 
   /*background: #ffe9e9;
   border: 2px solid #fbc4c4;*/
-  
-  border:2px solid #FFF; 
+
+  border:2px solid #FFF;
 }
 
 .btn.yellow{
-  color: #de5959; 
-  background: #FFF; 
+  color: #de5959;
+  background: #FFF;
   /*background: #ffe9e9;*/
   border: 2px solid #fbc4c4;
 }
@@ -296,7 +297,3 @@ label {
   margin-bottom: 0;
   line-height: 1.5;
 }
-
-
-
-

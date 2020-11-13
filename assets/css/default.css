@@ -9,8 +9,8 @@ b, u, i, center,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
-article, aside, canvas, details, embed, 
-figure, figcaption, footer, header, hgroup, 
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
 menu, nav, output, ruby, section, summary,
 time, mark, audio, video {
 	margin: 0;
@@ -20,7 +20,7 @@ time, mark, audio, video {
 	vertical-align: baseline;
 }
 /* HTML5 display-role reset for older browsers */
-article, aside, details, figcaption, figure, 
+article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section {display: block;}
 body {line-height: 1;}
 ol, ul {list-style: none;}
@@ -62,9 +62,13 @@ body{
 
 a{text-decoration: none;}
 
+a,
 a:hover,
 a:focus,
-a:active{opacity: 0.7;}
+a:active,
+a:visited{opacity: 0.7; color: #494949; }
+
+a:hover {opacity: 1;}
 
 img{max-width:100%;}
 
@@ -273,7 +277,7 @@ select {
 	height: 100vh;
 	position: fixed;
 	overflow-y: auto;
-	max-width: 100px;
+	max-width: 105px;
 	flex-basis: 150px;
 	padding: 70px 0 10px;
 }
@@ -327,6 +331,52 @@ select {
 
 .input-group{
 	margin-bottom: 20px;
+}
+
+
+
+
+
+/* PAGINATION */
+.pagination {
+	float: right;
+	font-size: 16px;
+	margin-top: 15px;
+	padding: 7px 10px 7px 5px;
+
+	border-radius: 5px;
+	border: 2px solid rgba(255,255,255, 0.7);
+	box-shadow: 6px 6px 10px rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255, 0.3);
+}
+
+.pagination a,
+.pagination strong {
+	padding: 5px;
+	margin: 0 0 0 5px;
+	border-radius: 5px;
+	border: 2px solid rgba(255,255,255, 0);
+	display: inline-block;
+	text-align: center;
+	line-height: 19px;
+	height: 30px;
+	width: 30px;
+}
+
+.pagination a:hover {
+	border: 2px solid rgba(255,255,255, 0.7);
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255, 0.3);
+}
+
+.pagination strong {
+	border: 2px solid rgba(255,255,255, 0.7);
+	box-shadow: 2px 2px 2px rgba(0,0,0,0.3);
+	background-color: rgba(255,255,255, 0.3);
+}
+
+.pagination a:visited {
+	color: #494949;
 }
 
 
@@ -402,10 +452,11 @@ select {
 }
 
 .box .box-name {
-	height: auto;
-	width: 40px;
 	float: left;
 	color: #FFF;
+	width: 40px;
+	height: auto;
+	cursor: default;
 	max-height: 100%;
 	padding: 15px 10px;
 	background-color: #37474F;
@@ -418,7 +469,7 @@ select {
 	letter-spacing: 1px;
 	text-transform: uppercase;
 
-	writing-mode: tb-rl; 
+	writing-mode: tb-rl;
     -webkit-transform: rotate(180deg);
     -moz-transform: rotate(180deg);
     -o-transform: rotate(180deg);
@@ -469,6 +520,18 @@ select {
 }
 
 
+
+/* PATIENT BOX */
+.patient-section {
+	padding: 10px;
+	overflow: hidden;
+	border-radius: 5px;
+	border: 1px solid #CCC;
+}
+
+
+
+
 /* ACCORDION */
 .accordion {  }
 
@@ -513,13 +576,29 @@ select {
 .popup .popup-wrapper{
 	width: 80%;
 	padding: 20px;
-	max-width: 800px; 
+	max-width: 800px;
 	margin: 10% auto auto;
 }
 
 .popup .popup-wrapper .box {
 	background-color: #FFF;
 }
+
+
+
+
+/* POPUP BUTTONS */
+.search-patient-popup {
+	float: right;
+	margin-top: 10px;
+}
+
+.agenda-search-popup {
+	float: right;
+	margin-top: 10px;
+}
+
+
 
 
 
@@ -538,15 +617,15 @@ select {
 .edit-container .edit-wrapper{
 	width: 80%;
 	padding: 20px;
-	max-width: 600px; 
+	max-width: 600px;
 	margin: 10% auto auto;
 }
 
-.edit-container .edit-wrapper .box { 
+.edit-container .edit-wrapper .box {
 	background-color: #FFF;
 }
 
-.edit-container .edit-wrapper .actions { 
+.edit-container .edit-wrapper .actions {
 	width: 100%;
 	clear: both;
 }
@@ -575,30 +654,30 @@ select {
 
 .quicksearch-container .quicksearch-wrapper .box {}
 
-.quicksearch-container .filters .box-element { 
+.quicksearch-container .filters .box-element {
 	width: 40%;
 	float: left;
 	padding-right: 5%;
 }
 
-.quicksearch-container .filters .actions { 
+.quicksearch-container .filters .actions {
 	width: 20%;
 	float: right;
 	margin-top: 35px;
 }
 
 .quicksearch-container .results {
-	margin-top: 15px; 
+	margin-top: 15px;
 }
 
-.quicksearch-container .results .results-container { 
+.quicksearch-container .results .results-container {
 	width: 100%;
 	padding: 2px;
 	overflow: auto;
 	min-height: 40px;
 	max-height: 200px;
 	position: relative;
-	border: 1px solid #CCC; 
+	border: 1px solid #CCC;
 	background-color: #F5F5F5;
 }
 
@@ -609,7 +688,7 @@ select {
 .quicksearch-container .results .results-container table thead {
 }
 
-.quicksearch-container .results .results-container table th{ 
+.quicksearch-container .results .results-container table th{
 	color: #FFF;
 	border: 0 none;
 	padding: 3px 5px;
@@ -619,13 +698,13 @@ select {
 	background-color: #37474F;
 }
 
-.quicksearch-container .results .results-container table td{ 
+.quicksearch-container .results .results-container table td{
 	cursor: pointer;
 	padding: 3px 5px;
 	border-bottom: 1px solid #ced4da;
 }
 
-.quicksearch-container .results .results-container table tbody tr:last-child td{  
+.quicksearch-container .results .results-container table tbody tr:last-child td{
 	border-bottom: 0 none;
 }
 
@@ -777,7 +856,7 @@ select {
 
 .login-page .box-container.user-login {
 	width: 90%;
-	margin: auto; 
+	margin: auto;
 	max-width: 500px;
 }
 
@@ -788,30 +867,36 @@ select {
 
 
 
-/* APPOINTMENTS */
-.calendar-control {
-	cursor: pointer;
-}
 
-.agenda-create .hour-section {
+/* HOUR CONTROL */
+.hour-section {
 	overflow: hidden;
 }
 
-.agenda-create .hour-section label {
+.hour-section label {
 	display: block !important;
 }
 
-.agenda-create .hour-section span {
+.hour-section span {
 	float: left;
 	padding: 0 10px;
 	font-size: 25px;
 }
 
-.agenda-create .hour-section select {
+.hour-section select {
 	float: left;
 	width: 75px;
 }
 
+
+/* APPOINTMENTS */
+.calendar-control {
+	cursor: pointer;
+	background-size: 20px;
+	background-repeat: no-repeat;
+	background-position: center right 5px;
+	background-image: url('../images/ico-calendar.png');
+}
 
 .agenda-create .patient-section {
 	overflow: hidden;
@@ -849,6 +934,9 @@ select {
 	margin-top: 2px;
 }
 
+.agenda-create .appointments-list{
+}
+
 
 
 .agenda-day-list {
@@ -866,11 +954,11 @@ select {
 
 .agenda-day-list .agenda-item:nth-child(2n+1) {
 	background-color: #F5F5F5;
-}	
+}
 
 .agenda-day-list .agenda-item:hover {
 	background-color: #CCC;
-}	
+}
 
 .agenda-day-list .agenda-item label{
 	width: 100%;
@@ -896,6 +984,9 @@ select {
 
 
 /* ATTENTION */
+.atention-create {
+	max-width: 800px;
+}
 
 .atention .atention-general {
 	height: 100%;
@@ -924,7 +1015,7 @@ select {
 	width: 47%;
 }
 
-.atention .tab-exams .exam-elem{
+.atention .tab-exams .exam-elem {
 	float: left;
 	width: 300px;
 	position: relative;
@@ -933,9 +1024,13 @@ select {
 	padding-right: 10px;
 }
 
-.atention .tab-exams .exam-elem input{
-	top: 0;
-	left: 0;
+.atention .tab-exams .exam-elem.selected {
+	background-color: rgba(0,0,255,0.1);
+}
+
+.atention .tab-exams .exam-elem input {
+	top: 2px;
+	left: 2px;
 	bottom: 0;
 	margin: 1px 0 0;
 	position: absolute;
@@ -1005,7 +1100,7 @@ select {
     padding: 2px;
     overflow: auto;
     min-height: 40px;
-    max-height: 300px;
+    max-height: 235px;
     position: relative;
     border: 1px solid #CCC;
     background-color: #F5F5F5;
@@ -1160,11 +1255,11 @@ table.results tbody tr {
 	border-bottom: 2px solid #ced4da;
 }
 
-table.results tbody input { 
+table.results tbody input {
 	width: 100%;
 }
 
-table.results tbody textarea { 
+table.results tbody textarea {
 	resize: none;
 }
 
@@ -1175,7 +1270,7 @@ table.results tbody .name{
 
 table.results tbody .name .generic {
 	font-size: 10px;
-	font-weight: normal;	
+	font-weight: normal;
 }
 
 table.results tbody .qty input {
@@ -1197,4 +1292,62 @@ table.results tbody .actions .remove:before{
 
 table.results tbody .actions .remove:hover:before{
 	text-shadow: 0px 0px 2px rgba(0,0,0,0.5);
+}
+
+
+
+
+/* EDIT SCREEN STYLES */
+.edit-form .box-element {
+	padding: 0 60px 0 0;
+	margin-bottom: 10px;
+	height: auto; !important;
+}
+
+.edit-form .box-element-textarea {
+	padding: 0;
+	position: relative;
+}
+
+.edit-form .box-element-textarea label,
+.edit-form .box-element label {
+	padding: 7px 10px;
+	margin-right: 10px;
+	background-color: #EEE;
+	text-shadow: 1px 1px 0px #FFF;
+	box-shadow: 3px 0px 0px -2px #CCC;
+}
+
+.edit-form .box-element-textarea label {
+	display: inline-block;
+}
+
+.edit-form .box-element-textarea button,
+.edit-form .box-element button {
+	top: 0;
+	right: 0;
+	height: 32px;
+	border: 0 none;
+	cursor: pointer;
+	font-weight: bold;
+	position: absolute;
+	background-color: #EEE;
+	text-transform: uppercase;
+	text-shadow: 1px 1px 0px #FFF;
+	box-shadow: -3px 0px 0px -2px rgba(0,0,0,0.2);
+}
+
+.edit-form .box-element-textarea button {
+	top: 35px;
+	right: 2px;
+}
+
+.edit-form .box-element-textarea button:hover,
+.edit-form .box-element button:hover {
+	background-color: #E1E1E1;
+}
+
+.edit-form .box-element #patient_address{
+	display: block;
+	padding: 5px 0 5px 15px;
 }

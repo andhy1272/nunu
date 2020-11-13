@@ -20,8 +20,8 @@
 
 				<div class="box-element results">
 					<label for="name-control">Consultas Programadas</label>
-					<div class="results-container ">
-						
+					<div class="results-container results-container-agenda">
+        		<!-- RESULTS -->
 					</div>
 				</div>
 
@@ -38,25 +38,16 @@
 	$(document).ready(function() {
 		jsonData = "";
 
-		//ADD BUTTON, OPENS POPUP
+		//OPENS POPUP
 		$('.agenda-search-popup').click(function() {
 			$('.agenda-search-container').show();
-			$('.agenda-search-container input.terms').focus();
+			$('.agenda-search-container button.search').trigger('click');
 		});
 
-		//When you press enter in terms input made the search automatically
-		$('.agenda-search-container input.terms').keydown(function(e){ 
-		    var keyCode = (e.keyCode ? e.keyCode : e.which);   
-		    if (keyCode == 13) {
-		        $('.agenda-search-container button.search').trigger('click');
-		    }
-		});
-
-
-		//Search CIE-10
+		//Search Agenda
 		$('.agenda-search-container button.search').click(function() {
 			//clear the search results container
-			$('.agenda-search-container .results-container').html("");
+			$('.agenda-search-container .results-container-agenda').html("");
 
 			search_date = $('.agenda-search-container input.search-date').val().trim();
 
@@ -66,14 +57,14 @@
 				};
 
 				$.ajax({
-			  		url: "<?php echo site_url('agenda/search'); ?>", 
+			  		url: "<?php echo site_url('agenda/search'); ?>",
 			  		type: "POST",
 			  		dataType: "json",
 					data: data,
 			  		success: function(result){
 			  			if(result && result.length > 0) {
 			  				tableHTML = "<table><tbody>";
-			  				$.each(result, function (i, item) {  
+			  				$.each(result, function (i, item) {
 					            tableHTML += "<tr index='" + i + "' data=''>";
  								tableHTML += "<td>";
  								tableHTML += "<span class='patient'>" + item.patient_fullname + " / " + item.patient_id_number + "</span>";
@@ -87,7 +78,7 @@
 					        });
 					        tableHTML += "</tbody></table>";
 
-					        $('.agenda-search-container .results-container').html(tableHTML);
+					        $('.agenda-search-container .results-container-agenda').html(tableHTML);
 
 					        jsonData = result;
 			  			}
@@ -96,12 +87,8 @@
 							_html += "<label>No hay citas programadas para esta fecha</label>";
 							_html += "</div>";
 
-			  				$('.agenda-search-container .results-container').html(_html);
+			  				$('.agenda-search-container .results-container-agenda').html(_html);
 			  			}
-
-			  			
-
-								  		
 
 			  			//alert(result);
 			    		console.log(result);
@@ -122,27 +109,30 @@
 			}
 		});
 
-        //Select results
-		$('.agenda-search-container .results-container').on('click', 'tbody tr', function() {
+
+		$('.agenda-search-container input.calendar-control').on('click', function() {
+			$('.agenda-search-container .results-container-agenda').html("");
+		});
+
+
+    //Choose results
+		$('.agenda-search-container .results-container-agenda').on('click', 'tbody tr', function() {
 			_current_row = $(this);
 
-			if( _current_row.hasClass('selected') ) {
-				_current_row.removeClass('selected');
-			}
-			else {
-				_current_row.addClass('selected');
-			}			
+			$('.agenda-search-container .results-container-agenda tbody tr').removeClass('selected');
+
+			_current_row.addClass('selected');
 		});
 
 		//SELECT BUTTON
 		$('.agenda-search-container .actions .select').click(function() {
-			_diagnosis = $('.agenda-results').val();
+			_appointment = $('.agenda-results').val();
 
-			$('.agenda-search-container .results-container tr.selected').each(function() {
-				_diagnosis += "\n" + $(this).attr('data');
+			$('.agenda-search-container .results-container-agenda tr.selected').each(function() {
+				_appointment += "\n" + $(this).attr('data');
 			});
 
-			$('.agenda-results').val(_diagnosis);
+			$('.agenda-results').val(_appointment);
 
 			closeAgendaPopup();
 		});
@@ -154,8 +144,8 @@
 
 		function closeAgendaPopup() {
 			$('.agenda-search-container').hide();
-			$('.agenda-search-container .results-container').html("");
-			$('.agenda-search-container input.terms').val("");
+			//$('.agenda-search-container .results-container-agenda').html("");
+			//$('.agenda-search-container input.search-date').val("");
 		}
 
 	});

@@ -9,28 +9,27 @@
 
 <table class="patients-list grid-list">
 	<tr>
+		<th>&nbsp;</th>
 		<th>ID</th>
 		<th class="text-left">Nombre</th>
-		<th>Tel&eacute;fonos</th>
-		<th>Email</th>
+		<th>Edad</th>
 		<th>&nbsp;</th>
 	</tr>
 <?php foreach($patients_list as $patient): ?>
 	<tr class="patient-<?php echo $patient['patient_id']; ?> click-view" view-url="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>">
+		<td class="click-view-control">
+			<?php echo $patient['patient_id']; ?>	
+		</td>
 		<td class="click-view-control">
 			<?php echo $patient['patient_id_number']; ?>	
 		</td>
 		<td class="text-left click-view-control">
 			<?php echo $patient['patient_name'] . ' ' . $patient['patient_last_name']; ?>	
 		</td>
-		<td class="click-view-control">
-			<?php echo $patient['patient_phone1']; ?> // <?php echo $patient['patient_phone2']; ?>	
+		<td class="click-view-control age-control">
+			<span><?php echo $patient['patient_birthdate']; ?></span>
 		</td>
-		<td>
-			<a href="mailto:<?php echo $patient['patient_email']; ?>">
-				<?php echo $patient['patient_email']; ?>	
-			</a>
-		</td>
+
 		<td>
 			<a href="<?php echo site_url('patients/view/' . $patient['patient_id']); ?>" class="view-link">
 				<span>Ver</span>
@@ -43,6 +42,39 @@
 	</tr>
 <?php endforeach; ?>
 </table>
+
+
+<?php $this->load->view('templates/pagination'); // PAGINATION TEMPLATE (templates/pagination.php) ?>
+
+
+
+
+
+
+<script type="text/javascript">
+
+	//Changes BOD date to Age
+	$('.patients-list .age-control').each(function () {
+		var _DOB = $(this).find('span').html();
+		
+		age = getAge(_DOB); //main.js file
+
+		$(this).find('span').html(age.years + " años, " + age.months + " mes(es), " + age.days + " día(s)");
+	});
+	
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

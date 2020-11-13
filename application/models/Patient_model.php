@@ -9,7 +9,11 @@ class Patient_model extends CI_Model {
 	}
 	
 
-	public function get_list($sort = 'name') {
+	public function get_list($sort = 'name', $pagination_limit = FALSE, $offset = FALSE) {
+		if($pagination_limit) {
+			$this->db->limit($pagination_limit, $offset);
+		}
+
 		$query = $this->db->get('nunu_patients');
 		return $query->result_array();
 	}

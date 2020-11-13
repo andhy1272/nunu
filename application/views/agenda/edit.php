@@ -12,33 +12,33 @@
 	</div>
 </div>
 
-<div class="box-container">
+<div class="box-container agenda agenda-edit edit-form">
 	<div class="box">
 		<div class="box-name"><span>Informaci&oacute;n de la cita</span></div>
 		<div class="box-content">
-			<div class="box-element">
+			<div class="box-element form-control">
 				<label>ID:</label>
-				<?php echo $agenda_data['patient_id_number']; ?>	
+				<?php echo $agenda_data['patient_id_number']; ?>
 			</div>
 
-			<div class="box-element">
+			<div class="box-element form-control">
 				<label>Hora:</label>
 				<?php echo $agenda_data['agenda_time']; ?>
 				<button type="button" action="edit" data-type="text" data-label="Hora:" data-control-name="agenda_time" data-value="<?php echo $agenda_data['agenda_time']; ?>">Editar</button>
 			</div>
-			<div class="box-element">
+			<div class="box-element form-control">
 				<label>Servicio:</label>
 				<span id="agenda_service"><?php echo $agenda_data['agenda_service']; ?></span>
 				<button type="button" action="edit" data-type="service" data-label="Servicio:" data-control-name="agenda_service" data-value="<?php echo $agenda_data['agenda_service']; ?>">Editar</button>
 			</div>
-			<div class="box-element">
+			<div class="box-element form-control">
 				<label>Notas:</label>
 				<span id="agenda_notes"><?php echo $agenda_data['agenda_notes']; ?></span>
 				<button type="button" action="edit" data-type="text" data-label="Notas:" data-control-name="agenda_notes" data-value="<?php echo $agenda_data['agenda_notes']; ?>">Editar</button>
 			</div>
-			<div class="box-element">
+			<div class="box-element form-control">
 				<label>Status:</label>
-				<?php echo $agenda_data['agenda_status']; ?>	
+				<?php echo $agenda_data['agenda_status']; ?>
 			</div>
 		</div>
 	</div>
@@ -100,7 +100,7 @@
 
 
 			$.ajax({
-		  		url: "<?php echo site_url('agenda/load_control_type'); ?>", 
+		  		url: "<?php echo site_url('agenda/load_control_type'); ?>",
 		  		type: "POST",
 				data: "type=" + edit_type + "&value=" + edit_value.toString(),
 		  		success: function(result){
@@ -124,11 +124,11 @@
 			$('.edit-container .edit-control').val(edit_value);
 			$('.edit-container .edit-hidden').val(edit_hidden);
 
-			$('.edit-container').fadeIn('fast'); 			  	
+			$('.edit-container').fadeIn('fast');
 		});
 
 		$('.edit-container .actions .cancel').click(function() {
-			$('.edit-container').fadeOut('fast'); 
+			$('.edit-container').fadeOut('fast');
 			$('.edit-container').removeClass('show-message');
 		});
 
@@ -150,7 +150,7 @@
 			console.log(data);
 
 			$.ajax({
-		  		url: ajax_url, 
+		  		url: ajax_url,
 		  		type: "POST",
 		  		dataType: 'json',
 				data: data,
@@ -160,7 +160,7 @@
 		  				edit_button_clicked.attr('data-value', data.new_value);
 		  			}
 
-		  			$('.edit-container').addClass('show-message'); 
+		  			$('.edit-container').addClass('show-message');
 
 		    		console.log(result);
 		    		console.log("AJAX SUCCESS");
@@ -176,5 +176,3 @@
 		}
 	});
 </script>
-
-

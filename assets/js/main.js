@@ -53,6 +53,62 @@ $(document).ready( function() {
 
 
 
+//Calculates Age
+//dateString format: YYYY-MM-DD
+function getAge(dateString) {
+	var birthDate = new Date(dateString);
+	var today = new Date();
+
+    var yearDOB = birthDate.getYear();
+	var monthDOB = birthDate.getMonth() + 1;
+	var dayDOB = birthDate.getDate() + 1;
+
+	var yearNow = today.getYear();
+	var monthNow = today.getMonth() + 1;
+	var dayNow = today.getDate();
+
+
+	//First Years calculation
+	var ageYears = yearNow - yearDOB;
+
+	//Months Calculation
+	var ageMonths = 0;
+	if(monthNow >= monthDOB) {
+		ageMonths = monthNow - monthDOB;
+	}
+	else {
+		ageYears--;
+		ageMonths = 12 + monthNow - monthDOB;
+	}
+
+	//Days Calculation
+	var ageDays = 0;
+	if (dayNow >= dayDOB) {
+		ageDays = dayNow - dayDOB;
+	}
+	else {
+	    ageMonths--;
+	    ageDays = 31 + dayNow - dayDOB;
+
+	   	if (ageMonths < 0) {
+	      ageMonths = 11;
+	      ageYears--;
+	    }
+	}
+
+	var _age = {
+	    years: ageYears,
+	    months: ageMonths,
+	    days: ageDays
+	};
+
+	return _age;
+}
+
+
+
+
+
 /* onkeyup="countChars(this,255)"
 function countChars(_element, _limit){
 	elem_name = _element.getAttribute('name');

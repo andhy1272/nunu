@@ -59,7 +59,7 @@ color:#474747;
 	text-shadow: 0 1px 2px #000;
 }
 .cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-year-button,
-.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-button { 
+.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
   	position: absolute;
 	left: 0px;
 	top: 0px;
@@ -74,17 +74,17 @@ color:#474747;
 }
 
 .cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-year-button,
-.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-button { 
+.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-previous-button {
 	float: left;
 	transition: 0.5s all;
 	-webkit-transition: 0.5s all;
 	-moz-transition: 0.5s all;
 	-o-transition: 0.5s all;
-    padding: 0.99em 0.85em;                                	
+    padding: 0.99em 0.85em;
     display:inline-block;
 }
 .cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-year-button,
-.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-button { 
+.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-button {
    	position: absolute;
 	right: 0px;
 	top: 0px;
@@ -98,7 +98,7 @@ color:#474747;
 	-ms-user-select: none;
 }
 .cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-year-button,
-.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-button { 
+.cal-popup .cal-control .clndr .clndr-controls .clndr-control-button .clndr-next-button {
 	float: right;
   	transition:0.5s all;
   	-webkit-transition:0.5s all;
@@ -151,7 +151,7 @@ color:#474747;
 	border-top: 1px solid #ADADAD;
 	border-left: 1px solid #ADADAD;
 	text-transform: uppercase;
-	
+
 }
 .cal-popup .cal-control .clndr .clndr-table tr .day {
   	width: 100%;
@@ -166,13 +166,13 @@ color:#474747;
 }
 .cal-popup .cal-control .clndr .clndr-table tr .day:hover{
 	color: #177A38;
-  	
+
 }
 .cal-popup .cal-control .clndr .clndr-table tr .day .day-contents {
 	 	box-sizing: border-box;
 		font-size: 1.1em;
 	 	text-align:center;
-	 	cursor:pointer;	
+	 	cursor:pointer;
 }
 .cal-popup .cal-control .clndr .clndr-table tr .day.today .day-contents {
 	color: #F00;
@@ -183,6 +183,10 @@ color:#474747;
   width: 100%;
   height: inherit;
   color:#177A38;
+}
+.cal-popup .cal-control .clndr .clndr-table tr .day.selected-date .day-contents {
+	color: #00F;
+	font-weight: 900;
 }
 
 
@@ -278,7 +282,7 @@ color:#474747;
 	.cal-popup.cal-container{
 		width:320px;
 	}
-	
+
 	.cal-popup .cal-control .clndr .clndr-table .header-days .header-day {
 		font-size:0.95em;
 	}

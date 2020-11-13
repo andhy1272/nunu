@@ -59,17 +59,20 @@
 	<tr>
 		<td><?php echo $agenda['agenda_id']; ?></td>
 		<td class="text-left">
-			<?php echo $agenda['agenda_date'] . ' ' . $agenda['agenda_time']; ?>	
+			<?php echo $agenda['agenda_date'] . ' ' . $agenda['agenda_time']; ?>
 		</td>
 		<td>
-			<?php echo $agenda['patient_id_number'] . ' / ' . $agenda['patient_fullname']; ?>		
+			<?php echo $agenda['patient_id_number'] . ' / ' . $agenda['patient_fullname']; ?>
 		</td>
 		<td><?php echo $agenda['agenda_service']; ?></td>
 		<td><?php echo $agenda['agenda_status']; ?></td>
 		<td><?php echo $agenda['agenda_notes']; ?></td>
 		<td>
 			<a href="<?php echo site_url('agenda/view/' . $agenda['agenda_id']); ?>">Ver</a>
+			&nbsp;&nbsp;&nbsp;
 			<a href="<?php echo site_url('agenda/edit/' . $agenda['agenda_id']); ?>">Editar</a>
+			&nbsp;&nbsp;&nbsp;
+			<a href="#" class="agenda-to-attention" data="<?php echo $agenda['agenda_id']; ?>">Atender</a>
 		</td>
 	</tr>
 <?php endforeach; ?>
@@ -77,3 +80,53 @@
 
 
 <?php $this->load->view('templates/calendar'); ?>
+
+
+
+
+
+
+
+
+<!-- Creates New attention from Agenda and redirects to Attention Edit page -->
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$('.agenda-to-attention').click(function(){
+
+			agenda_id = $(this).attr('data');
+
+			//alert(agenda_id);
+
+			if( agenda_id.trim() != "" ) {
+				data = {
+					id: agenda_id
+				};
+
+				$.ajax({
+						url: "<?php echo site_url('attention/create_from_agenda'); ?>",
+						type: "POST",
+						dataType: "json",
+					data: data,
+						success: function(result){
+
+							window.location.href = "<?php echo site_url('attention/edit/'); ?>" + result;
+
+							console.log(result);
+							console.log("AJAX SUCCESS");
+						},
+						error: function (request, status, error) {
+							console.log("---------AJAX ERROR BEGIN---------");
+							console.log(error);
+								console.log(request.status);
+								console.log(request.responseText);
+								console.log("---------AJAX ERROR ENDS----------");
+						}
+				});
+			}
+			else {
+				alert('Porfavor ingrese un ID o un Nombre.');
+			}
+		});
+	});
+</script>

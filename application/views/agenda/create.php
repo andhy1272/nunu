@@ -9,7 +9,7 @@
 			}
 		?>
 		<a href="<?php echo $back_url; ?>" class="btn blue">ATRAS</a>
-		
+
 		<a href="<?php echo base_url(); ?>agenda/" class="btn red">CANCELAR</a>
 	</div>
 </div>
@@ -57,7 +57,7 @@
 				<div class="box-element hour-section">
 					<label>Hora:</label>
 					<select name="agenda-hour" class="agenda-hour form-control">
-						<?php  
+						<?php
 						$hours = 7;
 						while($hours < 24) {
 							$hour = $hours;
@@ -71,7 +71,7 @@
 					</select>
 					<span> : </span>
 					<select name="agenda-minutes" class="agenda-minutes form-control">
-						<?php  
+						<?php
 						$minutes = 0;
 						while($minutes < 60) {
 							$minute = $minutes;
@@ -90,7 +90,7 @@
 				</div>
 			</div>
 
-			<div class="box-content">
+			<div class="box-content appointments-list">
 				<div class="box-element">
 					<label>Lista de citas para la fecha seleccionada:</label>
 					<div class="agenda-day-list agenda-day-hours-list-container">
@@ -102,6 +102,7 @@
 					</div>
 
 
+          <!-- Show appoinments for that day -->
 					<script type="text/javascript">
 						$(document).ready(function(){
 
@@ -116,9 +117,8 @@
 										store: agenda_store
 									};
 
-									
 									$.ajax({
-								  		url: "<?php echo site_url('agenda/appointments_per_day'); ?>", 
+								  		url: "<?php echo site_url('agenda/appointments_per_day'); ?>",
 								  		type: "POST",
 								  		dataType: "json",
 										data: data,
@@ -129,12 +129,12 @@
 
 								  			if(result && result.length > 0) {
 								  				_html = "";
-								  				$.each(result, function (i, item) {   
+								  				$.each(result, function (i, item) {
 								  					_html += "<div index='" + i + "' class='agenda-item'>";
 										            _html += "<label for='" + item.agenda_time + "'>" + item.agenda_time + " <span>" + item.agenda_service + "</span></label>";
 										            _html += "<div class='agenda-name'>" + item.patient_fullname + "</div>";
 										            _html += "<div class='agenda-notes'>" + item.agenda_notes + "</div>";
-										            _html += "</div>";         
+										            _html += "</div>";
 										        });
 								  			}
 
@@ -159,6 +159,7 @@
 						});
 					</script>
 
+
 				</div>
 			</div>
 		</div>
@@ -179,12 +180,3 @@
 <?php $this->load->view('agenda/patients-quick-create'); ?>
 
 <?php $this->load->view('templates/calendar'); ?>
-
-
-
-
-
-
-
-
-
